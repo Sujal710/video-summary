@@ -1,0 +1,6 @@
+{
+  "_README": "OUR camera_id -> the VMS deviceId sent as `cameradid`. The value MUST exist in arcis.streamdetails.deviceId or the endpoint answers 404 'Camera ID not found in streamdetails table'. A camera not listed here is skipped rather than posted under a guessed id.",
+
+  "cam13_stream-13": "ATPL-500395-ARCIS",
+  "cam14_stream-14": "ATPL-500395-ARCIS"
+}

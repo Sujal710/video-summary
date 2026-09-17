@@ -1,0 +1,11 @@
+.env
+.env.*
+*.bak*
+*.key
+*.pem
+*.crt
+certs/
+__pycache__/
+*.pyc
+.langgraph_api/
+chat_history.json

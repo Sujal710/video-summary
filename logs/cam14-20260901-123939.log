@@ -1,0 +1,8 @@
+nohup: ignoring input
+2026-09-01 12:39:41,966 - MainProcess - INFO - ==============================================================================
+2026-09-01 12:39:41,967 - MainProcess - INFO - 🎥 POLICE CCTV PROSE TIER — one VLM description per 60s segment
+2026-09-01 12:39:41,967 - MainProcess - INFO - ==============================================================================
+2026-09-01 12:39:41,967 - MainProcess - ERROR - ==============================================================================
+2026-09-01 12:39:41,967 - MainProcess - ERROR - Ollama is not reachable: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+2026-09-01 12:39:41,967 - MainProcess - ERROR - Start it with:  ollama serve   (or: nohup ollama serve &)
+2026-09-01 12:39:41,967 - MainProcess - ERROR - ==============================================================================

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surveillance GIS — cameras, journeys, hotspots</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root{
+    --bg:#0e1418; --panel:#161f25; --panel-2:#1d282f; --line:#28353d;
+    --ink:#e6edf1; --ink-2:#9fb0ba; --ink-3:#6d7f8a;
+    --accent:#4ec1b0;
+    --low:#5b8db8; --medium:#d59d52; --high:#e07a52; --critical:#e0616f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+    font:14px/1.5 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  #app{display:flex;height:100%}
+  #sidebar{width:378px;flex:none;background:var(--panel);border-right:1px solid var(--line);
+    display:flex;flex-direction:column;overflow:hidden}
+  #map{flex:1;min-width:0}
+
+  header{padding:16px 18px;border-bottom:1px solid var(--line)}
+  header h1{margin:0 0 4px;font-size:15px;letter-spacing:.01em}
+  header p{margin:0;font-size:12px;color:var(--ink-3)}
+
+  .tabs{display:flex;border-bottom:1px solid var(--line)}
+  .tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;
+    color:var(--ink-3);padding:10px 4px;font:inherit;font-size:12px;cursor:pointer}
+  .tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+  .tabs button:hover{color:var(--ink-2)}
+
+  .panel{flex:1;overflow-y:auto;padding:12px 14px}
+  .panel[hidden]{display:none}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin-bottom:12px}
+  .stat{background:var(--panel-2);padding:9px 10px}
+  .stat b{display:block;font-size:17px;font-variant-numeric:tabular-nums}
+  .stat span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+
+  .item{background:var(--panel-2);border:1px solid var(--line);border-radius:3px;
+    padding:9px 11px;margin-bottom:7px;cursor:pointer}
+  .item:hover{border-color:var(--accent)}
+  .item .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .item .title{font-weight:600;font-size:13px}
+  .item .meta{font-size:11px;color:var(--ink-3);margin-top:3px;
+    font-variant-numeric:tabular-nums}
+  .item .desc{font-size:12px;color:var(--ink-2);margin-top:5px}
+
+  .pill{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+    padding:2px 6px;border-radius:2px;white-space:nowrap;flex:none}
+  .pill.low{background:#16303f;color:var(--low)}
+  .pill.medium{background:#33270f;color:var(--medium)}
+  .pill.high{background:#361d12;color:var(--high)}
+  .pill.critical{background:#37151b;color:var(--critical)}
+  .pill.warn{background:#33270f;color:var(--medium)}
+
+  .notice{background:#33270f;border:1px solid #4a3714;color:var(--medium);
+    padding:9px 11px;border-radius:3px;font-size:12px;margin-bottom:12px}
+  .notice code{background:#00000040;padding:1px 4px;border-radius:2px}
+  .empty{color:var(--ink-3);font-size:12.5px;padding:16px 2px;text-align:center}
+
+  label.toggle{display:flex;align-items:center;gap:7px;font-size:12px;
+    color:var(--ink-2);padding:4px 0;cursor:pointer}
+  .filters{border-top:1px solid var(--line);padding:10px 14px;background:var(--panel-2)}
+  select,input[type=text]{width:100%;background:var(--bg);color:var(--ink);
+    border:1px solid var(--line);border-radius:3px;padding:6px 8px;font:inherit;font-size:12px}
+  .field{margin-bottom:8px}
+  .field span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--ink-3);margin-bottom:3px}
+
+  .leaflet-popup-content-wrapper{background:var(--panel);color:var(--ink);border-radius:3px}
+  .leaflet-popup-tip{background:var(--panel)}
+  .leaflet-popup-content{margin:11px 13px;font-size:12.5px}
+  .leaflet-popup-content b{color:var(--accent)}
+  .leaflet-container{background:#0a0f12}
+  .cam-label{background:#0e1418cc;border:1px solid var(--line);border-radius:2px;
+    padding:1px 5px;font-size:10.5px;color:var(--ink-2);white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="sidebar">
+    <header>
+      <h1>Surveillance GIS</h1>
+      <p id="subtitle">Loading…</p>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true"  data-tab="alerts">Alerts</button>
+      <button role="tab" aria-selected="false" data-tab="journeys">Journeys</button>
+      <button role="tab" aria-selected="false" data-tab="hotspots">Hotspots</button>
+      <button role="tab" aria-selected="false" data-tab="cameras">Cameras</button>
+    </div>
+
+    <div class="panel" id="panel-alerts"></div>
+    <div class="panel" id="panel-journeys" hidden></div>
+    <div class="panel" id="panel-hotspots" hidden></div>
+    <div class="panel" id="panel-cameras" hidden></div>
+
+    <div class="filters">
+      <div class="field">
+        <span>Minimum severity</span>
+        <select id="severity">
+          <option value="low">low and above</option>
+          <option value="medium">medium and above</option>
+          <option value="high" selected>high and above</option>
+          <option value="critical">critical only</option>
+        </select>
+      </div>
+      <label class="toggle"><input type="checkbox" id="show-routes" checked> Show journey lines</label>
+      <label class="toggle"><input type="checkbox" id="show-hotspots" checked> Show hotspot circles</label>
+      <label class="toggle"><input type="checkbox" id="watchlist-only"> Watchlist entities only</label>
+    </div>
+  </div>
+  <div id="map"></div>
+</div>
+
+<script>
+const SEVERITIES = ["low","medium","high","critical"];
+const SEV_COLOUR = {low:"#5b8db8", medium:"#d59d52", high:"#e07a52", critical:"#e0616f"};
+
+const map = L.map("map", {zoomControl:true}).setView([23.03, 72.58], 11);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  attribution:'&copy; OpenStreetMap contributors &copy; CARTO', maxZoom:19, subdomains:"abcd"
+}).addTo(map);
+
+const layers = {
+  cameras: L.layerGroup().addTo(map),
+  routes:  L.layerGroup().addTo(map),
+  hotspots:L.layerGroup().addTo(map),
+};
+
+const state = {cameras:[], alerts:[], entities:[], hotspots:[], routes:null, status:null};
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const clock = s => s ? String(s).replace("T"," ").slice(0,19) : "unknown time";
+
+async function getJSON(url){
+  try{
+    const r = await fetch(url);
+    if(!r.ok) throw new Error(r.status + " " + r.statusText);
+    return await r.json();
+  }catch(e){
+    console.error("Request failed:", url, e);
+    return null;
+  }
+}
+
+// ── tabs ────────────────────────────────────────────────────────────────────
+document.querySelectorAll(".tabs button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tabs button").forEach(b =>
+      b.setAttribute("aria-selected", String(b === btn)));
+    ["alerts","journeys","hotspots","cameras"].forEach(name => {
+      document.getElementById("panel-" + name).hidden = (name !== btn.dataset.tab);
+    });
+  });
+});
+
+document.getElementById("severity").addEventListener("change", loadAlerts);
+document.getElementById("watchlist-only").addEventListener("change", loadEntities);
+document.getElementById("show-routes").addEventListener("change", e => {
+  e.target.checked ? layers.routes.addTo(map) : map.removeLayer(layers.routes);
+});
+document.getElementById("show-hotspots").addEventListener("change", e => {
+  e.target.checked ? layers.hotspots.addTo(map) : map.removeLayer(layers.hotspots);
+});
+
+// ── cameras ─────────────────────────────────────────────────────────────────
+async function loadCameras(){
+  const data = await getJSON("/api/analytics/cameras");
+  const panel = document.getElementById("panel-cameras");
+  if(!data){ panel.innerHTML = `<div class="empty">Could not reach the analytics API.</div>`; return; }
+  state.cameras = data.cameras || [];
+  layers.cameras.clearLayers();
+
+  const points = [];
+  state.cameras.forEach(cam => {
+    if(cam.latitude == null || cam.longitude == null) return;
+    points.push([cam.latitude, cam.longitude]);
+    const unsurveyed = cam.source !== "surveyed";
+    L.circleMarker([cam.latitude, cam.longitude], {
+      radius:7, color: unsurveyed ? "#6d7f8a" : "#4ec1b0",
+      fillColor: unsurveyed ? "#6d7f8a" : "#4ec1b0", fillOpacity:.55, weight:2,
+      dashArray: unsurveyed ? "3,3" : null
+    }).addTo(layers.cameras).bindPopup(
+      `<b>${esc(cam.name || cam.camera_id)}</b><br>${esc(cam.camera_id)}<br>` +
+      `${esc(cam.road || "")} ${esc(cam.city || "")}<br>` +
+      `${cam.latitude.toFixed(4)}, ${cam.longitude.toFixed(4)}<br>` +
+      (unsurveyed ? `<i>Approximate position (${esc(cam.source)})</i>` : `<i>Surveyed</i>`) +
+      (cam.note ? `<br><i>${esc(cam.note)}</i>` : "")
+    ).bindTooltip(esc(cam.name || cam.camera_id),
+      {permanent:true, direction:"right", className:"cam-label", offset:[8,0]});
+  });
+  if(points.length) map.fitBounds(points, {padding:[50,50], maxZoom:13});
+
+  const unsurveyed = (data.unsurveyed || []).length;
+  const noAnchor = data.cameras_without_anchor || [];
+  let html = "";
+  if(unsurveyed){
+    html += `<div class="notice">${unsurveyed} of ${state.cameras.length} camera positions are
+      approximate placeholders. Distances, speeds and route geometry are indicative only until
+      <code>camera_locations.json</code> holds surveyed coordinates.</div>`;
+  }
+  if(noAnchor.length){
+    html += `<div class="notice">${noAnchor.length} camera(s) have no wall-clock anchor, so they
+      cannot take part in cross-camera correlation: ${esc(noAnchor.join(", "))}. Set them in
+      <code>video_anchors.json</code> or run <code>merge-final-many.py --probe-anchors</code>.</div>`;
+  }
+  html += `<div class="stat-row">
+    <div class="stat"><b>${state.cameras.length}</b><span>Cameras</span></div>
+    <div class="stat"><b>${(data.overlaps || []).length}</b><span>Overlapping pairs</span></div>
+    <div class="stat"><b>${noAnchor.length}</b><span>No anchor</span></div></div>`;
+
+  html += state.cameras.map(cam => `
+    <div class="item" data-lat="${cam.latitude}" data-lon="${cam.longitude}">
+      <div class="top"><span class="title">${esc(cam.name || cam.camera_id)}</span>
+        ${cam.source !== "surveyed" ? '<span class="pill warn">approx</span>' : ""}</div>
+      <div class="meta">${esc(cam.camera_id)}</div>
+      <div class="desc">${esc(cam.road || "")}${cam.city ? " · " + esc(cam.city) : ""}</div>
+    </div>`).join("");
+
+  if((data.overlaps || []).length){
+    html += `<h3 style="font-size:12px;color:var(--ink-3);text-transform:uppercase;
+      letter-spacing:.08em;margin:16px 0 8px">Simultaneous recording</h3>`;
+    html += data.overlaps.slice(0,20).map(o => `
+      <div class="item"><div class="top"><span class="title">${o.overlap_hours} h</span></div>
+        <div class="meta">${esc(o.camera_a)} ↔ ${esc(o.camera_b)}</div>
+        <div class="desc">${clock(o.from)} → ${clock(o.to)}</div></div>`).join("");
+  } else {
+    html += `<div class="notice">No two cameras have a known simultaneous recording window,
+      so no cross-camera journey can be verified from this footage as currently anchored.
+      Run <code>python correlator.py --overlap-only</code> after filling in the anchors.</div>`;
+  }
+  panel.innerHTML = html;
+  panel.querySelectorAll(".item[data-lat]").forEach(el => el.addEventListener("click", () => {
+    const lat = parseFloat(el.dataset.lat), lon = parseFloat(el.dataset.lon);
+    if(!isNaN(lat) && !isNaN(lon)) map.setView([lat, lon], 15);
+  }));
+}
+
+// ── alerts ──────────────────────────────────────────────────────────────────
+async function loadAlerts(){
+  const min = document.getElementById("severity").value;
+  const data = await getJSON(`/api/analytics/alerts?min_severity=${min}&limit=300`);
+  const panel = document.getElementById("panel-alerts");
+  if(!data){ panel.innerHTML = `<div class="empty">Could not reach the analytics API.</div>`; return; }
+  state.alerts = data.alerts || [];
+
+  if(!state.alerts.length){
+    panel.innerHTML = notProcessedNotice(data,
+      `No alerts at '${min}' or above.`);
+    return;
+  }
+  const counts = SEVERITIES.reduce((acc,s) =>
+    (acc[s] = state.alerts.filter(a => a.severity === s).length, acc), {});
+  const byCamera = {};
+  state.alerts.forEach(a => byCamera[a.location || a.camera_id] =
+    (byCamera[a.location || a.camera_id] || 0) + 1);
+
+  panel.innerHTML = `
+    <div class="stat-row">
+      <div class="stat"><b style="color:${SEV_COLOUR.critical}">${counts.critical}</b><span>Critical</span></div>
+      <div class="stat"><b style="color:${SEV_COLOUR.high}">${counts.high}</b><span>High</span></div>
+      <div class="stat"><b>${state.alerts.length}</b><span>Total</span></div>
+    </div>
+    <div class="meta" style="margin-bottom:10px;color:var(--ink-3);font-size:11px">
+      Source: ${esc(data.source)} · busiest: ${esc(Object.entries(byCamera)
+        .sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k,v])=>`${k} (${v})`).join(", "))}
+    </div>` +
+    state.alerts.map((a,i) => `
+      <div class="item" data-alert="${i}">
+        <div class="top">
+          <span class="title">${esc(a.title || a.alert_type)}</span>
+          <span class="pill ${esc(a.severity)}">${esc(a.severity)} ${a.severity_score}</span>
+        </div>
+        <div class="meta">${clock(a.timestamp)} · ${esc(a.location || a.camera_id)}
+          ${a.recurrence_count > 1 ? " · ×" + a.recurrence_count : ""}</div>
+        <div class="desc">${esc((a.description || "").slice(0,220))}</div>
+        ${a.watchlist ? `<div class="meta" style="color:var(--medium)">⚠ ${esc(a.watchlist.id)}
+          (${esc(a.watchlist.category)})${a.watchlist.source === "synthetic"
+            || a.watchlist.source === "seeded_from_footage"
+            ? " — demo watchlist entry, not a government record" : ""}</div>` : ""}
+        ${["file_mtime","none"].includes(a.anchor_confidence)
+          ? `<div class="meta" style="color:var(--medium)">⚠ timestamp unverified
+             (${esc(a.anchor_confidence)})</div>` : ""}
+      </div>`).join("");
+
+  panel.querySelectorAll(".item[data-alert]").forEach(el =>
+    el.addEventListener("click", () => {
+      const alert = state.alerts[parseInt(el.dataset.alert, 10)];
+      const cam = state.cameras.find(c => c.camera_id === alert.camera_id);
+      if(cam && cam.latitude != null){
+        map.setView([cam.latitude, cam.longitude], 15);
+        L.popup().setLatLng([cam.latitude, cam.longitude])
+          .setContent(`<b>${esc(alert.title)}</b><br>${clock(alert.timestamp)}<br>
+            ${esc(alert.severity)} · score ${alert.severity_score}<br>
+            ${esc((alert.description||"").slice(0,300))}`).openOn(map);
+      }
+    }));
+}
+
+// ── journeys ────────────────────────────────────────────────────────────────
+async function loadEntities(){
+  const watchlistOnly = document.getElementById("watchlist-only").checked;
+  const data = await getJSON(
+    `/api/analytics/entities?min_cameras=1&limit=250&watchlist_only=${watchlistOnly}`);
+  const panel = document.getElementById("panel-journeys");
+  if(!data){ panel.innerHTML = `<div class="empty">Could not reach the analytics API.</div>`; return; }
+  state.entities = data.entities || [];
+  layers.routes.clearLayers();
+
+  if(!state.entities.length){
+    panel.innerHTML = notProcessedNotice(data, "No cross-camera entities yet.");
+    return;
+  }
+
+  const multi = state.entities.filter(e => e.camera_count > 1);
+  multi.forEach((entity, index) => {
+    const pts = (entity.route || [])
+      .filter(h => h.latitude != null && h.longitude != null)
+      .map(h => [h.latitude, h.longitude]);
+    if(pts.length < 2) return;
+    const byPlate = entity.link_basis === "plate";
+    L.polyline(pts, {
+      color: entity.watchlist_hits?.length ? SEV_COLOUR.critical : "#4ec1b0",
+      weight: 3, opacity: .75, dashArray: byPlate ? null : "6,5"
+    }).addTo(layers.routes).bindPopup(
+      `<b>${esc(entity.entity_id)}</b><br>` +
+      `${esc([entity.colour, entity.vehicle_type, entity.make_model].filter(Boolean).join(" "))}<br>` +
+      (entity.plate ? `Plate <b>${esc(entity.plate)}</b><br>` : "") +
+      `${entity.camera_count} cameras · ${entity.total_distance_km ?? "?"} km` +
+      (entity.mean_speed_kmh ? ` · ~${entity.mean_speed_kmh} km/h` : "") + `<br>` +
+      `Linked by ${esc(entity.link_basis)} (${entity.link_confidence})` +
+      (byPlate ? "" : "<br><i>Appearance link — probable, not confirmed</i>"));
+  });
+
+  panel.innerHTML = `
+    <div class="stat-row">
+      <div class="stat"><b>${state.entities.length}</b><span>Entities</span></div>
+      <div class="stat"><b>${multi.length}</b><span>Journeys</span></div>
+      <div class="stat"><b>${state.entities.filter(e => e.plate).length}</b><span>With plate</span></div>
+    </div>
+    ${multi.length === 0 ? `<div class="notice">No entity was seen on more than one camera.
+      Solid lines mean a plate-confirmed journey, dashed lines an appearance match.</div>` : ""}
+    ` + state.entities.slice(0,150).map((e,i) => `
+      <div class="item" data-entity="${i}">
+        <div class="top">
+          <span class="title">${esc(e.plate || [e.colour, e.vehicle_type].filter(Boolean).join(" ")
+            || e.entity_kind)}</span>
+          <span class="pill ${e.link_basis === "plate" ? "low" : "medium"}">${esc(e.link_basis)}</span>
+        </div>
+        <div class="meta">${e.camera_count} camera(s) · ${clock(e.first_seen)}
+          ${e.total_distance_km ? " · " + e.total_distance_km + " km" : ""}</div>
+        <div class="desc">${esc((e.cameras || []).join(" → "))}</div>
+        ${e.watchlist_hits?.length ? `<div class="meta" style="color:var(--critical)">⚠
+          ${esc(e.watchlist_hits.map(h => h.id + " (" + h.category + ")").join(", "))}</div>` : ""}
+        ${e.unconfirmed_plates?.length ? `<div class="meta">unconfirmed plate read:
+          ${esc(e.unconfirmed_plates.join(", "))}</div>` : ""}
+      </div>`).join("");
+
+  panel.querySelectorAll(".item[data-entity]").forEach(el =>
+    el.addEventListener("click", () => {
+      const entity = state.entities[parseInt(el.dataset.entity, 10)];
+      const pts = (entity.route || [])
+        .filter(h => h.latitude != null && h.longitude != null)
+        .map(h => [h.latitude, h.longitude]);
+      if(pts.length > 1) map.fitBounds(pts, {padding:[70,70]});
+      else if(pts.length === 1) map.setView(pts[0], 15);
+    }));
+}
+
+// ── hotspots ────────────────────────────────────────────────────────────────
+async function loadHotspots(){
+  const data = await getJSON("/api/analytics/hotspots?limit=120");
+  const panel = document.getElementById("panel-hotspots");
+  if(!data){ panel.innerHTML = `<div class="empty">Could not reach the analytics API.</div>`; return; }
+  state.hotspots = data.hotspots || [];
+  layers.hotspots.clearLayers();
+
+  if(!state.hotspots.length){
+    panel.innerHTML = notProcessedNotice(data, "No hotspot data yet.");
+    return;
+  }
+  const maxScore = Math.max(...state.hotspots.map(h => h.hotspot_score || 0), 1);
+  state.hotspots.forEach(h => {
+    if(h.latitude == null || h.longitude == null) return;
+    L.circle([h.latitude, h.longitude], {
+      radius: 120 + 700 * (h.hotspot_score / maxScore),
+      color:"#e07a52", fillColor:"#e07a52",
+      fillOpacity: .10 + .22 * (h.hotspot_score / maxScore), weight:1
+    }).addTo(layers.hotspots).bindPopup(
+      `<b>${esc(h.event_type)}</b><br>${esc(h.location)}<br>` +
+      `${String(h.hour).padStart(2,"0")}:00 · ${h.count} occurrence(s) over
+       ${h.distinct_days} day(s)<br>mean severity ${h.mean_severity_score}`);
+  });
+
+  panel.innerHTML = `<div class="notice">Ranked by recurrence across distinct days, not raw count —
+    a pattern that repeats matters more than one busy hour.</div>` +
+    state.hotspots.slice(0,80).map(h => `
+      <div class="item" data-lat="${h.latitude}" data-lon="${h.longitude}">
+        <div class="top"><span class="title">${esc(h.event_type)}</span>
+          <span class="pill ${h.mean_severity_score >= 70 ? "high" : "medium"}">${h.hotspot_score}</span></div>
+        <div class="meta">${esc(h.location)} · ${String(h.hour).padStart(2,"0")}:00
+          · ${h.count}× over ${h.distinct_days} day(s)</div>
+      </div>`).join("");
+
+  panel.querySelectorAll(".item[data-lat]").forEach(el => el.addEventListener("click", () => {
+    const lat = parseFloat(el.dataset.lat), lon = parseFloat(el.dataset.lon);
+    if(!isNaN(lat) && !isNaN(lon)) map.setView([lat, lon], 15);
+  }));
+}
+
+function notProcessedNotice(data, emptyText){
+  if(data.status === "not_processed" || data.count === 0){
+    return `<div class="notice">${esc(emptyText)}<br><br>
+      If nothing has been processed yet, run:<br>
+      <code>python offline_analytics.py</code> then <code>python correlator.py</code></div>`;
+  }
+  return `<div class="empty">${esc(emptyText)}</div>`;
+}
+
+async function loadStatus(){
+  const data = await getJSON("/api/analytics/status");
+  const el = document.getElementById("subtitle");
+  if(!data){ el.textContent = "Analytics API unreachable"; return; }
+  state.status = data;
+  const c = data.counts || {};
+  el.textContent = `${c.tracks ?? 0} tracks · ${c.entities ?? 0} entities · ` +
+    `${c.alerts ?? 0} alerts · ${c.hotspots ?? 0} hotspots · via ${data.source}`;
+  if((data.pending_steps || []).length){
+    el.textContent += " — pending: " + data.pending_steps.join("; ");
+  }
+}
+
+(async function init(){
+  await loadStatus();
+  await loadCameras();
+  await Promise.all([loadAlerts(), loadEntities(), loadHotspots()]);
+})();
+</script>
+</body>
+</html>

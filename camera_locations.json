@@ -1,0 +1,123 @@
+{
+  "_README": [
+    "Camera geo-registry. Unlocks the GIS module: correlator.py builds routes.geojson",
+    "from these points and mcp-main.py serves them to the map at /map.",
+    "IMPORTANT: latitude/longitude below are APPROXIMATE PLACEHOLDERS derived from the",
+    "location names, not surveyed positions. Replace them with real coordinates before",
+    "presenting any distance, speed or route claim as fact. 'source' must be changed to",
+    "'surveyed' once corrected so evaluate.py stops flagging the camera."
+  ],
+  "cameras": {
+    "cam01_01_Chiman_bhai_Bridge": {
+      "name": "Chiman Bhai Bridge",
+      "city": "Ahmedabad",
+      "latitude": 23.0055,
+      "longitude": 72.5540,
+      "heading_deg": 90,
+      "road": "Chimanbhai Patel Bridge",
+      "source": "approximate_placeholder"
+    },
+    "cam02_02_Janpath": {
+      "name": "Janpath",
+      "city": "Ahmedabad",
+      "latitude": 23.0300,
+      "longitude": 72.5600,
+      "heading_deg": 180,
+      "road": "Janpath Road",
+      "source": "approximate_placeholder"
+    },
+    "cam03_03_O.N.G.C._Office": {
+      "name": "O.N.G.C. Office",
+      "city": "Ahmedabad",
+      "latitude": 23.1050,
+      "longitude": 72.5900,
+      "heading_deg": 270,
+      "road": "ONGC Approach Road",
+      "source": "approximate_placeholder"
+    },
+    "cam05_05_Visat_teen_Rasta": {
+      "name": "Visat Teen Rasta",
+      "city": "Ahmedabad",
+      "latitude": 23.1010,
+      "longitude": 72.5810,
+      "heading_deg": 0,
+      "road": "Visat Three-Way Junction",
+      "source": "approximate_placeholder",
+      "note": "Source video is corrupt (moov atom missing); no data will exist for this camera."
+    },
+    "cam13_stream-13": {
+      "name": "CN Vidhyalaya P2 RLVD-2027",
+      "city": "Ahmedabad",
+      "latitude": 23.0225,
+      "longitude": 72.5500,
+      "heading_deg": 45,
+      "road": "CN Vidyalaya Junction",
+      "source": "approximate_placeholder"
+    },
+    "cam14_stream-14": {
+      "name": "Stream 14",
+      "city": "Ahmedabad",
+      "latitude": 23.0400,
+      "longitude": 72.5650,
+      "heading_deg": 135,
+      "road": "unknown",
+      "source": "unknown_location",
+      "note": "No metadata row in videos-hackathon-frame-info.csv; location genuinely unknown."
+    },
+    "cam15_stream-15": {
+      "name": "Suvidhapark",
+      "city": "Ahmedabad",
+      "latitude": 23.0630,
+      "longitude": 72.5330,
+      "heading_deg": 315,
+      "road": "Suvidha Park Circle",
+      "source": "approximate_placeholder"
+    },
+    "cam16_stream-16": {
+      "name": "Visat T Junction",
+      "city": "Ahmedabad",
+      "latitude": 23.1015,
+      "longitude": 72.5820,
+      "heading_deg": 0,
+      "road": "Visat Circle",
+      "source": "approximate_placeholder"
+    },
+    "cam17_17_Rajkot_Bus_Port_CCTV": {
+      "name": "Rajkot Bus Port",
+      "city": "Rajkot",
+      "latitude": 22.3010,
+      "longitude": 70.8020,
+      "heading_deg": 90,
+      "road": "Rajkot Bus Port Terminal",
+      "source": "approximate_placeholder"
+    },
+    "cam25_33_dehgam": {
+      "name": "Dehgam",
+      "city": "Dehgam",
+      "latitude": 23.1690,
+      "longitude": 72.8210,
+      "heading_deg": 225,
+      "road": "Dehgam Main Road",
+      "source": "approximate_placeholder"
+    },
+    "cam27_35_TANKAL": {
+      "name": "Tankal",
+      "city": "Tankal",
+      "latitude": 23.2000,
+      "longitude": 72.9000,
+      "heading_deg": 180,
+      "road": "Tankal Road",
+      "source": "approximate_placeholder"
+    }
+  },
+  "neighbours": {
+    "_README": "Plausible travel time in seconds between adjacent cameras. Used by correlator.py to bound cross-camera matching. Omitted pairs fall back to CROSS_CAMERA_MAX_GAP_S.",
+    "cam16_stream-16|cam05_05_Visat_teen_Rasta": 60,
+    "cam16_stream-16|cam03_03_O.N.G.C._Office": 240,
+    "cam03_03_O.N.G.C._Office|cam15_stream-15": 600,
+    "cam13_stream-13|cam01_01_Chiman_bhai_Bridge": 300,
+    "cam01_01_Chiman_bhai_Bridge|cam02_02_Janpath": 420,
+    "cam02_02_Janpath|cam13_stream-13": 360,
+    "cam25_33_dehgam|cam27_35_TANKAL": 900
+  }
+}

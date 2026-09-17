@@ -1,0 +1,191 @@
+[
+  {
+    "id": "db000670-df2c-4335-b27c-6a5ac8506d41",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:12:27.476422+00:00"
+  },
+  {
+    "id": "20d5fe40-8f5a-4612-96d9-3fda05a9a82d",
+    "camera_id": "stream6",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:16:47.114837+00:00"
+  },
+  {
+    "id": "c3d39c81-fd5d-4749-ab05-dbcedd3fbaee",
+    "camera_id": "stream5",
+    "prompt": "people",
+    "status": "active",
+    "created_at": "2026-05-15T09:24:11.112073+00:00"
+  },
+  {
+    "id": "e2ed23aa-3fe3-4d69-b7cd-8801dc9ac6f4",
+    "camera_id": "stream7",
+    "prompt": "automobile",
+    "status": "active",
+    "created_at": "2026-05-15T09:24:35.633334+00:00"
+  },
+  {
+    "id": "3365751b-6076-4d81-982f-0a7261faaf03",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:27:08.743396+00:00"
+  },
+  {
+    "id": "2852d804-7d5d-4f11-a6a5-ef97c36ebfb1",
+    "camera_id": "ALL",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:27:40.486568+00:00"
+  },
+  {
+    "id": "0f3cbf5d-d9e2-479d-beab-b279e07ebe2e",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:31:40.685771+00:00"
+  },
+  {
+    "id": "4c5b3a1d-6ff1-445e-a192-234b8061166f",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:33:41.210701+00:00"
+  },
+  {
+    "id": "26804692-5267-461c-b766-b856d87bb135",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:34:10.077208+00:00"
+  },
+  {
+    "id": "82c8a0be-e733-4340-a28e-e943974478ea",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T09:35:11.508204+00:00"
+  },
+  {
+    "id": "a0d114ed-55bb-49e6-8a27-a7462d33e03b",
+    "camera_id": "stream7",
+    "prompt": "car",
+    "status": "active",
+    "created_at": "2026-05-15T09:41:13.712813+00:00"
+  },
+  {
+    "id": "09f81463-9cfe-40a3-872a-c71f6d3b4ea0",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:47:55.575677+00:00"
+  },
+  {
+    "id": "693b500c-cf69-46f5-95dd-d5750bdb138e",
+    "camera_id": "stream5",
+    "prompt": "people",
+    "status": "active",
+    "created_at": "2026-05-15T09:48:26.734239+00:00"
+  },
+  {
+    "id": "238ef87a-9e9e-40d6-ad24-a0d422209570",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-15T09:50:54.872597+00:00"
+  },
+  {
+    "id": "dabd8057-f051-4e19-8738-3656e89e9391",
+    "camera_id": "stream7",
+    "prompt": "red car",
+    "status": "active",
+    "created_at": "2026-05-15T09:51:16.765525+00:00"
+  },
+  {
+    "id": "63236750-3a4e-4b16-bbfd-bf8835efd8ee",
+    "camera_id": "stream7",
+    "prompt": "car",
+    "status": "active",
+    "created_at": "2026-05-15T10:45:24.705342+00:00"
+  },
+  {
+    "id": "0346fc25-a1c2-42fe-87db-38c298396757",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:11:51.258389+00:00"
+  },
+  {
+    "id": "719642bc-dcd6-483b-9d83-9a68ba4a148c",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:13:10.047993+00:00"
+  },
+  {
+    "id": "1f332d2c-3294-44ad-97a2-5823b70866c5",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:17:13.286342+00:00"
+  },
+  {
+    "id": "15e79dc4-ce47-4de2-a164-bb0e3aea3166",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:19:11.949735+00:00"
+  },
+  {
+    "id": "949b6c0e-e186-47ed-b8b2-386bc04d1e16",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:19:31.238447+00:00"
+  },
+  {
+    "id": "814d6525-ba95-4b17-ba68-91c2d53de598",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:29:26.440168+00:00"
+  },
+  {
+    "id": "090ed150-8e69-475e-81ce-aa19c039cbb7",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:29:58.106700+00:00"
+  },
+  {
+    "id": "01c17ca9-6a3b-4db4-9775-d6039666207f",
+    "camera_id": "stream7",
+    "prompt": "white car",
+    "status": "active",
+    "created_at": "2026-05-15T12:31:11.033669+00:00"
+  },
+  {
+    "id": "4cc47cd2-b55e-4f1e-a74e-5998046cd786",
+    "camera_id": "all",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-18T08:33:27.261669+00:00"
+  },
+  {
+    "id": "b2c28479-f55b-427a-80ea-498956f509cc",
+    "camera_id": "All",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-18T08:34:10.273365+00:00"
+  },
+  {
+    "id": "8b494811-183c-45b7-a481-0175d78aa4b3",
+    "camera_id": "stream5",
+    "prompt": "person",
+    "status": "active",
+    "created_at": "2026-05-18T08:34:43.686955+00:00"
+  }
+]

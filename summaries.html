@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Summaries</title>
+<style>
+  :root {
+    --bg:#0f1216; --panel:#171c22; --line:#252d36; --ink:#e6edf3;
+    --dim:#8b98a5; --accent:#4da3ff; --warn:#e0a33e; --ok:#3fb950;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  header { padding:20px 24px; border-bottom:1px solid var(--line);
+           display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  h1 { margin:0; font-size:19px; font-weight:600; }
+  .meta { color:var(--dim); font-size:13px; }
+  .meta a { color:var(--accent); text-decoration:none; }
+  main { padding:20px 24px; max-width:1100px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px;
+          margin-bottom:16px; overflow:hidden; }
+  .card > summary { cursor:pointer; padding:14px 18px; list-style:none;
+                    display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .card > summary::-webkit-details-marker { display:none; }
+  .card > summary:hover { background:#1c232b; }
+  .cam { font-weight:600; font-size:15px; }
+  .loc { color:var(--dim); font-size:13px; }
+  .pill { margin-left:auto; font-size:12px; color:var(--dim);
+          border:1px solid var(--line); border-radius:99px; padding:2px 10px; }
+  .body { padding:0 18px 18px; border-top:1px solid var(--line); }
+  pre { white-space:pre-wrap; word-wrap:break-word; margin:14px 0 0;
+        font:14px/1.65 inherit; }
+  .empty { color:var(--dim); padding:40px 0; text-align:center; }
+  .err { color:var(--warn); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Video Summaries</h1>
+  <span class="meta" id="meta">loading…</span>
+  <span class="meta" style="margin-left:auto">
+    <a href="/segments">per-minute segments →</a>
+  </span>
+</header>
+<main id="out"><div class="empty">loading…</div></main>
+
+<script>
+// Keep the caller's ?token= so the reverse proxy still authorises the XHR.
+const qs = window.location.search;
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g,
+    c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+}
+
+async function load() {
+  const out = document.getElementById("out");
+  const meta = document.getElementById("meta");
+  try {
+    const r = await fetch("/api/summaries" + qs);
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const d = await r.json();
+
+    meta.textContent = d.count + " video" + (d.count === 1 ? "" : "s")
+                     + " · " + d.collection;
+
+    if (!d.count) {
+      out.innerHTML = '<div class="empty">No summaries yet.<br><br>'
+        + 'Generate them with <code>./run_prose.sh</code>, or re-roll from '
+        + 'stored segments with <code>./run_prose.sh --summaries-only</code>.</div>';
+      return;
+    }
+
+    out.innerHTML = d.summaries.map((s, i) => `
+      <details class="card" ${i === 0 ? "open" : ""}>
+        <summary>
+          <span class="cam">${esc(s.camera_id)}</span>
+          <span class="loc">${esc(s.location || "")}</span>
+          <span class="pill">${s.segments_covered ?? "?"} min covered</span>
+        </summary>
+        <div class="body">
+          <pre>${esc(s.summary)}</pre>
+        </div>
+      </details>`).join("");
+  } catch (e) {
+    out.innerHTML = '<div class="empty err">Could not load summaries: '
+                  + esc(e.message) + "</div>";
+    meta.textContent = "";
+  }
+}
+
+load();
+setInterval(load, 30000);   // a long run keeps adding videos
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+[
+  {
+    "video_file": "cam01_01_Chiman_bhai_Bridge.mp4",
+    "filename_location_guess": "Chiman bhai Bridge",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam01_01_Chiman_bhai_Bridge_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "20:59:59",
+        "location_ocr": null,
+        "raw_ocr_text": "13-06-2026 20:59:59"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam01_01_Chiman_bhai_Bridge_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "20:59:59",
+        "location_ocr": null,
+        "raw_ocr_text": "13-06-2026 20:59:59"
+      }
+    ]
+  },
+  {
+    "video_file": "cam02_02_Janpath.mp4",
+    "filename_location_guess": "Janpath",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam02_02_Janpath_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "Janpath T CSITMS-10_PTZ2",
+        "raw_ocr_text": "3-06-2026\n\n2S\n\n| ess\n\n|\n\na\n\nif\n\nlf\n\nae \u00e9-\n\n2 oF\n\nae \u2014\n\n=\n\nABS\n\n- 2\n\nwit\n\n4 ee\n\nia\n\nmae\n\nh ot = \u2014\n\n\u00a5e\n\nA\n\n=\n\n\u2014\n\n-\n\noo\n\nee\n\n\u2014-\n\n>)\n\nwe\n\ni\n\naA\n\nJanpath T CSITMS-10_PTZ2"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam02_02_Janpath_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "se ess | er oer | Janpath T CSITMS-10_PTZ2",
+        "raw_ocr_text": "13-06-2026\n\n=i\n\nse ess\n\nif\n\n| (ia\n\na\n\n=\n\n~BS\n\nvit\n\n|\n\nee\n\n\u2014\n\n5;\n\n\u00a5e\n\nee\n\nme\n\ner oer\n\nl\n\na ye\n\n\u2014\u2014\u2014\u2014\u2014\n\n> =\n\nas =\n\n=\n\n4\n\n=\n\naA\n\nJanpath T CSITMS-10_PTZ2"
+      }
+    ]
+  },
+  {
+    "video_file": "cam03_03_O.N.G.C._Office.mp4",
+    "filename_location_guess": "O N G C  Office",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam03_03_O.N.G.C._Office_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "21:00:07",
+        "location_ocr": "O.N\\G.C. Office BS-103_B1",
+        "raw_ocr_text": "13-06-2026 21:00:07\n; A PR\ndoe\n\nO.N\\G.C. Office BS-103_B1"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam03_03_O.N.G.C._Office_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "O.N\\G.C. Office BS-103_B1",
+        "raw_ocr_text": "13-06-21\n\n02!\n\naf |\n\na\n\n~.\n\noe\n\nBae\n\n\u2122 es\n\n: y A\n\nrf\n\nO.N\\G.C. Office BS-103_B1"
+      }
+    ]
+  },
+  {
+    "video_file": "cam05_05_Visat_teen_Rasta.mp4",
+    "filename_location_guess": "Visat teen Rasta",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": null,
+        "extracted": false,
+        "error": "Error opening input files: Invalid data found when processing input",
+        "date": null,
+        "time": null,
+        "location_ocr": null,
+        "raw_ocr_text": null
+      },
+      {
+        "frame_number": 2,
+        "frame_path": null,
+        "extracted": false,
+        "error": "Error opening input files: Invalid data found when processing input",
+        "date": null,
+        "time": null,
+        "location_ocr": null,
+        "raw_ocr_text": null
+      }
+    ]
+  },
+  {
+    "video_file": "cam13_stream-13.mp4",
+    "filename_location_guess": null,
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam13_stream-13_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "20:58:58",
+        "location_ocr": "CN VIDHYALAYA P2 RLVD",
+        "raw_ocr_text": "13-06-2026 20:58:58\n\nCN VIDHYALAYA P2 RLVD"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam13_stream-13_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "20:58:58",
+        "location_ocr": "CN VIDHYALAYA P2 RLVD",
+        "raw_ocr_text": "13-06-2026 20:58:58\n\nCN VIDHYALAYA P2 RLVD"
+      }
+    ]
+  },
+  {
+    "video_file": "cam14_stream-14.mp4",
+    "filename_location_guess": null,
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam14_stream-14_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "oe ene | DELDEGHT: | \\P1 RLVD",
+        "raw_ocr_text": "oe ene\n\no_ ~_ !\n\na.\n\nAe\n\ni\n\n=|\n\n+\n\nPee\n\n_=\u2014S\n\nmy\n\nA\n\n4\n\n13\n\nF =\n\naN\n\nQe\n\nTA.\n\n~=\n\n*\n\n|\n\n+\n\n73-06\n\n2026000: sof\n\nSs\n\nDELDEGHT:\n\n\\P1 RLVD"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam14_stream-14_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "esse se = | DELEGHTSP1 RLVD",
+        "raw_ocr_text": "esse se =\n\noo ~_| !\n\n>.>\n\nas\n\nBas\n\n|\n\n*\n\n=\u2014S\n\nmr\n\nPe\n\nA\n\nsy\n\n-3\n\naN\n\nTA\n\nae\n\nBB. bis 20260. aM |\n\n)\n\nDELEGHTSP1 RLVD"
+      }
+    ]
+  },
+  {
+    "video_file": "cam15_stream-15.mp4",
+    "filename_location_guess": null,
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam15_stream-15_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "20:59:58",
+        "location_ocr": null,
+        "raw_ocr_text": "13-06-2026 20:59:58 Suvidhapark P3 RLVD"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam15_stream-15_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": "13-06-2026",
+        "time": "20:59:58",
+        "location_ocr": null,
+        "raw_ocr_text": "13-06-2026 20:59:58 Suvidhapark P3 RLVD"
+      }
+    ]
+  },
+  {
+    "video_file": "cam16_stream-16.mp4",
+    "filename_location_guess": null,
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam16_stream-16_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": "2026-06-13",
+        "time": "14:47:24",
+        "location_ocr": "mei GO | Visat T Junction P2 RLVD",
+        "raw_ocr_text": "le\nmei GO\n\u2014 -\ny\nA\n:\n-\n\n2026-06-13 14:47:24\nVisat T Junction P2 RLVD"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam16_stream-16_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": "2026-06-13",
+        "time": "14:47:24",
+        "location_ocr": "Visat T Junction P2 RLVD",
+        "raw_ocr_text": "2026-06-13 14:47:24\nVisat T Junction P2 RLVD"
+      }
+    ]
+  },
+  {
+    "video_file": "cam17_17_Rajkot_Bus_Port_CCTV.mp4",
+    "filename_location_guess": "Rajkot Bus Port CCTV",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam17_17_Rajkot_Bus_Port_CCTV_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "start\" | 36 Galiell aialls | ofehictetlz 11 si 2 | Well. ) | CENTER | | MO See | 4th Fie | nd HOTEL IK | \u2018pens AVALAS! | \u2018DORMITORY | Rooms ST! | ARTS FROM | pal ae",
+        "raw_ocr_text": "\\\\\n\nstart\"\n\n\u2014\u2014\n\n\\\n\nCO)\n\nONT\n\nqos\n\n36 Galiell aialls\n\net\n\nay\n\nee\n\nofehictetlz 11 si 2\n\nWell. )\n\nAY\n\noo\n\nCENTER\n\n\\\n\n| MO See\n\n\u2014\u2014S=\n\n4th Fie\n\nnd HOTEL IK\n\nOMS =\n\nBUS\n\nVege\n\nDELt\n\n\u2018pens AVALAS!\n\nEXT\n\nRC\n\n=\n\n\u2018DORMITORY\n\nONLY\n\n9701 a\n\nAVE\n\nRooms ST!\n\nARTS FROM\n\nSS\n\n=| <S\n\n799!- ney\n\ny=\n\nar\n\neens\n\nora\n\nA)\n\n\"\n\nCO\n\n=\n\nA.\n\ni\n\n\\ 4\n\niy\n\niG\n\nn(\\\n\nnye\n\n\\*\n\nif\n\nA\n\nai\n\nZa\n\n=\n\nNi)\n\nNaN\n\n)\n\na\n\n=\n\ner .\n\nOt\n\n\u2018A\n\n&\n\nXD)\n\nbe 1\n\nm\n\n\\\n\n||\n\n(a\n\na\n\nx Sy\n\nHN\n\n(ee\n\n\u00bb\\\n\nigs?\n\nKy\n\nay\n\nms\n\n=\n\nSi\n\n>\n\n=\n\nan\n\nN\n\ni\n\nCS\n\nSe\n\nAc\n\n\u2014\u2014\u2014|\n\n4)\n\n7\n\nEe\n\nLa\n\ntay,\n\nwea\n\nGAS\n\n=\n\n\u2014 a\n\n\\\n\nSy\n\ny.\n\nLL\n\na /\n\n\\\n\n\\\\\n\n=\n\n5\n\n2\n\n\u2014\u2014\n\niS\n\n\u2014\u2014\n\npal ae\n\nat\n\nfa"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam17_17_Rajkot_Bus_Port_CCTV_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "start\" | 36 Galiell aialls | ofehictetlz 11 si 2 | Well. ) | | MO See | \u2018th Flo | nd HOTEL IK | Vege = | \u2018pens AVALAS! | \u2018DORMITORY | Rooms ST! | ARTS FROM | 799!- ONLY | pal ae",
+        "raw_ocr_text": "\\\\\n\nstart\"\n\n\u2014\u2014\n\n\\\n\nCO)\n\nONT\n\nqos\n\n36 Galiell aialls\n\net\n\nay\n\nee\n\nofehictetlz 11 si 2\n\nWell. )\n\nAY\n\noo\n\nCEN\n\nER\n\n| MO See\n\n==\n\n\u2018th Flo\n\nva)\n\nnd HOTEL IK\n\nOMS =\n\nAt\n\nVege =\n\nDELt\n\n\u2018pens AVALAS!\n\nEXT\n\nRC\n\n\\\\\n\n\u2018DORMITORY\n\nON\n\n9701 a\n\nRooms ST!\n\nARTS FROM\n\n\u2014\u2014| z\n\nSS\n\n= ys\n\nW\n\n799!- ONLY\n\ny=\n\new\n\n|\n\nCU\n\n=\n\nA.\n\ni\n\n\u20184\n\n\\\n\n\\\\\n\niy\n\na\n\nn(\\\n\nny\n\n\\*\n\nif\n\nA\n\nai\n\nZe\n\n=\n\nNi)\n\nNaN\n\na\n\n=\n\nJP\n\nOt\n\n\u2018A\n\n&\n\nXD)\n\nbe 1\n\n| |\n\nm\n\n\\\n\n(a\n\na\n\nx Sy\n\nHN\n\n(ee\n\n\u00bb\\\n\nigs?\n\nKy\n\nay\n\nms\n\n=\n\nSi\n\n>\n\n=\n\nan\n\nN\n\ni\n\nCS\n\nSe\n\nAc\n\n\u2014\u2014\u2014|\n\n4)\n\n7\n\nEe\n\nLa\n\ntay,\n\nwea\n\nGAS\n\n=\n\n\u2014 a\n\n\\\n\nSy\n\nLL\n\na /\n\n\\\n\n\\\\\\\u00a2\n\n=\n\n5\n\n2\n\n\u2014\u2014\n\niS\n\n\u2014\u2014\n\npal ae\n\nat\n\nSa"
+      }
+    ]
+  },
+  {
+    "video_file": "cam25_33_dehgam.mp4",
+    "filename_location_guess": "dehgam",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam25_33_dehgam_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "Camera O1\u2014",
+        "raw_ocr_text": "08-2026\n\npa\n\nt 04:19:58\n\n\u2014\n\n\u2014\n\n\u2014\n\n\u2014\u2014\u2014\n\n\u2014\u2014\n\nes\n\n=\n\n=\n\n\u2014\n\nS\n\nAy\n\nA=\n\nCamera O1\u2014\n\n>\n\n= ="
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam25_33_dehgam_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "Camera O1\u2014",
+        "raw_ocr_text": "08-2026\n\npa\n\nYt 04:19:58\n\n\u2014\n\n\u2014\n\n\u2014\n\n\u2014\u2014\u2014\n\n\u2014\u2014\n\nes\n\n=\n\n=\n\n_\n\nS\n\nAy\n\nA=\n\nCamera O1\u2014\n\n>\n\n= ="
+      }
+    ]
+  },
+  {
+    "video_file": "cam27_35_TANKAL.mp4",
+    "filename_location_guess": "TANKAL",
+    "frames": [
+      {
+        "frame_number": 1,
+        "frame_path": "videos-hackathon-frames/cam27_35_TANKAL_frame1.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "Pe ep | tx Bal | ares, | CUE SS asc aN | pies! | z aaa | $e iran | sae at | sates: | Leh hse | Sings | enaat | See Se | CP IP Cam | SAT. i",
+        "raw_ocr_text": "\u2014\n\nRu,\n\nei\n\nas\n\ney\n\nae\n\n\u00a37)\n\ni\n\n|\n\nie\n\n=\n\n=\n\na\n\n=\n\nIs]\n\n|\n\nA!\n\nKe\n\n2\n\n0:21\n\nSS\n\n|\n\n=)\n\na\n\nOSs\n\nyi\n\nf\n\n623\n\nSS\n\nSS\n\ni\n\ngle:\n\nee\n\nmsg\n\nRy\n\nQ\n\nba\u2019\n\nRes\n\nh\n\n| \u2018ae\n\nTe\n\nWit\n\noe\n\na\n\nui\n\nir,\n\nfy\n\n4\n\ncA\n\n1)\\4\n\n\\]\n\noan\n\ne |\n\n|\n\nSe;\n\nale\n\ni\n\nVi\n\nee\n\nHi\n\ny\n\n\\}\n\nAY\n\noe\n\nRas\n\nce\n\nwh\n\nif\n\nWii)\n\n.\n\n| fa\n\nail\n\n|\n\np.-\n\nI\n\nifm\n\noN\n\nR\n\nee\n\nI)\n\nv\n\nie\n\nSe:\n\nrae\n\nkg,\n\ni!\n\nPe ep\n\n\u201cvy\n\na\n\nee\n\nuy\n\n\u2018s\n\ney\n\nnf\n\nit\n\n1\n\n'\n\nFe\n\nrr\n\nUi)\n\nth\n\nie\n\ncae\n\n=\n\ntx Bal\n\nOC\n\nSHAK\n\nss\n\na\n\ney\n\n7\n\nAs\n\nva\n\nRX,\n\nalae\n\nas\n\n~s\n\ns\n\nus\n\noe\n\nnes\n\n+a.\n\nah\n\nte\n\nre\n\noa\n\nee\n\nfad\n\n5)\n\nares,\n\nRs\n\neg\n\na\n\nS\n\nite\n\nCUE SS asc aN\n\n\u2014\n\nme\n\npies!\n\nz aaa\n\nMow\n\nFis\n\nre\n\n+\n\neb\n\n$e iran\n\nES\n\nsae at\n\nTiss\n\nVig\n\nsage\n\nty\n\nas\n\nyeas\n\nA\n\nwes\n\nie\n\n3\n\nsates:\n\n=e\n\non\n\nLeh hse\n\neee\n\nsy\n\niF\n\nSings\n\neA\n\nae\n\nm:\n\nee\n\nie\n\nig\n\nThe\n\nNabe\n\nx\n\nny\n\n<3)\n\nenaat\n\nSee Se\n\nA\n\n<\n\n+h\n\nre\n\nCP IP Cam\n\nat\n\n\u201cAt\n\nae\n\nwe\n\nSAT. i\n\nSho"
+      },
+      {
+        "frame_number": 2,
+        "frame_path": "videos-hackathon-frames/cam27_35_TANKAL_frame2.png",
+        "extracted": true,
+        "error": null,
+        "date": null,
+        "time": null,
+        "location_ocr": "Sf seedy | | tong Spied | WS pak | al ae | tx sal | face: | ones, | Caste | partary | Coens | Ne re | CP IP Cam | bt te",
+        "raw_ocr_text": "\u2014\n\nSell\n\nRu,\n\n8)\n\ntae\n\nam\n\naot\n\nxD)\n\nhaz\n\nAL\n\nye\n\nee\n\nHs)\n\n3S\n\nAlf\n\n=\n\na\n\n[sy\n\nTi\n\n/\n\nKe\n\n0;\n\n22\n\nSS\n\n\u2014~\n\nas\n\nOSs\n\n7\n\nf\n\n23\n\nSf seedy |\n\na8\n\ntong Spied\n\n=\n\n.\n\nba\u2019\n\nYi\n\nRes\n\nh\n\nif\n\nMN\n\nTe\n\nfy\n\n>\n\nWu\n\n\u201ca\n\nWr,\n\nfy\n\n\u00bb\n\nHint\n\n1)\\4\n\n\\|\n\nIN\n\nty\n\nre\n\non\n\n[\n\nes\n\nye\n\ndng\n\nioe\n\n\u201caid\n\nWi)\n\ni\n\nNay\n\nce\n\nBr\n\nli\n\nWS pak\n\ni)\n\ni\n\nVi)\n\ni;\n\n| |\n\nay\n\nval\n\ni (ae\n\nI\n\nx2\n\nee\n\n3\n\ni\\\n\n|\n\nv\n\na\n\nSay\n\nae\n\ni!\n\nor\n\nais\n\n\u201ciy\n\nhd\n\na\n\nMF 0\n\nZo\n\nLS\n\nal ae\n\nn\n\nee\n\n1A\n\nJel\n\nth\n\n3 Fe\n\nae\n\nof\n\nco\n\n\u2014_\n\ntx sal\n\na\n\nos\n\n7\n\nAs\n\nare\n\nFae\n\nares\n\nface:\n\n<A\n\n=a\n\nnay\n\nSy\n\ngay:\n\naye\n\nSef\n\niat\n\n7\n\nay\n\nae\n\naS\n\n#4,\n\nae\n\nSo\n\nee\n\neae\n\n*\n\nea\n\nif\n\n\"3\n\nones,\n\n\u2018SOs\n\nCaste\n\npartary\n\n\u20ac\n\n.\n\nute\n\nm\n\nsy\n\niat\n\nel\n\nese\n\nis\n\nee\n\neae\n\nCoens\n\nay\n\nPye,\n\nhe\n\naaa\n\n(ee\n\ncae,\n\nit\n\nBy\n\nBes 5\n\nif\n\noy\n\n<\n\nbs.\n\nee\n\nEnea\n\nNe re\n\nA}\n\na\n\nne\n\nfp\n\nig\n\noon\n\nrig\n\nahi\n\naia\n\ni\n\neas\n\nTks\n\nWF\n\n\u201cae?\n\nph\n\nav\n\nae\n\nro\n\nSe\n\nDs\n\nx,\n\nne\n\nVet\n\nors.\n\nay\n\n+\n\nas\n\nwe\n\nee\n\nCP IP Cam\n\nAw\n\npak\n\neis\n\nae\n\nsia\n\n. of\n\nbt te\n\nNs"
+      }
+    ]
+  }
+]

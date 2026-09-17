@@ -1,0 +1,211 @@
+/workspace/vast-ai-final-working-may-15/New-Code/mcp-main.py:670: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/workspace/vast-ai-final-working-may-15/New-Code/mcp-main.py:726: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+======================================================================
+🌐 VIDEO CHATBOT WEB SERVER (WITH QUERY CACHE)
+======================================================================
+🚀 Server: http://localhost:8085
+💾 Cache : /workspace/vast-ai-final-working-may-15/New-Code/query_cache.json
+🔍 Similarity threshold: 0.92
+
+Cache flow:
+  1. Every query (except 'list cameras') → embed → cosine similarity check
+  2. If similar cached query found → return cached answer instantly
+  3. Otherwise → process with LLM → ask user to save to cache
+======================================================================
+INFO:__main__:HTTPS on :8085  cert=/workspace/vast-ai-final-working-may-15/New-Code/certs/vmukti.pem
+INFO:     Started server process [140449]
+INFO:     Waiting for application startup.
+======================================================================
+🚀 STARTING VIDEO CHATBOT WEB SERVER (WITH QUERY CACHE)
+======================================================================
+INFO:supertonic.loader:Loading model from /root/.cache/supertonic3
+INFO:supertonic.loader:Using ONNX providers: ['CPUExecutionProvider']
+INFO:supertonic.loader:ONNX Runtime config: intra_threads=auto, inter_threads=auto
+INFO:supertonic.loader:Loading ONNX models with providers: ['CPUExecutionProvider']
+INFO:supertonic.loader:Successfully loaded all ONNX models
+INFO:supertonic.core:Loaded unicode indexer from /root/.cache/supertonic3/onnx/unicode_indexer.json (65536 entries)
+INFO:supertonic.loader:Model loaded successfully
+INFO:supertonic.core:Initialized Supertonic engine (sample_rate=44100Hz, latent_dim=24)
+✅ Supertonic TTS initialized
+✅ Offline replay mode: live alert polling disabled
+✅ Query cache ready — 0 stored entries (/workspace/vast-ai-final-working-may-15/New-Code/query_cache.json)
+✅ Chat history ready — 26 sessions (/workspace/vast-ai-final-working-may-15/New-Code/chat_history.json)
+INFO:summary:Ollama Summarizer initialized with model: llama3.1:latest (VLM concurrency: 4, frame cap: 8)
+INFO:vision_orchestrator:Loading embedding model: nomic-ai/nomic-embed-text-v1.5
+INFO:sentence_transformers.base.model:No device provided, using cuda:0
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/modules.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config_sentence_transformers.json "HTTP/1.1 200 OK"
+INFO:sentence_transformers.base.model:Loading SentenceTransformer model from nomic-ai/nomic-embed-text-v1.5.
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config_sentence_transformers.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/README.md "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/modules.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/sentence_bert_config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/main/configuration_hf_nomic_bert.py "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-bert-2048/7710840340a098cfb869c4f65e87cf2b1b70caca/configuration_hf_nomic_bert.py "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/main/modeling_hf_nomic_bert.py "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-bert-2048/7710840340a098cfb869c4f65e87cf2b1b70caca/modeling_hf_nomic_bert.py "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/pytorch_model.bin "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+WARNING:transformers_modules.nomic_hyphen_ai.nomic_hyphen_bert_hyphen_2048.7710840340a098cfb869c4f65e87cf2b1b70caca.modeling_hf_nomic_bert:<All keys matched successfully>
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/tokenizer_config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/main/configuration_hf_nomic_bert.py "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-bert-2048/7710840340a098cfb869c4f65e87cf2b1b70caca/configuration_hf_nomic_bert.py "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/main/configuration_hf_nomic_bert.py "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-bert-2048/7710840340a098cfb869c4f65e87cf2b1b70caca/configuration_hf_nomic_bert.py "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/tokenizer_config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/nomic-ai/nomic-embed-text-v1.5/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/nomic-ai/nomic-embed-text-v1.5/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/nomic-ai/nomic-embed-text-v1.5 "HTTP/1.1 200 OK"
+✅ Vision orchestrator initialized
+INFO:client:✅ Query Generator initialized: llama3.1:latest
+INFO:summary:Ollama Summarizer initialized with model: llama3.1:latest (VLM concurrency: 4, frame cap: 8)
+INFO:client:✅ IntegratedVideoRAGClient ready (router=llama3.1:latest, summary=llama3.1:latest)
+INFO:client:Connecting to MCP server: http://localhost:8088/sse
+INFO:httpx:HTTP Request: GET http://localhost:8088/sse "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:8088/messages/?session_id=f4bed9357b5d4922960c422ceae86fd4 "HTTP/1.1 202 Accepted"
+INFO:httpx:HTTP Request: POST http://localhost:8088/messages/?session_id=f4bed9357b5d4922960c422ceae86fd4 "HTTP/1.1 202 Accepted"
+INFO:httpx:HTTP Request: POST http://localhost:8088/messages/?session_id=f4bed9357b5d4922960c422ceae86fd4 "HTTP/1.1 202 Accepted"
+
+============================================================
+✅ VIDEO RAG CLIENT CONNECTED
+============================================================
+Server  : http://localhost:8088/sse
+Tools   : ['search_detections', 'lookup_plate', 'get_entity_timeline', 'search_events', 'get_hotspots', 'count_objects', 'get_camera_geography', 'structured_data_status', 'search_activities', 'get_camera_baseline', 'get_evidence_frame', 'get_last_n_hours_summary', 'list_available_cameras', 'search_segments_by_activity']
+Model   : llama3.1:latest
+============================================================
+
+✅ RAG client initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on https://0.0.0.0:8085 (Press CTRL+C to quit)
+INFO:     127.0.0.1:38588 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     110.225.252.41:50590 - "POST /api/chat/stream HTTP/1.1" 200 OK
+INFO:__main__:📥 Query: have you seen any white bus at Rajkot Bus Port (session: demo@vmukti.com)
+INFO:__main__:[Cache] Checking cache...
+INFO:__main__:[Cache] Lookup finished in 0.000s
+INFO:__main__:🔍 STEP 2A: Contextualizing query...
+[INFO] No relative time reference - skipping rewrite: have you seen any white bus at Rajkot Bus Port
+INFO:__main__:✅ Contextualization finished in 0.001s
+INFO:__main__:🛠️ STEP 2B: Selecting tool...
+INFO:client:============================================================
+INFO:client:STEP 1 — LLM tool selection
+INFO:client:Query: have you seen any white bus at Rajkot Bus Port
+INFO:client:============================================================
+INFO:llm_backend:[llm_backend] client.tool_selection: sonnet (google/gemini-3.1-flash-lite)
+INFO:httpx:HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:llm_backend:[llm_backend] sonnet ok — 340 chars, in=8963 out=110
+INFO:client:LLM raw: {
+  "tool_call": {
+    "name": "search_segments_by_activity",
+    "parameters": {
+      "query": ["white bus", "white coach", "white transport"],
+      "date": "2026-06-13",
+      "camera_id": "Rajkot"
+    }
+  },
+  "reasoning": "Plain appearance search for a white bus at a specific location; using prose search as it covers all cameras."
+}
+INFO:client:✅ Tool: search_segments_by_activity
+INFO:client:   Params: {
+  "query": [
+    "white bus",
+    "white coach",
+    "white transport"
+  ],
+  "date": "2026-06-13",
+  "camera_id": "Rajkot"
+}
+INFO:client:   Reason: Plain appearance search for a white bus at a specific location; using prose search as it covers all cameras.
+INFO:__main__:✅ Tool selection finished in 3.035s
+INFO:__main__:🛠️ Tool identified: search_segments_by_activity | Params: {'query': ['white bus', 'white coach', 'white transport'], 'date': '2026-06-13', 'camera_id': 'Rajkot'}
+INFO:httpx:HTTP Request: POST http://localhost:8088/messages/?session_id=f4bed9357b5d4922960c422ceae86fd4 "HTTP/1.1 202 Accepted"
+WARNING:summary:⚠️  Context budget: 53 segments → 15 kept (~199,072 chars → ~60,000 limit): 7 highest-ranked + 8 spread across the rest.
+INFO:llm_backend:[llm_backend] summary.answer.stream: sonnet (google/gemini-3.1-flash-lite) streaming
+INFO:httpx:HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:summary:🎨 Using provided visual characteristics for verification: ['white bus', 'white coach', 'white transport']
+INFO:summary:📸 VERIFY=false — returning 24 of 45 frame(s) from the matching segments, no VLM check
+INFO:summary:21 further frame(s) matched but were not shown (MAX_UNVERIFIED_FRAMES=24)
+INFO:     110.225.252.41:45100 - "OPTIONS /api/chat/stream HTTP/1.1" 200 OK
+INFO:     110.225.252.41:45100 - "POST /api/chat/stream HTTP/1.1" 200 OK
+INFO:__main__:📥 Query: have you seen any GSRTC bus anywhere? (session: demo@vmukti.com)
+INFO:__main__:[Cache] Checking cache...
+INFO:__main__:[Cache] Lookup finished in 0.000s
+INFO:__main__:🔍 STEP 2A: Contextualizing query...
+[INFO] No relative time reference - skipping rewrite: have you seen any GSRTC bus anywhere?
+INFO:__main__:✅ Contextualization finished in 0.001s
+INFO:__main__:🛠️ STEP 2B: Selecting tool...
+INFO:client:============================================================
+INFO:client:STEP 1 — LLM tool selection
+INFO:client:Query: have you seen any GSRTC bus anywhere?
+INFO:client:============================================================
+INFO:llm_backend:[llm_backend] client.tool_selection: sonnet (google/gemini-3.1-flash-lite)
+INFO:httpx:HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:llm_backend:[llm_backend] sonnet ok — 307 chars, in=8961 out=102
+INFO:client:LLM raw: {
+  "tool_call": {
+    "name": "search_segments_by_activity",
+    "parameters": {
+      "query": ["gsrtc bus", "bus", "transport", "vehicle"],
+      "date": "2026-06-13"
+    }
+  },
+  "reasoning": "User is asking about the appearance of a specific type of bus; using prose search as it covers all cameras."
+}
+INFO:client:✅ Tool: search_segments_by_activity
+INFO:client:   Params: {
+  "query": [
+    "gsrtc bus",
+    "bus",
+    "transport",
+    "vehicle"
+  ],
+  "date": "2026-06-13"
+}
+INFO:client:   Reason: User is asking about the appearance of a specific type of bus; using prose search as it covers all cameras.
+INFO:__main__:✅ Tool selection finished in 1.981s
+INFO:__main__:🛠️ Tool identified: search_segments_by_activity | Params: {'query': ['gsrtc bus', 'bus', 'transport', 'vehicle'], 'date': '2026-06-13'}
+INFO:httpx:HTTP Request: POST http://localhost:8088/messages/?session_id=f4bed9357b5d4922960c422ceae86fd4 "HTTP/1.1 202 Accepted"
+WARNING:summary:⚠️  Context budget: 100 segments → 16 kept (~355,465 chars → ~60,000 limit): 8 highest-ranked + 8 spread across the rest.
+INFO:llm_backend:[llm_backend] summary.answer.stream: sonnet (google/gemini-3.1-flash-lite) streaming
+INFO:httpx:HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:summary:🎨 Using provided visual characteristics for verification: ['gsrtc bus', 'bus', 'transport', 'vehicle']
+INFO:summary:📸 VERIFY=false — returning 24 of 48 frame(s) from the matching segments, no VLM check
+INFO:summary:24 further frame(s) matched but were not shown (MAX_UNVERIFIED_FRAMES=24)

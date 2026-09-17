@@ -1,0 +1,85 @@
+2026-09-03 07:06:28,172 - MainProcess - INFO - ==============================================================================
+2026-09-03 07:06:28,173 - MainProcess - INFO - 🎥 POLICE CCTV PROSE TIER — one VLM description per 60s segment
+2026-09-03 07:06:28,173 - MainProcess - INFO - ==============================================================================
+2026-09-03 07:06:28,328 - MainProcess - INFO - ✅ OpenRouter reachable, 'z-ai/glm-5.3-flash' accepts ['text', 'image', 'video']
+2026-09-03 07:06:28,328 - MainProcess - WARNING - VLM_BACKEND=openrouter - FRAMES are uploaded to a third party, not just the prose about them.
+2026-09-03 07:06:28,330 - MainProcess - WARNING - Skipping cam15_stream-15.mp4: file not found at videos-hackathon/cam15_stream-15.mp4
+2026-09-03 07:06:28,330 - MainProcess - WARNING - Skipping cam16_stream-16.mp4: file not found at videos-hackathon/cam16_stream-16.mp4
+2026-09-03 07:06:28,331 - MainProcess - WARNING - Skipping cam14_stream-14.mp4: file not found at videos-hackathon/cam14_stream-14.mp4
+2026-09-03 07:06:28,331 - MainProcess - WARNING - No metadata row for cam30_stream-30.mp4; adding it as location 'cam30 stream 30'
+2026-09-03 07:06:28,331 - MainProcess - WARNING - No metadata row for cam31_stream-31.mp4; adding it as location 'cam31 stream 31'
+2026-09-03 07:06:28,331 - MainProcess - INFO - Restricted to 7 video(s): cam01_01_Chiman_bhai_Bridge, cam02_02_Janpath, cam03_03_O.N.G.C._Office, cam13_stream-13, cam25_33_dehgam, cam27_35_TANKAL, cam31_stream-31
+2026-09-03 07:06:28,331 - MainProcess - INFO - 📌 Anchors: 12/15 videos have a known start time (video_anchors.json)
+2026-09-03 07:06:28,331 - MainProcess - INFO - 🔧 UniversalModelManager initialized
+2026-09-03 07:06:28,331 - MainProcess - INFO - 🔥 Loading SentenceTransformer ONCE...
+2026-09-03 07:06:28,353 - MainProcess - INFO - No device provided, using cuda:0
+2026-09-03 07:06:28,802 - MainProcess - INFO - Loading SentenceTransformer model from nomic-ai/nomic-embed-text-v1.5.
+2026-09-03 07:06:32,521 - MainProcess - WARNING - <All keys matched successfully>
+2026-09-03 07:06:35,549 - MainProcess - INFO - ✅ SentenceTransformer loaded (SHARED across all cameras)
+2026-09-03 07:06:37,788 - MainProcess - INFO - ✓ MongoDB connection successful
+2026-09-03 07:06:37,791 - MainProcess - INFO - Processing 7 video(s), up to 7 concurrently
+2026-09-03 07:06:37,792 - MainProcess - INFO - [cam01_01_Chiman_bhai_Bridge] Starting seek-based pass (location: Chiman bhai Bridge)
+2026-09-03 07:06:37,793 - MainProcess - INFO - [cam02_02_Janpath] Starting seek-based pass (location: Janpath)
+2026-09-03 07:06:37,793 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,793 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,793 - MainProcess - INFO - [cam03_03_O.N.G.C._Office] Starting seek-based pass (location: O.N.G.C. Office)
+2026-09-03 07:06:37,794 - MainProcess - INFO - [cam13_stream-13] Starting seek-based pass (location: CN Vidhyalaya P2 RLVD-2027)
+2026-09-03 07:06:37,795 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,795 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,795 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,795 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,796 - MainProcess - INFO - [cam25_33_dehgam] Starting seek-based pass (location: Dehgam)
+2026-09-03 07:06:37,796 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,796 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,797 - MainProcess - INFO - [cam27_35_TANKAL] Starting seek-based pass (location: Tankal)
+2026-09-03 07:06:37,797 - MainProcess - INFO - [cam31_stream-31] Starting seek-based pass (location: cam31 stream 31)
+2026-09-03 07:06:37,798 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,798 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,799 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,799 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,799 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-03 07:06:37,799 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-03 07:06:37,855 - MainProcess - WARNING - [cam27_35_TANKAL.mp4] marked NON-CONTIGUOUS: the overlay clock does not track the file offset, so no single anchor is valid. Falling back to per-segment overlay OCR, which is slower but is the only correct option here.
+2026-09-03 07:06:38,050 - MainProcess - INFO - [cam27_35_TANKAL] 2560x1440 @ 13.35fps | 1.00h | 60 segments | per-segment overlay OCR (non_contiguous)
+2026-09-03 07:06:38,050 - MainProcess - INFO - [cam27_35_TANKAL] 60 segment(s) to process
+2026-09-03 07:06:38,051 - MainProcess - INFO - [cam27_35_TANKAL] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:38,243 - MainProcess - INFO - [cam25_33_dehgam] Resuming - 1 segment(s) already stored, will be skipped
+2026-09-03 07:06:38,243 - MainProcess - INFO - [cam25_33_dehgam] 960x576 @ 12.00fps | 10.69h | 641 segments | anchor 2026-08-08T04:19:58 (ocr_runtime)
+2026-09-03 07:06:38,243 - MainProcess - INFO - [cam25_33_dehgam] 640 segment(s) to process
+2026-09-03 07:06:38,243 - MainProcess - INFO - [cam25_33_dehgam] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:38,631 - MainProcess - INFO - [cam03_03_O.N.G.C._Office] Resuming - 143 segment(s) already stored, will be skipped
+2026-09-03 07:06:38,631 - MainProcess - INFO - [cam03_03_O.N.G.C._Office] 1280x720 @ 24.15fps | 12.00h | 719 segments | anchor 2026-06-13T21:00:07 (ocr_runtime)
+2026-09-03 07:06:38,632 - MainProcess - INFO - [cam03_03_O.N.G.C._Office] 576 segment(s) to process
+2026-09-03 07:06:38,632 - MainProcess - INFO - [cam03_03_O.N.G.C._Office] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:38,739 - MainProcess - INFO - 🚀 GPU decode (NVDEC) available
+2026-09-03 07:06:38,824 - MainProcess - INFO - [cam31_stream-31] 1920x1080 @ 2.49fps | 12.00h | 719 segments | anchor 2026-08-08T21:00:22 (ocr_runtime)
+2026-09-03 07:06:38,824 - MainProcess - INFO - [cam31_stream-31] 719 segment(s) to process
+2026-09-03 07:06:38,824 - MainProcess - INFO - [cam31_stream-31] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:39,027 - MainProcess - INFO - [cam13_stream-13] Resuming - 93 segment(s) already stored, will be skipped
+2026-09-03 07:06:39,027 - MainProcess - INFO - [cam13_stream-13] 1920x1080 @ 12.50fps | 12.00h | 720 segments | anchor 2026-06-13T20:58:58 (ocr_runtime)
+2026-09-03 07:06:39,027 - MainProcess - INFO - [cam13_stream-13] 627 segment(s) to process
+2026-09-03 07:06:39,027 - MainProcess - INFO - [cam13_stream-13] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:39,211 - MainProcess - INFO - [cam02_02_Janpath] Resuming - 154 segment(s) already stored, will be skipped
+2026-09-03 07:06:39,211 - MainProcess - INFO - [cam02_02_Janpath] 1920x1080 @ 29.95fps | 12.00h | 720 segments | anchor 2026-06-13T20:59:57 (ocr_runtime)
+2026-09-03 07:06:39,212 - MainProcess - INFO - [cam02_02_Janpath] 566 segment(s) to process
+2026-09-03 07:06:39,212 - MainProcess - INFO - [cam02_02_Janpath] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:39,319 - MainProcess - INFO - [cam01_01_Chiman_bhai_Bridge] Resuming - 136 segment(s) already stored, will be skipped
+2026-09-03 07:06:39,319 - MainProcess - INFO - [cam01_01_Chiman_bhai_Bridge] 1920x1080 @ 14.99fps | 12.00h | 720 segments | anchor 2026-06-13T20:59:59 (ocr_runtime)
+2026-09-03 07:06:39,319 - MainProcess - INFO - [cam01_01_Chiman_bhai_Bridge] 584 segment(s) to process
+2026-09-03 07:06:39,319 - MainProcess - INFO - [cam01_01_Chiman_bhai_Bridge] 3 segments in flight at once (SEGMENT_WORKERS=3)
+2026-09-03 07:06:58,363 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (12 frames, max_tokens=2600)
+
+================================================================================
+🤖 [cam25_33_dehgam] SEGMENT VLM - #3 - 2026-08-08 04:22:58
+================================================================================
+Recorded 08-08-2026 (Saturday) 04:22:58 to 04:23:28 at Dehgam, camera cam25_33_dehgam. No activity detected at Dehgam on 08-08-2026 04:22:58. The scene is static across the sampled frames: no people, vehicles or moving objects. Camera view unchanged.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s][transformers] Detected the usage of `get_extended_attention_mask`: This function is deprecated and will be removed in v5.12.0. Please use the new API in `transformers.masking_utils`
+Batches: 100%|██████████| 1/1 [00:01<00:00,  1.27s/it]Batches: 100%|██████████| 1/1 [00:01<00:00,  1.27s/it]
+2026-09-03 07:07:00,420 - MainProcess - INFO - ✅ Segment #3 stored in MongoDB
+✅ Segment #3 from Camera cam25_33_dehgam stored in MongoDB
+2026-09-03 07:07:00,423 - MainProcess - INFO - [cam25_33_dehgam] ✅ Segment #3 complete
+2026-09-03 07:07:00,424 - MainProcess - INFO - [cam25_33_dehgam] #3    1/640 (  0.2%) | seg  22.18s = seek 19.09 (12f, 1.59s/frame) + vlm   0.00 + azure  1.56 + embed  1.47 | avg  22.18s | elapsed 0:00:22 | ETA 3:56:13
+2026-09-03 07:07:16,658 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (1 frames, max_tokens=40)
+2026-09-03 07:07:16,991 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (1 frames, max_tokens=40)

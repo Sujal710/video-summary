@@ -1,0 +1,425 @@
+2026-09-02 10:30:16,483 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:30:16,483 - MainProcess - INFO - 🎥 POLICE CCTV PROSE TIER — one VLM description per 60s segment
+2026-09-02 10:30:16,483 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:30:16,649 - MainProcess - INFO - ✅ OpenRouter reachable, 'z-ai/glm-5.3-flash' accepts ['text', 'image', 'video']
+2026-09-02 10:30:16,649 - MainProcess - WARNING - VLM_BACKEND=openrouter - FRAMES are uploaded to a third party, not just the prose about them.
+2026-09-02 10:30:16,652 - MainProcess - WARNING - Skipping cam01_01_Chiman_bhai_Bridge.mp4: file not found at videos-hackathon/cam01_01_Chiman_bhai_Bridge.mp4
+2026-09-02 10:30:16,652 - MainProcess - WARNING - Skipping cam02_02_Janpath.mp4: file not found at videos-hackathon/cam02_02_Janpath.mp4
+2026-09-02 10:30:16,652 - MainProcess - WARNING - Skipping cam03_03_O.N.G.C._Office.mp4: file not found at videos-hackathon/cam03_03_O.N.G.C._Office.mp4
+2026-09-02 10:30:16,652 - MainProcess - WARNING - Skipping cam25_33_dehgam.mp4: file not found at videos-hackathon/cam25_33_dehgam.mp4
+2026-09-02 10:30:16,653 - MainProcess - WARNING - Skipping cam27_35_TANKAL.mp4: file not found at videos-hackathon/cam27_35_TANKAL.mp4
+2026-09-02 10:30:16,653 - MainProcess - WARNING - No metadata row for cam10.mp4; adding it as location 'cam10'
+2026-09-02 10:30:16,653 - MainProcess - WARNING - No metadata row for cam28_stream-28.mp4; adding it as location 'cam28 stream 28'
+2026-09-02 10:30:16,653 - MainProcess - WARNING - No metadata row for cam30_stream-30.mp4; adding it as location 'cam30 stream 30'
+2026-09-02 10:30:16,653 - MainProcess - INFO - Restricted to 5 video(s): cam13_stream-13, cam15_stream-15, cam17_17_Rajkot_Bus_Port_CCTV, cam14_stream-14, cam10
+2026-09-02 10:30:16,653 - MainProcess - INFO - Capping at 1 segment(s) per video
+2026-09-02 10:30:16,653 - MainProcess - INFO - 📌 Anchors: 9/12 videos have a known start time (video_anchors.json)
+2026-09-02 10:30:16,653 - MainProcess - WARNING - ⚠️  1 video(s) have no registry anchor and will fall back to runtime OCR then file mtime: cam17_17_Rajkot_Bus_Port_CCTV
+2026-09-02 10:30:16,653 - MainProcess - WARNING - ⚠️  Run 'python merge-final-many.py --probe-anchors' first, or set them manually in video_anchors.json, for correct time-range search.
+2026-09-02 10:30:16,653 - MainProcess - INFO - 🔧 UniversalModelManager initialized
+2026-09-02 10:30:16,653 - MainProcess - INFO - 🔥 Loading SentenceTransformer ONCE...
+2026-09-02 10:30:16,787 - MainProcess - INFO - No device provided, using cuda:0
+2026-09-02 10:30:17,415 - MainProcess - INFO - Loading SentenceTransformer model from nomic-ai/nomic-embed-text-v1.5.
+2026-09-02 10:30:21,910 - MainProcess - WARNING - <All keys matched successfully>
+2026-09-02 10:30:25,526 - MainProcess - INFO - ✅ SentenceTransformer loaded (SHARED across all cameras)
+2026-09-02 10:30:27,719 - MainProcess - INFO - ✓ MongoDB connection successful
+2026-09-02 10:30:27,722 - MainProcess - INFO - Processing 5 video(s), up to 5 concurrently
+2026-09-02 10:30:27,723 - MainProcess - INFO - [cam13_stream-13] Starting seek-based pass (location: CN Vidhyalaya P2 RLVD-2027)
+2026-09-02 10:30:27,723 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-02 10:30:27,723 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-02 10:30:27,724 - MainProcess - INFO - [cam15_stream-15] Starting seek-based pass (location: Suvidhapark)
+2026-09-02 10:30:27,724 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] Starting seek-based pass (location: Rajkot Bus Port)
+2026-09-02 10:30:27,725 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-02 10:30:27,725 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-02 10:30:27,725 - MainProcess - INFO - [cam14_stream-14] Starting seek-based pass (location: Unknown Location (cam14))
+2026-09-02 10:30:27,726 - MainProcess - INFO - [cam10] Starting seek-based pass (location: cam10)
+2026-09-02 10:30:27,726 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-02 10:30:27,727 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-02 10:30:27,727 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-02 10:30:27,727 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-02 10:30:27,727 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-02 10:30:27,727 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-02 10:30:27,859 - MainProcess - WARNING - [cam17_17_Rajkot_Bus_Port_CCTV.mp4] marked NON-CONTIGUOUS: the overlay clock does not track the file offset, so no single anchor is valid. Falling back to per-segment overlay OCR, which is slower but is the only correct option here.
+2026-09-02 10:30:28,029 - MainProcess - INFO - [cam10] 1920x1080 @ 14.95fps | 1.00h | 1 segments | anchor 2025-08-28T10:30:10 (ocr_verified)
+2026-09-02 10:30:28,029 - MainProcess - INFO - [cam10] 1 segment(s) to process
+2026-09-02 10:30:28,214 - MainProcess - INFO - [cam13_stream-13] Resuming - 64 segment(s) already stored, will be skipped
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] 1920x1080 @ 12.50fps | 12.00h | 1 segments | anchor 2026-06-13T20:58:57.800000 (ocr_verified)
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] 0 segment(s) to process
+2026-09-02 10:30:28,215 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] FINISHED  0 saved, 0 failed, 64 skipped
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] total wall time      0:00:00  (0.0s)
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] per segment (mean)     0.00s
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13]   frame seek x0.0      0.00s  ( 0.0%)  -> 0.00s per frame (0 frames, 1 per 5s of footage)
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13]   VLM description      0.00s  ( 0.0%)
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13]   azure upload x2      0.00s  ( 0.0%)
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13]   embed + store        0.00s  ( 0.0%)
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] footage:compute      1 min of video per 0.0s of compute
+2026-09-02 10:30:28,215 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:30:28,215 - MainProcess - INFO - [cam13_stream-13] generating video-level summary...
+2026-09-02 10:30:28,398 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] 1920x1080 @ 24.98fps | 11.98h | 1 segments | per-segment overlay OCR (non_contiguous)
+2026-09-02 10:30:28,398 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] 1 segment(s) to process
+2026-09-02 10:30:28,624 - MainProcess - INFO - 🚀 GPU decode (NVDEC) available
+2026-09-02 10:30:29,006 - MainProcess - INFO - [cam15_stream-15] 1920x1080 @ 12.50fps | 12.00h | 1 segments | anchor 2026-06-13T20:59:57.800000 (ocr_verified)
+2026-09-02 10:30:29,006 - MainProcess - INFO - [cam15_stream-15] 1 segment(s) to process
+2026-09-02 10:30:29,131 - MainProcess - INFO - [cam13_stream-13] summary: condensing minutes 0-38 (1/3)
+2026-09-02 10:30:29,131 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=28591 chars)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] Resuming - 621 segment(s) already stored, will be skipped
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] 1920x1080 @ 12.50fps | 12.00h | 1 segments | anchor 2026-06-13T20:59:20.800000 (ocr_verified)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] 0 segment(s) to process
+2026-09-02 10:30:29,371 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] FINISHED  0 saved, 0 failed, 621 skipped
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] total wall time      0:00:00  (0.0s)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] per segment (mean)     0.00s
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14]   frame seek x0.0      0.00s  ( 0.0%)  -> 0.00s per frame (0 frames, 1 per 5s of footage)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14]   VLM description      0.00s  ( 0.0%)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14]   azure upload x2      0.00s  ( 0.0%)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14]   embed + store        0.00s  ( 0.0%)
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] footage:compute      1 min of video per 0.0s of compute
+2026-09-02 10:30:29,371 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:30:29,371 - MainProcess - INFO - [cam14_stream-14] generating video-level summary...
+2026-09-02 10:30:30,675 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 0-24 (1/25)
+2026-09-02 10:30:30,675 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24500 chars)
+2026-09-02 10:30:41,096 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (12 frames, max_tokens=2600)
+2026-09-02 10:30:42,198 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (12 frames, max_tokens=2600)
+2026-09-02 10:30:45,536 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 16.4s | prompt_tok=7580 completion_tok=612 cost=$0.0007215 | 2158 chars returned
+2026-09-02 10:30:45,536 - MainProcess - INFO - [cam13_stream-13] summary: condensing minutes 40-76 (2/3)
+2026-09-02 10:30:45,536 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=29162 chars)
+2026-09-02 10:30:45,744 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 15.1s | prompt_tok=5806 completion_tok=322 cost=$0.0010319 | 1262 chars returned
+2026-09-02 10:30:45,745 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 25-49 (2/25)
+2026-09-02 10:30:45,745 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24183 chars)
+2026-09-02 10:30:49,397 - MainProcess - WARNING - [cam17_17_Rajkot_Bus_Port_CCTV] Segment #0: non-contiguous file and overlay OCR failed on both frames - this segment has NO reliable timestamp.
+2026-09-02 10:30:50,869 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (12 frames, max_tokens=2600)
+2026-09-02 10:30:52,443 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 6.9s | prompt_tok=7795 completion_tok=606 cost=$0.00147225 | 1876 chars returned
+2026-09-02 10:30:52,444 - MainProcess - INFO - [cam13_stream-13] summary: condensing minutes 77-92 (3/3)
+2026-09-02 10:30:52,444 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=16767 chars)
+2026-09-02 10:30:57,076 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 4.6s | prompt_tok=4357 completion_tok=358 cost=$0.00083255 | 1409 chars returned
+2026-09-02 10:30:57,076 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=6000, prompt=7859 chars)
+2026-09-02 10:31:04,939 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 22.7s | prompt_tok=15348 completion_tok=1552 cost=$0.0030782 | 4116 chars
+2026-09-02 10:31:04,940 - MainProcess - INFO - [VLM] Response received. Content len: 4116, Thinking len: 912
+
+================================================================================
+🤖 [cam10] SEGMENT VLM - #0 - 2025-08-28 10:30:10
+================================================================================
+Recorded 28-08-2025 (Thursday) 10:30:10 to 10:30:40 at cam10, camera cam10. 1. SCENE Cam10 ("Palwan Cross Road, CSITMS-22_PTZ2") overlooks a multi-lane urban crossroad from an elevated angle, looking down the approach lanes toward a zebra crossing at the top of frame. Daylight, overcast, dry road. Traffic flows toward the camera (bottom of frame) in several lanes, with a queue of stationary vehicles across the bottom edge throughout. 2. TRAFFIC AND PEOPLE Steady mixed traffic throughout: roughly 25-30 cars (white, silver, grey, black, one maroon), a white SML ambulance-type van with red/blue light bar (0s), numerous motorcycles and scooters (approx. 20 riders, mixed helmet use), 3-4 cyclists, and pedestrians. Pedestrians include a man in dark clothing standing in the carriageway near the crossing (0s), a woman in a purple headscarf on a black scooter (0s), a man with a backpack crossing the road between lanes around 30s, a woman with a child and a small child in red walking along the nearside lane edge around 45-50s, and a cyclist in a blue shirt riding down the right side around 55s. 3. VEHICLES IDENTIFIED CONFIRMED: - SML ambulance/van, white with red stripe and light bar, facing camera, stationary/slow, 0s - Honda sedan, maroon/dark red, plate GJ01MR3192, toward camera, 15s - Volkswagen Taigun-class VW SUV, white, plate GJ01WP4961, toward camera, 15-20s - Toyota Innova Crysta, grey, toward camera, 35s - Toyota SUV (Hyryder class), silver, plate GJ01MH5951, toward camera, 55s - Toyota Fortuner-class large SUV, grey, plate GJ33BQ7811, toward camera, 55s - Maruti SUV, dark grey, plate GJ01UH9572, toward camera, 30s - Maruti SUV, white, plate GJ27EA8879, toward camera, 0s PROBABLE (unconfirmed): - White Maruti WagonR-class hatchback, toward camera, 0s (badge visible but angle/motion blur prevents full certainty of variant) - White Tata Nexon-class compact SUV, toward camera, 0s (green plate, distance) - Black Hyundai Creta-class SUV, toward camera, 15-20s (badge partially visible, motion blur) - Dark Maruti Ertiga/Brezza-class SUV, toward camera, 25-30s (front-on angle, plate partially legible) - Grey Maruti Fronx-class SUV, plate possibly GJ01MW1650, toward camera, 35s (small plate text) - White MPV stationary at right edge throughout (rear/side only, no plate readable) 4. REGISTRATIONS READ (Single automatic reads, not verified against any registry.) - GJ27EA8879 white Maruti SUV, 0s - GJ01MR3192 maroon Honda sedan, 15s - GJ01WP4961 white VW SUV, 15-20s - GJ01UH9572 dark Maruti SUV, 30s - GJ01MW1650 grey Maruti SUV, 35s - GJ01MH5951 silver Toyota SUV, 55s - GJ33BQ7811 grey Toyota SUV, 55s 5. NOTABLE EVENTS - Around 30s, a man in a light shirt with a black backpack walks across the live carriageway between moving vehicles, passing directly in front of a dark Maruti SUV a near-miss situation. - Around 45-50s, a woman carrying a child and a small child in red walk along/into the nearside traffic lane between queued vehicles, not on a crossing. - Throughout, pedestrians and cyclists mix with moving traffic at the crossing area rather than using a designated phase. 6. CROWD AND CONGESTION A stationary queue of 4-6 vehicles (white and dark cars/SUVs) sits across the bottom of frame throughout the clip, suggesting a red signal downstream; no full blockage observed. 7. TRAFFIC VIOLATIONS - Pedestrians walking in live traffic lanes at ~30s and ~45-50s (as above). - Several riders appear helmetless, including a scooter rider in a white shirt at 20s and a motorcyclist in a white shirt at 35s (low resolution, probable). - No wrong-way driving, red-light jumping or three-on-a-motorcycle clearly observed. 8. PATTERN OF ACTIVITY Dominant flow is toward the camera in the mid lanes cars, scooters and motorcycles in roughly equal numbers, with cyclists using the right edge. The early frames contain larger/slower vehicles (ambulance van, hatchbacks) clearing the junction; by the later frames the ambulance has gone and flow is lighter and faster, dominated by two-wheelers and SUVs, with the nearside queue remaining static throughout. 9. QUIET PERIODS None observed traffic is moving in every sampled frame.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s][transformers] Detected the usage of `get_extended_attention_mask`: This function is deprecated and will be removed in v5.12.0. Please use the new API in `transformers.masking_utils`
+Batches: 100%|██████████| 1/1 [00:00<00:00,  3.96it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.96it/s]
+2026-09-02 10:31:06,082 - MainProcess - INFO - ✅ Segment #0 stored in MongoDB
+✅ Segment #0 from Camera cam10 stored in MongoDB
+2026-09-02 10:31:06,084 - MainProcess - INFO - [cam10] segment 0 looks alert-worthy - asking z-ai/glm-5.3-flash
+2026-09-02 10:31:06,084 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=2000, prompt=5275 chars)
+2026-09-02 10:31:10,029 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 3.9s | prompt_tok=1449 completion_tok=95 cost=$0.000132425 | 246 chars returned
+2026-09-02 10:31:10,030 - MainProcess - INFO - [cam10] segment 0 -> 2 alert(s)
+2026-09-02 10:31:10,030 - MainProcess - WARNING - [cam10] no VMS device id in camera_did_map.json - alert skipped: Pedestrian walking through live traffic lanes, near-miss with SUV at ~30s
+2026-09-02 10:31:10,030 - MainProcess - WARNING - [cam10] no VMS device id in camera_did_map.json - alert skipped: Woman with two small children walking in traffic lane off crossing at ~45-50s
+2026-09-02 10:31:10,031 - MainProcess - INFO - [cam10] ✅ Segment #0 complete
+2026-09-02 10:31:10,035 - MainProcess - INFO - [cam10] #0    1/1 (100.0%) | seg  42.01s = seek  9.50 (12f, 0.79s/frame) + vlm  23.25 + azure  1.77 + embed  0.64 | avg  42.01s | elapsed 0:00:42 | ETA 0:00:00
+2026-09-02 10:31:10,242 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10] FINISHED  1 saved, 0 failed, 0 skipped
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10] total wall time      0:00:42  (42.2s)
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10] per segment (mean)    42.21s
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10]   frame seek x12.0     9.50s  (22.5%)  -> 0.79s per frame (12 frames, 1 per 5s of footage)
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10]   VLM description     23.25s  (55.1%)
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10]   azure upload x2      1.77s  ( 4.2%)
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10]   embed + store        0.64s  ( 1.5%)
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10] footage:compute      1 min of video per 42.2s of compute
+2026-09-02 10:31:10,243 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:31:10,243 - MainProcess - INFO - [cam10] generating video-level summary...
+2026-09-02 10:31:10,427 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=6000, prompt=3554 chars)
+2026-09-02 10:31:12,480 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 26.7s | prompt_tok=5785 completion_tok=386 cost=$0.00106075 | 1341 chars returned
+2026-09-02 10:31:12,480 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 50-74 (3/25)
+2026-09-02 10:31:12,480 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24385 chars)
+2026-09-02 10:31:17,618 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 5.1s | prompt_tok=5797 completion_tok=413 cost=$0.00107605 | 1454 chars returned
+2026-09-02 10:31:17,618 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 75-99 (4/25)
+2026-09-02 10:31:17,618 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24452 chars)
+2026-09-02 10:31:23,087 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 5.5s | prompt_tok=5789 completion_tok=375 cost=$0.00077937 | 1341 chars returned
+2026-09-02 10:31:23,087 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 100-124 (5/25)
+2026-09-02 10:31:23,087 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24153 chars)
+2026-09-02 10:31:35,212 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 54.1s | prompt_tok=15352 completion_tok=930 cost=$0.0027678 | 3611 chars
+2026-09-02 10:31:35,212 - MainProcess - INFO - [VLM] Response received. Content len: 3611, Thinking len: 216
+
+================================================================================
+🤖 [cam15_stream-15] SEGMENT VLM - #0 - 2026-06-13 20:59:57
+================================================================================
+Recorded 13-06-2026 (Saturday) 20:59:57 to 21:00:27 at Suvidhapark, camera cam15_stream-15. 1. SCENE The camera overlooks a signalised road junction at Suvidhapark (camera label "Suvidhapark P3 RLVD" visible bottom right). It is night; the scene is lit by streetlights, vehicle headlamps and traffic signals, with noticeable glare and lens flare from the upper right. A zebra crossing and stop line occupy the foreground; an arrow-indicating traffic signal is visible on the right. 2. TRAFFIC AND PEOPLE - Two motorcycles/scooters with riders stopped at the stop line from the start of the clip (one rider in dark clothing, one in a white shirt) they remain stationary throughout, joined progressively by others. - By ~20s a queue of about five to six two-wheelers is waiting at the stop line, including a scooter with a rider in a light patterned shirt and a pillion, and a scooter with a rider wearing an orange/brown top. - Cross traffic passes continuously through the junction: multiple yellow-and-green auto-rickshaws (several, e.g. at 0s, 5s, 10s, 45 50s), numerous motorcycles and scooters, a white van (0s), a white MPV/hatchback (0 5s), a white compact SUV (8 11s), a dark SUV (11s), a dark red/maroon car (18 23s), a dark blue SUV (from ~18s, stationary at the right of frame to the end), a white car crossing left-to-right (~32 37s), and a cyclist pedalling across the junction (~27 32s). - A person on a bicycle waits at the right edge near the signal from ~23s onward; another figure stands at the right edge in several frames. 3. VEHICLES IDENTIFIED CONFIRMED None identified. PROBABLE (unconfirmed) - White van, van class (unconfirmed), 0s rear three-quarter view, night glare, no badge visible. - White MPV/hatchback, tall-boy hatchback class (unconfirmed), 0 5s rear view only, plate not legible. - White compact SUV, Creta/Seltos class (unconfirmed), 8 11s motion blur and headlight flare. - Dark SUV, mid-size SUV class (unconfirmed), 11s night, motion blur. - Dark red/maroon car, compact SUV class (unconfirmed), 18 23s rear angle, darkness. - Dark blue SUV, compact SUV class (unconfirmed), 18s to end stationary, rear view, plate area not legible in night frames. 4. REGISTRATIONS READ None legible. (Plates are visible on several stopped vehicles but are too small/blurred at night for a reliable read; any partial reads are single automatic reads, not verified against any registry.) 5. NOTABLE EVENTS None observed. All cross traffic moves normally through the junction; the two-wheelers at the stop line behave as expected at a red signal. 6. CROWD AND CONGESTION A queue of two-wheelers builds at the stop line from ~15s, reaching about six vehicles by ~30s, and remains stationary through the end of the clip awaiting the signal. No jam or blockage of the crossing observed. 7. TRAFFIC VIOLATIONS None observed. The waiting two-wheelers stop behind the stop line; the cyclist crosses during a gap in cross traffic. 8. PATTERN OF ACTIVITY This is a typical night-time signal cycle at a busy urban junction. The camera-facing approach is at red for the whole clip, so the dominant visible movement is cross traffic autos, motorcycles and cars flowing left-to-right and right-to-left through the junction in the early frames. As the clip progresses, cross traffic thins and the stopped queue of two-wheelers at the stop line grows and settles, with a dark blue SUV joining and holding position on the right. Late frames show mainly the waiting queue with occasional autos and a cyclist crossing. 9. QUIET PERIODS None observed there is always either cross traffic moving through the junction or the waiting queue with headlights/taillights active.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 21.56it/s]
+2026-09-02 10:31:36,136 - MainProcess - INFO - ✅ Segment #0 stored in MongoDB
+✅ Segment #0 from Camera cam15_stream-15 stored in MongoDB
+2026-09-02 10:31:36,137 - MainProcess - INFO - [cam15_stream-15] segment 0 looks alert-worthy - asking z-ai/glm-5.3-flash
+2026-09-02 10:31:36,137 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=2000, prompt=4965 chars)
+2026-09-02 10:31:37,559 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 1.4s | prompt_tok=1257 completion_tok=7 cost=$0.00019205 | 14 chars returned
+2026-09-02 10:31:37,560 - MainProcess - INFO - [cam15_stream-15] ✅ Segment #0 complete
+2026-09-02 10:31:37,563 - MainProcess - INFO - [cam15_stream-15] #0    1/1 (100.0%) | seg  68.56s = seek  9.16 (12f, 0.76s/frame) + vlm  54.62 + azure  1.84 + embed  0.42 | avg  68.56s | elapsed 0:01:08 | ETA 0:00:00
+2026-09-02 10:31:37,803 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:31:37,803 - MainProcess - INFO - [cam15_stream-15] FINISHED  1 saved, 0 failed, 0 skipped
+2026-09-02 10:31:37,803 - MainProcess - INFO - [cam15_stream-15] total wall time      0:01:08  (68.8s)
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15] per segment (mean)    68.80s
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15]   frame seek x12.0     9.16s  (13.3%)  -> 0.76s per frame (12 frames, 1 per 5s of footage)
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15]   VLM description     54.62s  (79.4%)
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15]   azure upload x2      1.84s  ( 2.7%)
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15]   embed + store        0.42s  ( 0.6%)
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15] footage:compute      1 min of video per 68.8s of compute
+2026-09-02 10:31:37,804 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:31:37,804 - MainProcess - INFO - [cam15_stream-15] generating video-level summary...
+2026-09-02 10:31:37,805 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 14.7s | prompt_tok=5791 completion_tok=518 cost=$0.000563825 | 1988 chars returned
+2026-09-02 10:31:37,806 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 125-149 (6/25)
+2026-09-02 10:31:37,806 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=25002 chars)
+2026-09-02 10:31:37,989 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=6000, prompt=3580 chars)
+2026-09-02 10:31:41,066 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 44.0s | prompt_tok=2096 completion_tok=2058 cost=$0.0006717 | 7379 chars returned
+2026-09-02 10:31:41,066 - MainProcess - INFO - [cam13_stream-13] summary alert pass skipped - ALERT_MODE=realtime, alerts were raised per segment
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 14.45it/s]
+2026-09-02 10:31:41,509 - MainProcess - INFO - [cam13_stream-13] ✅ video summary stored (7379 chars over 64 minutes)
+2026-09-02 10:31:41,509 - MainProcess - INFO - [cam13_stream-13] summary took 73.3s
+
+==============================================================================
+VIDEO SUMMARY — cam13_stream-13 (CN Vidhyalaya P2 RLVD-2027)
+==============================================================================
+**POLICE-STYLE CCTV SUMMARY — CN Vidhyalaya P2 RLVD-2027, camera cam13_stream-13 (cam13_stream-13.mp4)**
+
+**1. SCENE**
+The camera overlooks a busy urban intersection (RLVD — red-light violation detection site) outside CN Vidhyalaya. Footage spans 64 minutes (minutes 0–92, with coverage reported in three segments). The entire period is at night, with the road surface wet from recent rain for most of the coverage. Lighting is artificial (night-time street/camera illumination). Traffic lights are present and visible, cycling normally for almost the whole recording.
+
+**2. TRAFFIC AND PEOPLE**
+Traffic was continuous and heavy throughout. Observed overall:
+
+- **Cars:** White hatchbacks were the most recurring vehicle type (part 1: minutes 0, 4, 5, 7, 9, 10, 11, 13, 14, 17, 21, 23, 29, 30, 35, 38; part 2: minutes 40, 48, 53, 59, 62, 67, 68, 75, 76; part 3: recurring). White SUVs (part 1: minutes 17, 35, 38 and others; part 2: minutes 41, 43, 50, 56, 64, 75, 76). Silver SUVs (part 2: minutes 40, 46, 54, 61, 67). Black SUVs (part 2: minutes 43, 48, 51, 62, 69; part 3: minute 82). Black sedans (part 2: minutes 40, 43, 64, 76). Blue sedans (part 2: minutes 43, 59). Red cars/sedans (red sedan minute 1; part 2: minutes 46, 51, 53, 64, 67, 68; part 3: minutes 77, 87, 88). Silver sedans (part 2: minutes 43, 50, 56; part 3: silver sedans). Blue SUVs (minutes 2, 29). Red SUVs (minutes 5, 9, 23). A dark car (minute 75). White sedans (part 2: minutes 51, 53, 59, 62).
+- **Buses:** Orange/yellow-striped bus (minute 0), red-bodied/white-roof bus (minute 6), white bus (minutes 9, 92), blue bus with red trim (minutes 20, 24), red bus (minute 20), green bus (minute 29), pink/blue bus (minute 35), blue bus (minutes 42, 50, 75, 76), white "CAGLE" bus (minute 46), blue/white "HAYAT" bus (minute 47), yellow bus with purple decals (minute 61), white Mercedes-Benz bus (minute 67), blue double-decker "Rajdoot" bus (minute 68), yellow double-decker buses (minutes 69, 70), white SRTC bus (minute 78), large white bus with blue lights (minute 81), red "SAVAN" bus (minute 84), white bus with blue accents (minute 86), large white/red bus (minute 89), orange/brown bus (minute 90).
+- **Trucks:** Large covered truck (minute 1), green truck with blue cargo cover (minute 6), green truck (minute 9), yellow truck (minute 21), large dark truck with red markings (minute 38), concrete mixer truck (minute 19), orange truck (minute 53), brown truck with "MOTOR" text (minute 68), blue and white cargo trucks (minute 70), brown truck (minute 89).
+- **Vans:** White vans (minutes 2, 4, 10, 18, 20, 23, 29; also minute 87).
+- **Auto-rickshaws:** Yellow/green and other liveries (yellow, green/yellow, blue with yellow roof, green) present in nearly every minute.
+- **Two-wheelers:** Motorcycles and scooters constant throughout, many with helmeted riders, often clustered near crosswalks (minutes 10, 35, 40, 51, 69, 70), many carrying two riders.
+
+**People:** Motorcyclists in varied clothing; a yellow-shirted unhelmeted scooter rider (minute 40); a white-shirted rider (minutes 54, 62); a red-helmeted rider (minutes 62, 63); a female rider in white shirt with headscarf (minute 81); a male rider in orange shirt and blue jeans (minute 89). Pedestrians crossing left to right (minutes 10, 13, 14, 20, 36 — one in white clothing at 14), a stationary pedestrian near a crosswalk (minute 21), white-shirted and backpack-carrying walkers (minute 42), a blue-shirted pedestrian (minute 48), two pedestrians (minute 59), one in red (minute 54), one in blue/white shirt (minute 63), two walking side-by-side (minute 84), one on the left crosswalk at 38s (minute 91).
+
+**3. VEHICLES IDENTIFIED**
+
+CONFIRMED (make and model named in observations, not marked unconfirmed):
+- Toyota Innova — white — plate not read — left to right — minute 17
+- Hyundai Creta — silver — plate not read — left to right — minute 17
+- Mahindra Bolero — white — plate not read — left to right — minute 17
+- Tata Nexon — white — plate not read — left to right — minute 35
+- Tata Nexon — black — plate not read — direction not stated — minute 82
+- Mahindra Bolero — blue — plate not read — direction not stated — minute 82
+- Toyota Innova — white — plate not read — direction not stated — minute 88
+- Maruti Suzuki Swift — white — plate not read — direction not stated — minute 88
+- Mercedes-Benz bus — white with blue side accents — plate not read — direction not stated — minute 67
+
+(Note: "CAGLE", "HAYAT", "Rajdoot", "SAVAN" and "SRTC" are markings/liveries, not confirmed makes.)
+
+PROBABLE (unconfirmed): None identified — no vehicle in the observations is expressly marked "(unconfirmed)".
+
+**4. REGISTRATIONS READ**
+None legible. The observations state that no number plates were visible (part 1) and that all plates were illegible or only partially legible (part 2). No registration numbers are quoted anywhere in the footage.
+
+**5. NOTABLE EVENTS**
+- Minute 38: Alert — collision between a white SUV and a motorcycle at 25–30s, immediately following a near-miss between the same white SUV and the same motorcycle at 20–25s.
+- Minute 92: Alert — red-light violation: a silver SUV and a black SUV moved through a red traffic light between 0s and 3s.
+
+**6. CROWD AND CONGESTION**
+No jams or queues observed; traffic was continuous but flowing. Scooter rider groups clustered near crosswalks while waiting at minutes 10, 35, 40, 51, 69, and 70. Brief stops of vehicles at the crosswalk occurred but no parked or abandoned vehicles. Otherwise none observed.
+
+**7. TRAFFIC VIOLATIONS**
+- Minute 92: Red-light jumping — a silver SUV and a black SUV passed through on a red light, 0s–3s (flagged alert).
+- Minute 40: A yellow-shirted scooter rider observed riding unhelmeted.
+- Minute 38: Collision between a white SUV and a motorcycle (see Notable Events).
+No wrong-way driving or illegal parking observed.
+
+**8. PATTERN OF ACTIVITY**
+The scene is a high-volume, continuously active urban intersection at night on wet roads. Traffic flow was uninterrupted across all three segments, with white hatchbacks dominating passenger-car traffic in every segment, supported by a steady mix of sedans and SUVs in white, black, silver, red and blue. Buses were a recurring feature throughout — ordinary city buses early (minutes 0–35), a wider variety in part 2 (including double-deckers at minutes 68–70 and branded buses at 46–47), and again numerous liveried buses in part 3 (minutes 78–92). Trucks and vans appeared sporadically rather than constantly. Auto-rickshaws and two-wheelers were omnipresent and constitute the dominant background traffic, with two-wheelers repeatedly clustering at the crosswalks when lights were against them. Pedestrian crossings were sporadic and modest in number, never forming crowds. The scene was uniform in character from start to finish — the only departures from routine were the minute-38 collision and the minute-92 red-light violation at the very end of the footage. Traffic lights cycled normally except at the flagged violation.
+
+**9. QUIET PERIODS**
+There were no stretches of inactivity — traffic was continuous across all 64 minutes. The closest to "quiet" was part 2 (minutes 40–76), where the observations explicitly record routine flow with no alerts of any kind; similarly minutes 77–91 were uneventful apart from routine traffic. No minute is described as lacking traffic.
+==============================================================================
+
+2026-09-02 10:31:41,509 - MainProcess - INFO - [cam13_stream-13] Done: {'camera_id': 'cam13_stream-13', 'segments': 0, 'failed': 0, 'skipped': 64, 'wall_seconds': 0.0, 'mean_segment_seconds': 0.0, 'mean_seek_seconds': 0.0, 'mean_vlm_seconds': 0.0, 'mean_azure_seconds': 0.0, 'mean_embed_seconds': 0.0, 'frames_sampled': 0, 'summary_seconds': 73.3, 'anchor': '2026-06-13T20:58:57.800000', 'anchor_confidence': 'ocr_verified'}
+2026-09-02 10:31:47,464 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 37.0s | prompt_tok=852 completion_tok=658 cost=$0.0004568 | 2587 chars returned
+2026-09-02 10:31:47,464 - MainProcess - INFO - [cam10] summary alert pass skipped - ALERT_MODE=realtime, alerts were raised per segment
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 46.13it/s]
+2026-09-02 10:31:47,677 - MainProcess - INFO - [cam10] ✅ video summary stored (2587 chars over 1 minutes)
+2026-09-02 10:31:47,677 - MainProcess - INFO - [cam10] summary took 37.4s
+
+==============================================================================
+VIDEO SUMMARY — cam10 (cam10)
+==============================================================================
+**POLICE CCTV SUMMARY — CAM10 (Palwan Cross Road, CSITMS-22_PTZ2)**
+Footage: cam10.mp4, 28-08-2025 (Thursday), 10:30:10–10:30:40 (minute 0)
+
+**1. SCENE**
+Cam10 overlooks a multi-lane urban crossroad from an elevated angle, looking down the approach lanes toward a zebra crossing at the top of frame. Daylight, overcast, dry road. Traffic flows toward the camera (bottom of frame) in several lanes, with a queue of stationary vehicles across the bottom edge throughout.
+
+**2. TRAFFIC AND PEOPLE**
+Steady mixed traffic throughout: roughly 25–30 cars (white, silver, grey, black, one maroon), a white SML ambulance-type van with red/blue light bar (minute 0), approximately 20 motorcycles/scooters with mixed helmet use, 3–4 cyclists, and pedestrians. Pedestrians: a man in dark clothing standing in the carriageway near the crossing (minute 0); a woman in a purple headscarf on a black scooter (minute 0); a man with a backpack crossing the road between lanes (minute 0, around 30s); a woman with a child and a small child in red walking along the nearside lane edge (minute 0, around 45–50s); a cyclist in a blue shirt riding down the right side (minute 0, around 55s).
+
+**3. VEHICLES IDENTIFIED**
+CONFIRMED:
+- SML ambulance/van, white with red stripe and light bar, facing toward camera, minute 0.
+
+PROBABLE (unconfirmed): None stated.
+
+**4. REGISTRATIONS READ**
+None legible.
+
+**5. NOTABLE EVENTS**
+- Minute 0: a man in dark clothing standing in the carriageway near the crossing.
+- Minute 0 (around 30s): a man with a backpack crossing the road between traffic lanes.
+
+**6. CROWD AND CONGESTION**
+Minute 0: a queue of stationary vehicles across the bottom edge of frame throughout the clip.
+
+**7. TRAFFIC VIOLATIONS**
+- Minute 0: mixed helmet use among approximately 20 motorcycle/scooter riders, indicating some riders unhelmeted.
+- Minute 0: pedestrian(s) in the carriageway / crossing between lanes (see Notable Events).
+
+**8. PATTERN OF ACTIVITY**
+The single 30-second clip shows continuous, steady mixed traffic flowing toward the camera with no lulls; the dominant traffic is cars (25–30) supplemented by two-wheelers (~20) and a small number of cyclists. A stationary queue persists along the bottom edge for the full duration, suggesting a backed-up approach at the crossroad. Pedestrian activity is intermittent but present throughout, with several people on or near the carriageway. The white SML ambulance-type van with light bar is present at the start of the clip.
+
+**9. QUIET PERIODS**
+None observed — traffic and pedestrian activity are continuous across the whole clip.
+==============================================================================
+
+2026-09-02 10:31:47,678 - MainProcess - INFO - [cam10] Done: {'camera_id': 'cam10', 'segments': 1, 'failed': 0, 'skipped': 0, 'wall_seconds': 42.2, 'mean_segment_seconds': 42.21, 'mean_seek_seconds': 9.5, 'mean_vlm_seconds': 23.25, 'mean_azure_seconds': 1.77, 'mean_embed_seconds': 0.64, 'frames_sampled': 12, 'summary_seconds': 37.4, 'anchor': '2025-08-28T10:30:10', 'anchor_confidence': 'ocr_verified'}
+2026-09-02 10:31:50,937 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 12.9s | prompt_tok=862 completion_tok=556 cost=$0.00020365 | 2181 chars returned
+2026-09-02 10:31:50,937 - MainProcess - INFO - [cam15_stream-15] summary alert pass skipped - ALERT_MODE=realtime, alerts were raised per segment
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 54.91it/s]
+2026-09-02 10:31:51,146 - MainProcess - INFO - [cam15_stream-15] ✅ video summary stored (2181 chars over 1 minutes)
+2026-09-02 10:31:51,146 - MainProcess - INFO - [cam15_stream-15] summary took 13.3s
+
+==============================================================================
+VIDEO SUMMARY — cam15_stream-15 (Suvidhapark)
+==============================================================================
+**POLICE CCTV SUMMARY — cam15_stream-15, Suvidhapark**
+Footage: 13-06-2026 (Saturday), 20:59:57–21:00:27 (minute 0 only)
+
+**1. SCENE**
+The camera overlooks a signalised road junction at Suvidhapark (label "Suvidhapark P3 RLVD" visible bottom right). It is night; the scene is lit by streetlights, vehicle headlamps and traffic signals, with noticeable glare and lens flare from the upper right. A zebra crossing and stop line occupy the foreground; an arrow-indicating traffic signal is visible on the right.
+
+**2. TRAFFIC AND PEOPLE**
+Two motorcycles/scooters with riders stopped at the stop line from the start of the clip (one rider in dark clothing, one in a white shirt); they remained stationary throughout, joined progressively by others. By ~20s a queue of about five to six two-wheelers was waiting at the stop line, including a scooter with a rider in a light patterned shirt with a pillion, and a scooter with a rider wearing an orange/brown top. Cross traffic passed continuously through the junction: multiple yellow-and-green auto-rickshaws (several, e.g. at 0s, 5s, 10s, 45–50s), numerous motorcycles and scooters, a white van (0s), a white MPV/hatchback (0–5s), a white compact SUV (8–11s), and a dark SUV (11s).
+
+**3. VEHICLES IDENTIFIED**
+CONFIRMED:
+None identified.
+
+PROBABLE (unconfirmed):
+None stated.
+
+**4. REGISTRATIONS READ**
+None legible.
+
+**5. NOTABLE EVENTS**
+None observed.
+
+**6. CROWD AND CONGESTION**
+A queue of about five to six two-wheelers built up at the stop line by ~20s (minute 0), waiting at the red signal. No jam observed.
+
+**7. TRAFFIC VIOLATIONS**
+None observed.
+
+**8. PATTERN OF ACTIVITY**
+The single 30-second period shows steady night-time junction activity dominated by two-wheelers and auto-rickshaws. Cross traffic flowed continuously throughout while the observed direction was held at a red signal, with the two-wheeler queue growing progressively from two vehicles at the start to five or six by ~20s. Traffic was consistent with a busy Saturday evening junction; the clip ends before the signal changes.
+
+**9. QUIET PERIODS**
+No stretches of inactivity — traffic was continuous across the whole 30 seconds covered by the footage.
+==============================================================================
+
+2026-09-02 10:31:51,147 - MainProcess - INFO - [cam15_stream-15] Done: {'camera_id': 'cam15_stream-15', 'segments': 1, 'failed': 0, 'skipped': 0, 'wall_seconds': 68.8, 'mean_segment_seconds': 68.8, 'mean_seek_seconds': 9.16, 'mean_vlm_seconds': 54.62, 'mean_azure_seconds': 1.84, 'mean_embed_seconds': 0.42, 'frames_sampled': 12, 'summary_seconds': 13.3, 'anchor': '2026-06-13T20:59:57.800000', 'anchor_confidence': 'ocr_verified'}
+2026-09-02 10:31:56,379 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 18.6s | prompt_tok=5835 completion_tok=415 cost=$0.00108275 | 1529 chars returned
+2026-09-02 10:31:56,379 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 150-174 (7/25)
+2026-09-02 10:31:56,380 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=25567 chars)
+2026-09-02 10:32:04,564 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 8.2s | prompt_tok=6066 completion_tok=579 cost=$0.0011994 | 2186 chars returned
+2026-09-02 10:32:04,564 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 175-203 (8/25)
+2026-09-02 10:32:04,564 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=30222 chars)
+2026-09-02 10:32:16,039 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 85.2s | prompt_tok=15320 completion_tok=947 cost=$0.0027715 | 3858 chars
+2026-09-02 10:32:16,039 - MainProcess - INFO - [VLM] Response received. Content len: 3858, Thinking len: 0
+
+================================================================================
+🤖 [cam17_17_Rajkot_Bus_Port_CCTV] SEGMENT VLM - #0 - 2026-09-02 10:30:49
+================================================================================
+Recording date and time not established for this segment (minute 0 of cam17_17_Rajkot_Bus_Port_CCTV.mp4), camera cam17_17_Rajkot_Bus_Port_CCTV, Rajkot Bus Port. 1. SCENE The camera overlooks a covered pavement/forecourt at Rajkot Bus Port, adjacent to a road junction. Visible signage includes 'HOTEL JK' (2nd Floor, AC/Non-AC rooms, rooms from 799/-), a 'BUS EXIT ONLY' sign, a 'COTTON' textile shop advertisement with phone number 87339 29701 / 702, and Gujarati-language boards. Parked two-wheelers fill the foreground; a raised planter with shrubs separates the pavement from the road. Daylight, overcast/morning conditions; shops on the right remain shuttered. Camera label '1 CENTER'. 2. TRAFFIC AND PEOPLE - One male, dark clothing with a light/white patterned jacket or bag, crouched/squatting at the base of the planter near the 'BUS EXIT ONLY' sign for the entire clip (0s to end), apparently handling something on the ground. He does not leave. - One male pedestrian in a white shirt and dark trousers enters from the road at upper left around 10s, walks down-left across the frame past the green auto-rickshaw, and exits bottom-left around 30s. - Road traffic (left side of frame): a blue/white city bus moving right-to-left at 0-5s; a white hatchback car moving toward camera around 10-15s; a white/blue GSRTC bus passing right-to-left around 40-45s; a blue/white bus again around 45-50s; multiple green-and-yellow auto-rickshaws (at least 4-5 distinct) and several motorcycles/scooters moving in both directions throughout; a white bus visible in the distance around 45-50s. - Parked: approximately 8-10 two-wheelers (scooters and motorcycles, mostly white, black, grey) in the foreground, static throughout; one green/yellow auto-rickshaw parked at left edge, static throughout. 3. VEHICLES IDENTIFIED CONFIRMED: - GSRTC bus (state transport, 'GSRTC' legible on side), white with blue livery, travelling right-to-left on the road, seen around 40-45s. PROBABLE: - White compact hatchback, Alto/WagonR class (unconfirmed), moving toward camera on the road, ~10-15s distance and angle prevent confirmation. - Blue/white city service bus (unconfirmed), right-to-left, 0-5s and again 45-50s rear/side angle, livery only. - Multiple green-and-yellow auto-rickshaws (unconfirmed as to any particular vehicle), throughout. 4. REGISTRATIONS READ None legible. (No registration plate in the clip is readable at this resolution/angle; any numbers noted would be single automatic reads, not verified against any registry.) 5. NOTABLE EVENTS - A person remains crouched at the planter base beside the 'BUS EXIT ONLY' sign for the full 55 seconds, apparently occupied with an object at ground level. Given the location (bus exit) and his stillness, this is flagged as loitering/suspicious contact with an object for review 0s through end of clip. - A pair of shoes/slippers lies unattended on the pavement near the shutter, centre-right, throughout the clip (0s to end). Possibly discarded property; flagged as unattended items. 6. CROWD AND CONGESTION None observed. Road traffic flows freely; no queues or pedestrian build-ups. 7. TRAFFIC VIOLATIONS None observed. 8. PATTERN OF ACTIVITY The dominant activity is steady road traffic on the left buses, auto-rickshaws and motorcycles passing in both directions, with buses appearing in clusters early and again around 40-50s. The pavement itself is quiet: the only pedestrian movement is one man crossing left-to-bottom around 10-30s, while the crouching figure remains fixed in place the whole time. Between early and late frames the scene changes only in passing traffic; the parked two-wheelers, the shuttered shops and the crouching person are constant. The clip reads as an early-morning period before shops open, with bus-port traffic already active. 9. QUIET PERIODS None observed on the road; however, the pavement area (right two-thirds of frame) is static throughout, with no movement other than the single pedestrian crossing around 10-30s.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 19.71it/s]
+2026-09-02 10:32:16,965 - MainProcess - INFO - ✅ Segment #0 stored in MongoDB
+✅ Segment #0 from Camera cam17_17_Rajkot_Bus_Port_CCTV stored in MongoDB
+2026-09-02 10:32:16,965 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] segment 0 looks alert-worthy - asking z-ai/glm-5.3-flash
+2026-09-02 10:32:16,966 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=2000, prompt=5309 chars)
+2026-09-02 10:32:20,197 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 3.2s | prompt_tok=1343 completion_tok=66 cost=$0.00023445 | 259 chars returned
+2026-09-02 10:32:20,198 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] segment 0 -> 2 alert(s)
+2026-09-02 10:32:20,198 - MainProcess - WARNING - [cam17_17_Rajkot_Bus_Port_CCTV] no VMS device id in camera_did_map.json - alert skipped: Male crouched at planter base by BUS EXIT sign for full clip, handling object on ground
+2026-09-02 10:32:20,198 - MainProcess - WARNING - [cam17_17_Rajkot_Bus_Port_CCTV] no VMS device id in camera_did_map.json - alert skipped: Pair of shoes/slippers unattended on pavement near shutter throughout clip
+2026-09-02 10:32:20,199 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] ✅ Segment #0 complete
+2026-09-02 10:32:20,201 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] #0    1/1 (100.0%) | seg 111.80s = seek  9.54 (12f, 0.80s/frame) + vlm  85.68 + azure  1.32 + embed  0.42 | avg 111.80s | elapsed 0:01:51 | ETA 0:00:00
+2026-09-02 10:32:20,478 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] FINISHED  1 saved, 0 failed, 0 skipped
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] total wall time      0:01:52  (112.1s)
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] per segment (mean)   112.08s
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV]   frame seek x12.0     9.54s  ( 8.5%)  -> 0.80s per frame (12 frames, 1 per 5s of footage)
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV]   VLM description     85.68s  (76.4%)
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV]   azure upload x2      1.32s  ( 1.2%)
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV]   embed + store        0.42s  ( 0.4%)
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] footage:compute      1 min of video per 112.1s of compute
+2026-09-02 10:32:20,478 - MainProcess - INFO - ==============================================================================
+2026-09-02 10:32:20,478 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] generating video-level summary...
+2026-09-02 10:32:20,668 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=6000, prompt=3612 chars)
+2026-09-02 10:32:47,329 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 26.7s | prompt_tok=870 completion_tok=658 cost=$0.00022975 | 2648 chars returned
+2026-09-02 10:32:47,329 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] summary alert pass skipped - ALERT_MODE=realtime, alerts were raised per segment
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 29.99it/s]
+2026-09-02 10:32:47,555 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] ✅ video summary stored (2648 chars over 1 minutes)
+2026-09-02 10:32:47,555 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] summary took 27.1s
+
+==============================================================================
+VIDEO SUMMARY — cam17_17_Rajkot_Bus_Port_CCTV (Rajkot Bus Port)
+==============================================================================
+**POLICE CCTV SUMMARY — cam17_17_Rajkot_Bus_Port_CCTV, Rajkot Bus Port**
+Footage: cam17_17_Rajkot_Bus_Port_CCTV.mp4, 1 minute. Recording date/time not established for minute 0.
+
+**1. SCENE**
+The camera overlooks a covered pavement/forecourt at Rajkot Bus Port, adjacent to a road junction. Visible signage: 'HOTEL JK' (2nd Floor, AC/Non-AC rooms, rooms from 799/-), a 'BUS EXIT ONLY' sign, a 'COTTON' textile shop advertisement (phone 87339 29701 / 702), and Gujarati-language boards. Parked two-wheelers fill the foreground; a raised planter with shrubs separates the pavement from the road. Daylight, overcast/morning conditions; shops on the right remain shuttered. Camera label '1 CENTER'.
+
+**2. TRAFFIC AND PEOPLE**
+- One male, dark clothing with a light/white patterned jacket or bag, crouched/squatting at the base of the planter near the 'BUS EXIT ONLY' sign for the entire clip (0s to end), apparently handling something on the ground. He does not leave.
+- One male pedestrian, white shirt and dark trousers, entered from the road at upper left around 10s, walked down-left across the frame past the green auto-rickshaw, and exited bottom-left around 30s.
+- Road traffic on the left side of the frame included a blue vehicle (description truncated in source observations); a green auto-rickshaw was present near the pedestrian's path.
+- Total persons observed: 2.
+
+**3. VEHICLES IDENTIFIED**
+CONFIRMED: None identified.
+
+PROBABLE (unconfirmed): None noted in the observations.
+
+**4. REGISTRATIONS READ**
+None legible.
+
+**5. NOTABLE EVENTS**
+- Minute 0: A male in dark clothing with a light/white patterned jacket or bag remained crouched/squatting at the base of the planter near the 'BUS EXIT ONLY' sign for the entire clip, apparently handling something on the ground, without leaving. This stationary, low-level activity in one spot for the full duration may warrant review.
+
+**6. CROWD AND CONGESTION**
+None observed.
+
+**7. TRAFFIC VIOLATIONS**
+None observed.
+
+**8. PATTERN OF ACTIVITY**
+The scene was quiet throughout the single minute. Shops on the right remained shuttered, consistent with early/morning hours. The only movement was a single pedestrian crossing the pavement between roughly 10s and 30s; road traffic on the left was light. The dominant fixed element was the male crouched at the planter, present from start to finish. Parked two-wheelers in the foreground were static. No queues, build-ups, or recurring traffic patterns developed within this short window.
+
+**9. QUIET PERIODS**
+- Minute 0, approximately 0–10s and 30s–end: no pedestrian movement; only the stationary male at the planter and static parked vehicles.
+==============================================================================
+
+2026-09-02 10:32:47,556 - MainProcess - INFO - [cam17_17_Rajkot_Bus_Port_CCTV] Done: {'camera_id': 'cam17_17_Rajkot_Bus_Port_CCTV', 'segments': 1, 'failed': 0, 'skipped': 0, 'wall_seconds': 112.1, 'mean_segment_seconds': 112.08, 'mean_seek_seconds': 9.54, 'mean_vlm_seconds': 85.68, 'mean_azure_seconds': 1.32, 'mean_embed_seconds': 0.42, 'frames_sampled': 12, 'summary_seconds': 27.1, 'anchor': None, 'anchor_confidence': 'non_contiguous'}
+2026-09-02 10:32:50,045 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 45.5s | prompt_tok=7445 completion_tok=604 cost=$0.00141875 | 2251 chars returned
+2026-09-02 10:32:50,045 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 204-230 (9/25)
+2026-09-02 10:32:50,045 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=30942 chars)
+2026-09-02 10:32:54,640 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 4.6s | prompt_tok=7672 completion_tok=444 cost=$0.00137266272 | 1741 chars returned
+2026-09-02 10:32:54,640 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 231-255 (10/25)
+2026-09-02 10:32:54,640 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=30942 chars)
+2026-09-02 10:33:09,212 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 14.6s | prompt_tok=7706 completion_tok=572 cost=$0.00072095 | 1941 chars returned
+2026-09-02 10:33:09,213 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 256-280 (11/25)
+2026-09-02 10:33:09,213 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=30942 chars)
+2026-09-02 10:33:33,664 - MainProcess - WARNING - [AI!!] z-ai/glm-5.3-flash returned NO content (finish=length, completion_tok=700) - raise max_tokens; treating as no result
+2026-09-02 10:33:33,664 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 24.5s | prompt_tok=7768 completion_tok=700 cost=$0.0015152 | 0 chars returned
+2026-09-02 10:33:33,664 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 281-305 (12/25)
+2026-09-02 10:33:33,664 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=30942 chars)

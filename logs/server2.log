@@ -1,0 +1,146 @@
+INFO:structured_search:Registered 11 structured tools: search_detections, lookup_plate, get_entity_timeline, search_events, get_hotspots, count_objects, get_camera_geography, structured_data_status, search_activities, get_camera_baseline, get_evidence_frame
+INFO:__main__:============================================================
+INFO:__main__:INITIALIZING VIDEO DATABASE (MONGODB)
+INFO:__main__:============================================================
+INFO:__main__:✓ MongoDB connection successful in VideoDatabase
+INFO:__main__:[Cam-07_merged] Loaded 7 segments from MongoDB
+INFO:__main__:[Shivranjani_10AM_11AM] Loaded 10 segments from MongoDB
+INFO:__main__:[cam01_01_Chiman_bhai_Bridge] Loaded 663 segments from MongoDB
+INFO:__main__:[cam02_02_Janpath] Loaded 693 segments from MongoDB
+INFO:__main__:[cam03_03_O.N.G.C._Office] Loaded 686 segments from MongoDB
+INFO:__main__:[cam10] Loaded 60 segments from MongoDB
+INFO:__main__:[cam13_stream-13] Loaded 93 segments from MongoDB
+INFO:__main__:[cam14_stream-14] Loaded 720 segments from MongoDB
+INFO:__main__:[cam15_stream-15] Loaded 720 segments from MongoDB
+INFO:__main__:[cam16_stream-16] Loaded 720 segments from MongoDB
+INFO:__main__:[cam17_17_Rajkot_Bus_Port_CCTV] Loaded 718 segments from MongoDB
+INFO:__main__:[cam25_33_dehgam] Loaded 631 segments from MongoDB
+INFO:__main__:[cam27_35_TANKAL] Loaded 57 segments from MongoDB
+INFO:__main__:[cam31_stream-31] Loaded 643 segments from MongoDB
+INFO:__main__:[cam_pakwan] Loaded 35 segments from MongoDB
+INFO:__main__:Loaded 15 camera(s) from MongoDB
+INFO:__main__:Cameras found: ['Cam-07_merged', 'Shivranjani_10AM_11AM', 'cam01_01_Chiman_bhai_Bridge', 'cam02_02_Janpath', 'cam03_03_O.N.G.C._Office', 'cam10', 'cam13_stream-13', 'cam14_stream-14', 'cam15_stream-15', 'cam16_stream-16', 'cam17_17_Rajkot_Bus_Port_CCTV', 'cam25_33_dehgam', 'cam27_35_TANKAL', 'cam31_stream-31', 'cam_pakwan']
+INFO:__main__:  [Cam-07_merged] MongoDB Ready — 7 segments
+INFO:__main__:  [Shivranjani_10AM_11AM] MongoDB Ready — 10 segments
+INFO:__main__:  [cam01_01_Chiman_bhai_Bridge] MongoDB Ready — 663 segments
+INFO:__main__:  [cam02_02_Janpath] MongoDB Ready — 693 segments
+INFO:__main__:  [cam03_03_O.N.G.C._Office] MongoDB Ready — 686 segments
+INFO:__main__:  [cam10] MongoDB Ready — 60 segments
+INFO:__main__:  [cam13_stream-13] MongoDB Ready — 93 segments
+INFO:__main__:  [cam14_stream-14] MongoDB Ready — 720 segments
+INFO:__main__:  [cam15_stream-15] MongoDB Ready — 720 segments
+INFO:__main__:  [cam16_stream-16] MongoDB Ready — 720 segments
+INFO:__main__:  [cam17_17_Rajkot_Bus_Port_CCTV] MongoDB Ready — 718 segments
+INFO:__main__:  [cam25_33_dehgam] MongoDB Ready — 631 segments
+INFO:__main__:  [cam27_35_TANKAL] MongoDB Ready — 57 segments
+INFO:__main__:  [cam31_stream-31] MongoDB Ready — 643 segments
+INFO:__main__:  [cam_pakwan] MongoDB Ready — 35 segments
+INFO:__main__:============================================================
+
+============================================================
+MCP VIDEO RETRIEVAL SERVER
+============================================================
+DB path       : /workspace/vast-ai-final-working-may-15/New-Code/video_segments_db
+Cameras       : ['Cam-07_merged', 'Shivranjani_10AM_11AM', 'cam01_01_Chiman_bhai_Bridge', 'cam02_02_Janpath', 'cam03_03_O.N.G.C._Office', 'cam10', 'cam13_stream-13', 'cam14_stream-14', 'cam15_stream-15', 'cam16_stream-16', 'cam17_17_Rajkot_Bus_Port_CCTV', 'cam25_33_dehgam', 'cam27_35_TANKAL', 'cam31_stream-31', 'cam_pakwan']
+Embed model   : nomic-embed-text:v1.5
+Ollama URL    : http://localhost:11434
+FAISS top-k   : 50
+Score thresh  : 0.5
+
+Endpoints:
+  GET  /sse       — MCP SSE connection
+  POST /messages/ — MCP message handler
+  GET  /health    — health check
+
+Tools:
+  1. get_last_n_hours_summary
+     date, start_time, end_time, camera_id, k
+  2. list_available_cameras
+     no args — returns all camera IDs + stats
+  3. search_segments_by_activity
+     query, date, camera_id, start_time, end_time, max_results
+     → hybrid BM25 + semantic search, fused with RRF (always both)
+
+Structured tools (tracks / events / entities / alerts):
+  4. search_detections
+  5. lookup_plate
+  6. get_entity_timeline
+  7. search_events
+  8. get_hotspots
+  9. count_objects
+  10. get_camera_geography
+  11. structured_data_status
+  12. search_activities
+  13. get_camera_baseline
+  14. get_evidence_frame
+     → call structured_data_status first if a query returns nothing
+============================================================
+
+INFO:     Started server process [139088]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8088 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33744 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53320 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53334 - "POST /messages/?session_id=95df1cefc47049e7b910b12e2752c2bd HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:53334 - "POST /messages/?session_id=95df1cefc47049e7b910b12e2752c2bd HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:53334 - "POST /messages/?session_id=95df1cefc47049e7b910b12e2752c2bd HTTP/1.1" 202 Accepted
+INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
+INFO:     127.0.0.1:48190 - "POST /messages/?session_id=95df1cefc47049e7b910b12e2752c2bd HTTP/1.1" 202 Accepted
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:structured_search:structured_search: MongoDB connected (arcis)
+INFO:     127.0.0.1:48190 - "POST /messages/?session_id=95df1cefc47049e7b910b12e2752c2bd HTTP/1.1" 202 Accepted
+INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
+INFO:__main__:
+======================================================================
+INFO:__main__:Searching Video Database
+INFO:__main__:======================================================================
+INFO:__main__:Camera: cam16_stream-16
+INFO:__main__:Keywords: ['accident', 'crash', '2026-06-13']
+INFO:__main__:Date: 2026-06-13
+INFO:__main__:Max results: 100
+
+INFO:__main__:[Cam-07_merged] Loaded 7 segments from MongoDB
+INFO:__main__:[Shivranjani_10AM_11AM] Loaded 10 segments from MongoDB
+INFO:__main__:[cam01_01_Chiman_bhai_Bridge] Loaded 663 segments from MongoDB
+INFO:__main__:[cam02_02_Janpath] Loaded 693 segments from MongoDB
+INFO:__main__:[cam03_03_O.N.G.C._Office] Loaded 686 segments from MongoDB
+INFO:__main__:[cam10] Loaded 60 segments from MongoDB
+INFO:__main__:[cam13_stream-13] Loaded 93 segments from MongoDB
+INFO:__main__:[cam14_stream-14] Loaded 720 segments from MongoDB
+INFO:__main__:[cam15_stream-15] Loaded 720 segments from MongoDB
+INFO:__main__:[cam16_stream-16] Loaded 720 segments from MongoDB
+INFO:__main__:[cam17_17_Rajkot_Bus_Port_CCTV] Loaded 718 segments from MongoDB
+INFO:__main__:[cam25_33_dehgam] Loaded 631 segments from MongoDB
+INFO:__main__:[cam27_35_TANKAL] Loaded 57 segments from MongoDB
+INFO:__main__:[cam31_stream-31] Loaded 643 segments from MongoDB
+INFO:__main__:[cam_pakwan] Loaded 35 segments from MongoDB
+INFO:__main__:Loaded 15 camera(s) from MongoDB
+INFO:__main__:Loading query embedder: nomic-ai/nomic-embed-text-v1.5
+INFO:sentence_transformers.base.model:No device provided, using cuda:0
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/modules.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config_sentence_transformers.json "HTTP/1.1 200 OK"
+INFO:sentence_transformers.base.model:Loading SentenceTransformer model from nomic-ai/nomic-embed-text-v1.5.
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config_sentence_transformers.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/README.md "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/modules.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/sentence_bert_config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/main/configuration_hf_nomic_bert.py "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-bert-2048/7710840340a098cfb869c4f65e87cf2b1b70caca/configuration_hf_nomic_bert.py "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-embed-text-v1.5/e9b6763023c676ca8431644204f50c2b100d9aab/config.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/main/modeling_hf_nomic_bert.py "HTTP/1.1 307 Temporary Redirect"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/nomic-ai/nomic-bert-2048/7710840340a098cfb869c4f65e87cf2b1b70caca/modeling_hf_nomic_bert.py "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/pytorch_model.bin "HTTP/1.1 404 Not Found"
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/nomic-ai/nomic-embed-text-v1.5/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+
+libgomp: Thread creation failed: Resource temporarily unavailable

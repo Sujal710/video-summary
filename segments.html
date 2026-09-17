@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video DB Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #0e1117;
+            --bg-sidebar: #161b22;
+            --bg-card: #1e1e2e;
+            --border-color: #2d2d3f;
+            --text-main: #d9e0ee;
+            --text-secondary: #a6accd;
+            --accent-blue: #89b4fa;
+            --accent-red: #f38ba8;
+            --accent-green: #a6e3a1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        select, input {
+            background: #252538;
+            border: 1px solid var(--border-color);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            outline: none;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .main-container {
+            margin-left: 320px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ── METRICS ── */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 2.5rem;
+        }
+
+        .metric-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-val {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 2rem 0;
+        }
+
+        /* ── DELETE ACTION BAR ── */
+        .delete-bar {
+            background-color: #2a1520;
+            border: 1px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .delete-info .count { color: var(--accent-red); font-weight: 700; font-size: 1.1rem; }
+        .delete-info .hint { color: var(--text-secondary); font-size: 0.9rem; margin-left: 10px; }
+
+        .btn-action {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-delete { background: var(--accent-red); color: white; }
+        .btn-delete:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn-clear { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); margin-right: 12px; }
+        .btn-clear:hover { background: #313244; }
+
+        /* ── SEGMENT CARDS ── */
+        .segment-card-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .card-checkbox {
+            margin-top: 1.5rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent-red);
+        }
+
+        .segment-card {
+            flex: 1;
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+
+        .segment-card.selected {
+            border-color: var(--accent-red);
+            background-color: #2a1520;
+        }
+
+        .segment-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #313244;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+
+        .camera-label {
+            background: #313244;
+            color: var(--accent-red);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .segment-time {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .segment-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            white-space: pre-wrap;
+        }
+
+        .frame-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .frame-preview img {
+            width: 100%;
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .frame-preview img:hover { transform: scale(1.05); cursor: pointer; }
+
+        /* ── UTILS ── */
+        .btn-refresh {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+            margin-top: 1rem;
+        }
+        .btn-refresh:hover { background: #313244; color: white; }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 3rem;
+            flex-wrap: wrap;          /* six controls must not overflow a narrow window */
+        }
+
+        .pagination .page-label {
+            white-space: nowrap;
+        }
+
+        .page-jump {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            padding-left: 12px;
+            border-left: 1px solid var(--border, #e2e8f0);
+        }
+
+        .page-jump input {
+            width: 4.5rem;
+            padding: 6px 8px;
+            border: 1.5px solid var(--border, #e2e8f0);
+            border-radius: 6px;
+            background: var(--bg-input, #fff);
+            color: inherit;
+            font: inherit;
+            text-align: center;
+        }
+
+        .page-jump input:focus {
+            outline: none;
+            border-color: var(--border-focus, #748ffc);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🔍 Filters</h2>
+        
+        <div class="filter-group">
+            <label>Camera ID</label>
+            <select id="cameraFilter"><option value="All">All Cameras</option></select>
+        </div>
+
+        <div class="filter-group">
+            <label>Date</label>
+            <select id="dateFilter"><option value="All">All Dates</option></select>
+        </div>
+
+        <div class="filter-group">
+            <label>Search Description</label>
+            <input type="text" id="searchFilter" placeholder="e.g. mini truck, red car...">
+        </div>
+
+        <div class="divider" style="margin: 0.5rem 0;"></div>
+
+        <button class="btn-refresh" onclick="refreshData()">🔄 Refresh Data</button>
+        
+        <div id="sidebarStatus" style="font-size: 0.8rem; color: var(--text-secondary); margin-top: auto;">
+            Loading segments...
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <header>
+            <h1>📹 Video Surveillance Database</h1>
+        </header>
+
+        <div class="metrics-grid">
+            <div class="metric-box">
+                <div class="metric-label">Total Segments</div>
+                <div class="metric-val" id="statTotal">0</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Active Cameras</div>
+                <div class="metric-val" id="statCams">0</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Indexed Frames</div>
+                <div class="metric-val" id="statFrames">0</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="delete-bar" id="deleteBar">
+            <div class="delete-info">
+                <span class="count" id="selectedCount">0 segments selected</span>
+                <span class="hint">Click Delete Selected to permanently remove from MongoDB.</span>
+            </div>
+            <div>
+                <button class="btn-action btn-clear" onclick="clearSelection()">✕ Clear Selection</button>
+                <button class="btn-action btn-delete" onclick="handleDelete()">🗑️ Delete Selected</button>
+            </div>
+        </div>
+
+        <div id="contentList"></div>
+
+        <div class="pagination" id="paginationControls"></div>
+    </div>
+
+    <script>
+        // Only the current page is held in memory. Filtering and paging happen
+        // in MongoDB, so load time no longer grows with the size of the corpus.
+        let pageSegments = [];
+        let totalSegments = 0;
+        let selectedSegments = new Set(); // Stores "camera_id|segment_id"
+        let pageSize = 5;
+        let currentPage = 1;
+        let facetsLoaded = false;
+        let inFlight = null;
+
+        async function refreshData() {
+            const status = document.getElementById('sidebarStatus');
+            status.textContent = "Loading...";
+
+            const params = new URLSearchParams({
+                skip: (currentPage - 1) * pageSize,
+                limit: pageSize,
+                camera: document.getElementById('cameraFilter').value || 'All',
+                date: document.getElementById('dateFilter').value || 'All',
+                q: document.getElementById('searchFilter').value || ''
+            });
+            // Camera and date lists only need fetching once; they are a scan of
+            // the whole collection and would otherwise repeat on every page turn.
+            if (!facetsLoaded) params.set('facets', 'true');
+
+            // A fast typist can outrun the network; ignore all but the newest.
+            const token = {};
+            inFlight = token;
+            const t0 = performance.now();
+            try {
+                const res = await fetch('/api/segments?' + params.toString());
+                if (inFlight !== token) return;
+                const data = await res.json();
+                pageSegments = data.segments || [];
+                totalSegments = data.total ?? pageSegments.length;
+                if (data.cameras) { updateFilterOptions(data.cameras, data.dates); facetsLoaded = true; }
+                render();
+                const ms = Math.round(performance.now() - t0);
+                const first = totalSegments ? (currentPage - 1) * pageSize + 1 : 0;
+                const last = Math.min(currentPage * pageSize, totalSegments);
+                status.textContent = `${first}-${last} of ${totalSegments} (${ms} ms)`;
+            } catch (e) {
+                console.error(e);
+                if (inFlight === token) status.textContent = "Error loading data.";
+            }
+        }
+
+        function updateFilterOptions(cameras, dates) {
+            cameras = cameras || [];
+            dates = dates || [];
+
+            const camSelect = document.getElementById('cameraFilter');
+            const dateSelect = document.getElementById('dateFilter');
+
+            const currentCam = camSelect.value;
+            const currentDate = dateSelect.value;
+
+            camSelect.innerHTML = '<option value="All">All Cameras</option>' + 
+                cameras.map(c => `<option value="${c}">${c}</option>`).join('');
+            
+            dateSelect.innerHTML = '<option value="All">All Dates</option>' + 
+                dates.map(d => `<option value="${d}">${d}</option>`).join('');
+
+            camSelect.value = cameras.includes(currentCam) ? currentCam : 'All';
+            dateSelect.value = dates.includes(currentDate) ? currentDate : 'All';
+        }
+
+        let filterTimer = null;
+        function applyFilters() {
+            // Debounced: typing in the search box should not fire a query per keystroke.
+            clearTimeout(filterTimer);
+            filterTimer = setTimeout(() => {
+                currentPage = 1;
+                refreshData();
+            }, 250);
+        }
+
+        function render() {
+            // Update Stats
+            // Total is whatever the query matched; the other two describe this
+            // page only, since the rest is no longer in the browser.
+            document.getElementById('statTotal').textContent = totalSegments;
+            document.getElementById('statCams').textContent = new Set(pageSegments.map(s => s.camera_id)).size;
+            document.getElementById('statFrames').textContent =
+                pageSegments.reduce((sum, s) => sum + (s.frame_urls ? s.frame_urls.length : 0), 0);
+
+            // Handle Deletion Bar
+            const bar = document.getElementById('deleteBar');
+            if (selectedSegments.size > 0) {
+                bar.style.display = 'flex';
+                document.getElementById('selectedCount').textContent = `${selectedSegments.size} segment${selectedSegments.size > 1 ? 's' : ''} selected`;
+            } else {
+                bar.style.display = 'none';
+            }
+
+            // The server already returned exactly this page.
+            const pageData = pageSegments;
+
+            const list = document.getElementById('contentList');
+            if (pageData.length === 0) {
+                list.innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-secondary);">No segments match your filters.</div>';
+                return;
+            }
+
+            list.innerHTML = pageData.map(s => {
+                const key = `${s.camera_id}|${s.segment_id}`;
+                const isSelected = selectedSegments.has(key);
+                
+                return `
+                    <div class="segment-card-wrapper">
+                        <input type="checkbox" class="card-checkbox" 
+                            ${isSelected ? 'checked' : ''} 
+                            onchange="toggleSelect('${s.camera_id}', '${s.segment_id}')">
+                        <div class="segment-card ${isSelected ? 'selected' : ''}">
+                            <div class="segment-header">
+                                <span class="camera-label">${s.camera_id}</span>
+                                <span class="segment-time">🕒 ${s.start_time_str} — ${s.end_time_str.slice(-8)}</span>
+                                <span style="margin-left: auto; opacity: 0.5; font-size: 0.8rem;">#${s.segment_id}</span>
+                            </div>
+                            <div class="segment-body">${s.description || 'No description available'}</div>
+                            <div class="frame-preview">
+                                ${(s.frame_urls || []).slice(0, 4).map(url => `
+                                    <img src="${url}" loading="lazy" decoding="async" onclick="window.open('${url}', '_blank')">
+                                `).join('')}
+                            </div>
+                            ${(s.frame_urls && s.frame_urls.length > 4) ? `
+                                <div style="margin-top:10px; font-size:0.8rem; color:var(--text-secondary);">+ ${s.frame_urls.length - 4} more frames</div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Pagination Controls
+            const totalPages = Math.max(1, Math.ceil(totalSegments / pageSize));
+            const ctrl = document.getElementById('paginationControls');
+            if (totalPages > 1) {
+                // First/Last and a jump box, because Previous/Next alone means
+                // 260 clicks to reach the end of a 1,300-segment corpus.
+                ctrl.innerHTML = `
+                    <button class="btn-action btn-clear" ${currentPage === 1 ? 'disabled' : ''} onclick="gotoPage(1)" title="First page">&laquo; First</button>
+                    <button class="btn-action btn-clear" ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(-1)">Previous</button>
+                    <span class="page-label">Page ${currentPage} of ${totalPages}</span>
+                    <button class="btn-action btn-clear" ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(1)">Next</button>
+                    <button class="btn-action btn-clear" ${currentPage === totalPages ? 'disabled' : ''} onclick="gotoPage(${totalPages})" title="Last page">Last &raquo;</button>
+                    <span class="page-jump">
+                        Go to
+                        <input type="number" id="pageJump" min="1" max="${totalPages}"
+                               value="${currentPage}" aria-label="Page number"
+                               onkeydown="if(event.key==='Enter'){event.preventDefault();jumpToPage();}">
+                        / ${totalPages}
+                        <button class="btn-action btn-clear" onclick="jumpToPage()">Go</button>
+                    </span>
+                `;
+            } else {
+                ctrl.innerHTML = '';
+            }
+        }
+
+        function toggleSelect(cam, id) {
+            const key = `${cam}|${id}`;
+            if (selectedSegments.has(key)) selectedSegments.delete(key);
+            else selectedSegments.add(key);
+            render();
+        }
+
+        function clearSelection() {
+            selectedSegments.clear();
+            render();
+        }
+
+        function pageCount() {
+            return Math.max(1, Math.ceil(totalSegments / pageSize));
+        }
+
+        function gotoPage(n) {
+            const target = Math.min(pageCount(), Math.max(1, Math.floor(Number(n) || 1)));
+            if (target === currentPage) return;      // nothing to fetch
+            currentPage = target;
+            refreshData();
+            window.scrollTo(0, 0);
+        }
+
+        function jumpToPage() {
+            const box = document.getElementById('pageJump');
+            if (!box) return;
+            const raw = Number(box.value);
+            if (!Number.isFinite(raw) || raw < 1) {
+                // Put the real page back rather than silently jumping to 1.
+                box.value = currentPage;
+                return;
+            }
+            const target = Math.min(pageCount(), Math.max(1, Math.floor(raw)));
+            box.value = target;                      // show the clamp
+            gotoPage(target);
+        }
+
+        function changePage(delta) {
+            gotoPage(currentPage + delta);
+        }
+
+        async function handleDelete() {
+            if (!confirm(`Permanently delete ${selectedSegments.size} segments?`)) return;
+            
+            const toDelete = Array.from(selectedSegments).map(k => k.split('|'));
+            try {
+                const res = await fetch('/api/segments/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ to_delete: toDelete })
+                });
+                const result = await res.json();
+                
+                if (result.errors && result.errors.length > 0) {
+                    alert('Some errors occurred during deletion.');
+                } else {
+                    alert(`Successfully deleted ${result.count} segments.`);
+                }
+                
+                selectedSegments.clear();
+                await refreshData();
+            } catch (e) {
+                alert('Deletion failed. See console for details.');
+            }
+        }
+
+        // Listeners
+        document.getElementById('cameraFilter').addEventListener('change', applyFilters);
+        document.getElementById('dateFilter').addEventListener('change', applyFilters);
+        document.getElementById('searchFilter').addEventListener('input', applyFilters);
+
+        // Initial Load
+        refreshData();
+    </script>
+</body>
+</html>

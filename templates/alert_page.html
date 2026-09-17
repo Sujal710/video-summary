@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vmukti Solutions - Alert Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ═══ LIGHT MODE (default) ═══ */
+        :root {
+            --bg-app: #f0f2f5;
+            --bg-sidebar: #ffffff;
+            --bg-main: #f8f9fb;
+            --bg-header: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #ffffff;
+            --bg-template: #f0f2f5;
+
+            --primary: #3b5bdb;
+            --primary-light: #748ffc;
+            --primary-soft: #e8ecfd;
+            --accent: #0ca678;
+            --accent-soft: #d3f9d8;
+            --danger: #e03131;
+            --danger-soft: #ffe3e3;
+            --amber: #f08c00;
+            --amber-soft: #fff3bf;
+
+            --text-primary: #1a1d23;
+            --text-secondary: #4a5568;
+            --text-muted: #9aa3af;
+            --text-inverse: #ffffff;
+
+            --border: #e2e8f0;
+            --border-focus: #748ffc;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+        }
+
+        /* ═══ DARK MODE ═══ */
+        [data-theme="dark"] {
+            --bg-app: #0d1117;
+            --bg-sidebar: #161b22;
+            --bg-main: #0d1117;
+            --bg-header: #161b22;
+            --bg-card: #1c2128;
+            --bg-input: #1c2128;
+            --bg-template: #1c2128;
+
+            --primary: #748ffc;
+            --primary-light: #91a7ff;
+            --primary-soft: rgba(116, 143, 252, 0.15);
+            --accent: #20c997;
+            --accent-soft: rgba(32, 201, 151, 0.15);
+            --danger: #f03e3e;
+            --danger-soft: rgba(240, 62, 62, 0.15);
+            --amber: #fcc419;
+            --amber-soft: rgba(252, 196, 25, 0.15);
+
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #484f58;
+            --text-inverse: #0d1117;
+
+            --border: #30363d;
+            --border-focus: #748ffc;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* smooth theme transition */
+        *,
+        *::before,
+        *::after {
+            transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-app);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+        }
+
+        /* ═══ APP SHELL ═══ */
+        .app-shell {
+            width: 100%;
+            max-width: 1760px;
+            height: 100vh;
+            display: flex;
+            background: var(--bg-app);
+            overflow: hidden;
+        }
+
+        /* ═══ SIDEBAR ═══ */
+        .sidebar {
+            width: 264px;
+            min-width: 264px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 20px 14px;
+            gap: 6px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 4px 8px 16px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, #3b5bdb, #6741d9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: white;
+            box-shadow: 0 3px 10px rgba(59, 91, 219, 0.35);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 0.92em;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            letter-spacing: -0.2px;
+        }
+
+        .logo-sub {
+            font-size: 0.72em;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ═══ SIDEBAR SECTION LABEL ═══ */
+        .sidebar-section-label {
+            font-size: 0.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            padding: 8px 8px 4px;
+        }
+
+        /* ═══ RULE FORM in Sidebar ═══ */
+        .rule-form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-label {
+            font-size: 0.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 9px 12px;
+            background: var(--bg-input);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.845em;
+            font-family: inherit;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(116, 143, 252, 0.18);
+        }
+
+        .form-input[type="date"] {
+            color-scheme: light;
+        }
+
+        [data-theme="dark"] .form-input[type="date"] {
+            color-scheme: dark;
+        }
+
+        .deploy-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 14px;
+            background: linear-gradient(135deg, #3b5bdb, #6741d9);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.845em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            box-shadow: 0 3px 12px rgba(59, 91, 219, 0.3);
+            margin-top: 4px;
+        }
+
+        .deploy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(59, 91, 219, 0.38);
+        }
+
+        .deploy-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* ═══ MODE TOGGLE BUTTONS ═══ */
+        .mode-btns {
+            display: flex;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 10px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.775em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .mode-btn:hover {
+            background: var(--primary-soft);
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .mode-btn.active {
+            background: var(--primary-soft);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* ═══ RULES LIST ═══ */
+        .rules-scroll {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .rules-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .rules-scroll::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 10px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-template);
+            border: 1px solid var(--border);
+            transition: all 0.15s;
+        }
+
+        .rule-item:hover {
+            border-color: var(--primary-light);
+        }
+
+        .rule-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .rule-info {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .rule-prompt {
+            font-size: 0.83em;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rule-cam {
+            font-size: 0.72em;
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 1px;
+        }
+
+        .rule-del {
+            opacity: 0;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-size: 0.82em;
+            transition: all 0.15s;
+            flex-shrink: 0;
+        }
+
+        .rule-item:hover .rule-del {
+            opacity: 1;
+        }
+
+        .rule-del:hover {
+            background: var(--danger-soft);
+            color: var(--danger);
+        }
+
+        /* ═══ SIDEBAR FOOTER ═══ */
+        .sidebar-footer {
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sidebar-footer-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 10px;
+            border-radius: var(--radius-sm);
+            border: none;
+            background: none;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.845em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar-footer-btn:hover {
+            background: var(--bg-template);
+            color: var(--text-primary);
+        }
+
+        .sidebar-footer-btn svg {
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        /* ═══ MAIN CONTENT ═══ */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: var(--bg-main);
+        }
+
+        /* ═══ HEADER ═══ */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 28px;
+            background: var(--bg-header);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            gap: 12px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .header-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            background: var(--danger-soft);
+            border-radius: 20px;
+            font-size: 0.72em;
+            font-weight: 600;
+            color: var(--danger);
+        }
+
+        .header-badge.live {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulse 2s infinite;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-sidebar);
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.82em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .header-btn:hover {
+            background: var(--primary-soft);
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .header-btn svg {
+            opacity: 0.7;
+        }
+
+        /* ═══ THEME TOGGLE ═══ */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-sidebar);
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.82em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-soft);
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .theme-toggle .toggle-track {
+            width: 30px;
+            height: 16px;
+            background: var(--border);
+            border-radius: 8px;
+            position: relative;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle .toggle-track {
+            background: var(--primary);
+        }
+
+        .theme-toggle .toggle-thumb {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] .theme-toggle .toggle-thumb {
+            transform: translateX(14px);
+        }
+
+        /* ═══ ALERT AREA ═══ */
+        .alert-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 28px 32px;
+        }
+
+        .alert-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .alert-area::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .alert-area::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 6px;
+        }
+
+        /* ═══ ALERT GRID ═══ */
+        .alert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* ═══ ALERT CARD ═══ */
+        .alert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            box-shadow: var(--shadow-sm);
+            animation: cardSlide 0.28s ease;
+        }
+
+        @keyframes cardSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .alert-card.new-alert {
+            border-color: var(--danger);
+            animation: newAlertPop 0.5s ease;
+        }
+
+        @keyframes newAlertPop {
+            0% {
+                transform: scale(0.96);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .alert-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-template);
+        }
+
+        .alert-card-body {
+            padding: 16px 18px 18px;
+        }
+
+        .alert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .tag-prompt {
+            background: var(--danger-soft);
+            color: var(--danger);
+            border: 1px solid #ffc9c9;
+        }
+
+        [data-theme="dark"] .tag-prompt {
+            border-color: rgba(240, 62, 62, 0.3);
+        }
+
+        .tag-cam {
+            background: var(--primary-soft);
+            color: var(--primary);
+            border: 1px solid rgba(59, 91, 219, 0.2);
+        }
+
+        [data-theme="dark"] .tag-cam {
+            border-color: rgba(116, 143, 252, 0.25);
+        }
+
+        .alert-time {
+            font-size: 0.84em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .alert-time svg {
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+
+        .alert-desc {
+            font-size: 0.845em;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .dismiss-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.45);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            line-height: 1;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .dismiss-btn:hover {
+            background: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        /* ═══ EMPTY STATE ═══ */
+        .no-alerts {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-xl);
+            color: var(--text-muted);
+            font-size: 0.92em;
+            animation: cardSlide 0.3s ease;
+        }
+
+        .no-alerts .empty-icon {
+            font-size: 2.5em;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .no-alerts .empty-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        /* ═══ DEPLOY OVERLAY ═══ */
+        #deployOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(6px);
+            animation: fadeIn 0.18s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .deploy-overlay-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 40px 48px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: cardSlide 0.25s ease;
+        }
+
+        .deploy-spinner {
+            width: 52px;
+            height: 52px;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .deploy-msg {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.3px;
+        }
+
+        .deploy-sub {
+            font-size: 0.82em;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* ═══ DETAIL MODAL ═══ */
+        #detailModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.72);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            animation: fadeIn 0.18s ease;
+        }
+
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            max-width: 760px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalIn 0.25s ease;
+            position: relative;
+        }
+
+        @keyframes modalIn {
+            from {
+                transform: scale(0.96);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-card::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .modal-card::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 5px;
+        }
+
+        .modal-img {
+            width: 100%;
+            max-height: 44vh;
+            object-fit: contain;
+            background: var(--bg-app);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            display: block;
+        }
+
+        /* ── modal gallery: one frame at a time, or every frame stacked ── */
+        .modal-stage {
+            position: relative;
+            background: var(--bg-app);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav:hover { background: rgba(0, 0, 0, 0.78); }
+        .modal-nav[disabled] { opacity: 0.25; cursor: default; }
+        .modal-nav.prev { left: 12px; }
+        .modal-nav.next { right: 12px; }
+
+        .modal-counter {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 0.75rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .modal-thumbs {
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px;
+            background: var(--bg-app);
+            overflow-x: auto;
+        }
+
+        .modal-thumbs img {
+            width: 88px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.5;
+            border: 2px solid transparent;
+            flex: 0 0 auto;
+        }
+
+        .modal-thumbs img:hover { opacity: 0.85; }
+        .modal-thumbs img.active { opacity: 1; border-color: var(--border-focus, #748ffc); }
+
+        .modal-all-label {
+            padding: 10px 28px 0;
+            font-size: 0.78rem;
+            color: var(--text-muted, #9aa3af);
+        }
+
+        .modal-all img {
+            width: 100%;
+            max-height: 44vh;
+            object-fit: contain;
+            background: var(--bg-app);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .modal-body {
+            padding: 24px 28px 28px;
+        }
+
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+            align-items: center;
+        }
+
+        .modal-time {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-left: auto;
+        }
+
+        .modal-desc {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.35);
+            color: white;
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.18s;
+            backdrop-filter: blur(4px);
+            z-index: 1;
+        }
+
+        .modal-close:hover {
+            background: var(--danger);
+            transform: scale(1.1);
+        }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 1100px) {
+            .sidebar {
+                width: 230px;
+                min-width: 230px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .sidebar {
+                display: none;
+            }
+
+            .alert-area {
+                padding: 18px;
+            }
+        }
+    
+        /* Frame strip: a segment stores two thumbnails plus a contact sheet. */
+        .alert-card-frames { display: flex; gap: 2px; background: #000; }
+        .alert-card-frames .alert-card-img { flex: 1 1 0; min-width: 0; object-fit: cover; cursor: zoom-in; }
+        .alert-card-frames .alert-card-img:hover { filter: brightness(1.08); }
+        .alert-card-frames .alert-card-img.multi { height: 110px; }
+
+        .archive-pager {
+            display: flex; align-items: center; justify-content: center;
+            gap: 14px; padding: 18px 0 28px; font-size: 0.85rem;
+        }
+        .archive-pager button {
+            padding: 7px 16px; border-radius: 8px; cursor: pointer;
+            border: 1px solid var(--border, #333); background: transparent;
+            color: inherit; font: inherit;
+        }
+        .archive-pager button:disabled { opacity: 0.4; cursor: default; }
+        .archive-pager button:not(:disabled):hover { background: rgba(127,127,127,0.15); }
+</style>
+</head>
+
+<body>
+    <!-- Deploy Overlay -->
+    <div id="deployOverlay">
+        <div class="deploy-overlay-card">
+            <div class="deploy-spinner"></div>
+            <div class="deploy-msg">Deploying Monitoring Rule</div>
+            <div class="deploy-sub">Activating detection intelligence...</div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" onclick="handleModalBackdropClick(event)">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modalGallery"></div>
+            <div class="modal-body">
+                <div class="modal-meta" id="modalMeta"></div>
+                <div class="modal-desc" id="modalDesc"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-shell">
+
+        <!-- ═══ SIDEBAR ═══ -->
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-mark">V</div>
+                <div class="logo-text">
+                    <span class="logo-name">Vmukti Solutions</span>
+                    <span class="logo-sub">Alert Dashboard</span>
+                </div>
+            </div>
+
+            <!-- Historical Browser -->
+            <div class="sidebar-section-label">Historical Browser</div>
+            <div class="rule-form-section">
+                <div class="form-field">
+                    <label class="form-label">Browse Date</label>
+                    <select class="form-input" id="historyDate">
+                        <!-- populated by JS -->
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label class="form-label">Camera ID</label>
+                    <select class="form-input" id="historyCamId">
+                        <option value="ALL">All Cameras</option>
+                        <!-- populated by JS -->
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label class="form-label">Object / Keyword</label>
+                    <input class="form-input" type="text" id="historyKeyword" placeholder="e.g. car, person, fire"
+                        onkeydown="if(event.key==='Enter') fetchHistory()">
+                </div>
+                <button class="deploy-btn" onclick="fetchHistory()"
+                    style="background:linear-gradient(135deg,#0ca678,#099268);">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    Search Archive
+                </button>
+                <div class="mode-btns">
+                    <button class="mode-btn active" id="liveToggle" onclick="toggleMode('live')">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="6" />
+                        </svg>
+                        Live
+                    </button>
+                    <button class="mode-btn" id="historyToggle" onclick="toggleMode('history')">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <polyline points="12 7 12 12 15 15" />
+                        </svg>
+                        Archive
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Rules -->
+            <div class="sidebar-section-label">Active Monitoring</div>
+            <div class="rules-scroll" id="rulesList">
+                <!-- populated by JS -->
+            </div>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <button class="sidebar-footer-btn" onclick="window.location.href='/'">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 10l4.553-2.07A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+                    </svg>
+                    Video Chatbot
+                </button>
+            </div>
+        </div>
+
+        <!-- ═══ MAIN CONTENT ═══ -->
+        <div class="main-content">
+
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <span class="header-title">🛡️ Alert Dashboard</span>
+                    <div class="header-badge live" id="headerBadge">
+                        <div class="status-dot"></div>
+                        <span id="headerBadgeLabel">Live Feed</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggleBtn"
+                        title="Toggle dark/light mode">
+                        <span id="themeIcon">🌙</span>
+                        <span id="themeLabel">Dark</span>
+                        <div class="toggle-track">
+                            <div class="toggle-thumb"></div>
+                        </div>
+                    </button>
+                    <button class="header-btn" onclick="window.location.href='/'">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M15 10l4.553-2.07A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+                        </svg>
+                        Chatbot
+                    </button>
+                    <button class="header-btn" onclick="clearAllAlerts()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <polyline points="3 6 5 6 21 6" />
+                            <path d="M19 6l-1 14H6L5 6" />
+                            <path d="M10 11v6M14 11v6" />
+                        </svg>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alert Grid Area -->
+            <div class="alert-area">
+                <div class="alert-grid" id="alertGrid">
+                    <div class="no-alerts">
+                        <span class="empty-icon">🔍</span>
+                        <div class="empty-title">Initializing detection network...</div>
+                        <div>Scanning live feeds for configured triggers</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ─── STATE ────────────────────────────────────────────────────────────
+        let knownAlerts = new Set();
+        let currentMode = 'live';
+        let pollInterval = null;
+        let archiveInterval = null;
+        let lastData = [];
+
+        // ─── THEME ────────────────────────────────────────────────────────────
+        const savedTheme = localStorage.getItem('vmukti-theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeIcon').textContent = '☀️';
+            document.getElementById('themeLabel').textContent = 'Light';
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                document.getElementById('themeIcon').textContent = '🌙';
+                document.getElementById('themeLabel').textContent = 'Dark';
+                localStorage.setItem('vmukti-theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeLabel').textContent = 'Light';
+                localStorage.setItem('vmukti-theme', 'dark');
+            }
+        }
+
+        // ─── MODAL ────────────────────────────────────────────────────────────
+        // A segment stores three images (two evidence frames plus a contact
+        // sheet). The modal used to hard-code frame_urls[0], so two of the three
+        // were unreachable no matter which thumbnail was clicked.
+        let modalFrames = [];
+        let modalPos = 0;
+        let modalAll = false;
+
+        const MODAL_FALLBACK = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="760" height="300"%3E%3Crect fill="%23eee" width="760" height="300"/%3E%3Ctext x="50%25" y="50%25" fill="%23aaa" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="16"%3ENo Image Available%3C/text%3E%3C/svg%3E';
+
+        function frameLabel(url, i) {
+            // The filename says what the image is; "sheet" is the 12-frame grid.
+            const name = String(url || '').split('/').pop().split('?')[0].toLowerCase();
+            if (name.includes('sheet')) return 'Contact sheet';
+            const m = name.match(/frame(\d+)/);
+            return m ? `Frame ${m[1]}` : `Image ${i + 1}`;
+        }
+
+        function renderModalGallery() {
+            const stage = document.getElementById('modalGallery');
+            if (!modalFrames.length) {
+                stage.innerHTML = `<img class="modal-img" src="${MODAL_FALLBACK}" alt="No image">`;
+                return;
+            }
+
+            if (modalAll) {
+                // "Show me all of them" - every frame stacked, labelled.
+                stage.innerHTML = `
+                    <div class="modal-all">
+                        ${modalFrames.map((u, i) => `
+                            <div class="modal-all-label">${frameLabel(u, i)} — ${i + 1} of ${modalFrames.length}</div>
+                            <img src="${u}" alt="${frameLabel(u, i)}" loading="lazy"
+                                 onerror="this.src='${MODAL_FALLBACK}'">
+                        `).join('')}
+                    </div>`;
+                return;
+            }
+
+            const url = modalFrames[modalPos];
+            const many = modalFrames.length > 1;
+            stage.innerHTML = `
+                <div class="modal-stage">
+                    <img class="modal-img" src="${url}" alt="${frameLabel(url, modalPos)}"
+                         onerror="this.src='${MODAL_FALLBACK}'">
+                    ${many ? `
+                        <button class="modal-nav prev" onclick="event.stopPropagation(); stepModal(-1)"
+                                ${modalPos === 0 ? 'disabled' : ''} aria-label="Previous image">&#8249;</button>
+                        <button class="modal-nav next" onclick="event.stopPropagation(); stepModal(1)"
+                                ${modalPos === modalFrames.length - 1 ? 'disabled' : ''} aria-label="Next image">&#8250;</button>
+                        <span class="modal-counter">${frameLabel(url, modalPos)} · ${modalPos + 1}/${modalFrames.length}</span>
+                    ` : ''}
+                </div>
+                ${many ? `
+                    <div class="modal-thumbs">
+                        ${modalFrames.map((u, i) => `
+                            <img src="${u}" class="${i === modalPos ? 'active' : ''}"
+                                 title="${frameLabel(u, i)}" loading="lazy"
+                                 onclick="event.stopPropagation(); showModalFrame(${i})"
+                                 onerror="this.src='${MODAL_FALLBACK}'">
+                        `).join('')}
+                    </div>` : ''}
+            `;
+        }
+
+        function showModalFrame(i) {
+            modalAll = false;
+            modalPos = Math.min(modalFrames.length - 1, Math.max(0, i));
+            renderModalGallery();
+        }
+
+        function stepModal(delta) {
+            showModalFrame(modalPos + delta);
+        }
+
+        /**
+         * @param index      which alert card
+         * @param frameIndex a number to open that one frame, or 'all' to stack
+         *                   every frame (what clicking the summary does)
+         */
+        function openModal(index, frameIndex = 0) {
+            const item = lastData[index];
+            if (!item) return;
+
+            modalFrames = (item.frame_urls && item.frame_urls.length)
+                ? item.frame_urls.filter(u => u && u !== 'N/A')
+                : (item.frame_url ? [item.frame_url] : []);
+            modalAll = frameIndex === 'all';
+            modalPos = modalAll ? 0
+                : Math.min(Math.max(0, Number(frameIndex) || 0),
+                           Math.max(0, modalFrames.length - 1));
+            renderModalGallery();
+
+            const timestamp = item.timestamp || item.start_time;
+            const prompt = item.matched_prompt || 'FOOTAGE ARCHIVE';
+            document.getElementById('modalDesc').textContent = item.description || 'No description available.';
+            document.getElementById('modalMeta').innerHTML = `
+                <span class="tag tag-prompt">${prompt}</span>
+                <span class="tag tag-cam">${item.camera_id}</span>
+                <span class="modal-time">${new Date(timestamp).toLocaleString()}</span>
+            `;
+
+            document.getElementById('detailModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function handleModalBackdropClick(e) {
+            if (e.target === document.getElementById('detailModal')) closeModal();
+        }
+
+        document.addEventListener('keydown', e => {
+            const open = document.getElementById('detailModal').style.display === 'flex';
+            if (e.key === 'Escape') return closeModal();
+            if (!open || modalAll) return;
+            if (e.key === 'ArrowLeft') stepModal(-1);
+            if (e.key === 'ArrowRight') stepModal(1);
+        });
+
+        // ─── MODE TOGGLE ──────────────────────────────────────────────────────
+        function toggleMode(mode) {
+            currentMode = mode;
+            document.getElementById('liveToggle').classList.toggle('active', mode === 'live');
+            document.getElementById('historyToggle').classList.toggle('active', mode === 'history');
+
+            const badge = document.getElementById('headerBadge');
+            const badgeLabel = document.getElementById('headerBadgeLabel');
+
+            if (mode === 'live') {
+                badge.className = 'header-badge live';
+                badgeLabel.textContent = 'Live Feed';
+                pollAlerts();
+                if (!pollInterval) pollInterval = setInterval(pollAlerts, 5000);
+                if (archiveInterval) { clearInterval(archiveInterval); archiveInterval = null; }
+            } else {
+                badge.className = 'header-badge';
+                badge.style.background = 'var(--amber-soft)';
+                badge.style.color = 'var(--amber)';
+                badgeLabel.textContent = 'Archive View';
+                if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+                fetchHistory();
+                // The archive is not static while the pipeline is running -
+                // new segments land continuously, so re-query on a timer as
+                // the live view does. Quiet refresh: the current page and
+                // scroll position are preserved.
+                if (!archiveInterval) archiveInterval = setInterval(refreshArchiveQuietly, 15000);
+            }
+        }
+
+        // ─── HISTORY ──────────────────────────────────────────────────────────
+        async function fetchHistory() {
+            if (currentMode !== 'history') return;
+            const date = document.getElementById('historyDate').value;
+            const camId = document.getElementById('historyCamId').value.trim();
+            const keyword = document.getElementById('historyKeyword').value.trim();
+            const grid = document.getElementById('alertGrid');
+
+            if (!date) {
+                grid.innerHTML = `<div class="no-alerts"><span class="empty-icon">📅</span><div class="empty-title">Select a Date</div><div>Pick a browse date to search the archive.</div></div>`;
+                return;
+            }
+
+            // Build a human-readable loading label
+            const searchLabel = [
+                keyword ? `"${keyword}"` : 'all footage',
+                camId ? `on ${camId}` : 'across all cameras',
+                `for ${date}`
+            ].join(' ');
+
+            grid.innerHTML = `<div class="no-alerts"><span class="empty-icon">📂</span><div class="empty-title">Searching archive…</div><div>${searchLabel}</div></div>`;
+
+            try {
+                // Build query string — only include params that have values
+                const params = new URLSearchParams({ date });
+                if (camId) params.set('camera_id', camId);
+                if (keyword) params.set('keyword', keyword);
+
+                const r = await fetch(`/api/segments?${params.toString()}`);
+                const data = await r.json();
+                lastData = data;
+
+                if (!data || data.length === 0) {
+                    const hint = keyword
+                        ? `No footage of <b>${keyword}</b> found${camId ? ` on camera <b>${camId}</b>` : ''} for <b>${date}</b>.`
+                        : `No recordings found${camId ? ` for camera <b>${camId}</b>` : ''} on <b>${date}</b>.`;
+                    // Clear the pager too: leaving "1-16 of 400" under an empty
+                    // grid describes the previous query, not this one.
+                    lastData = [];
+                    archivePage = 1;
+                    const pager = document.getElementById('archivePager');
+                    if (pager) pager.innerHTML = '';
+                    grid.innerHTML = `<div class="no-alerts"><span class="empty-icon">📭</span><div class="empty-title">No footage found</div><div>${hint}</div></div>`;
+                    return;
+                }
+
+                archivePage = 1;
+                renderArchivePage();
+
+            } catch (e) {
+                console.error(e);
+                grid.innerHTML = `<div class="no-alerts"><span class="empty-icon">⚠️</span><div class="empty-title">Error loading archive</div><div>Unable to retrieve data. Check console for details.</div></div>`;
+            }
+        }
+
+        // ─── LIVE POLLING ─────────────────────────────────────────────────────
+        async function pollAlerts() {
+            try {
+                const r = await fetch('/api/alerts');
+                const data = await r.json();
+                lastData = data;
+                const grid = document.getElementById('alertGrid');
+
+                if (!data || data.length === 0) {
+                    grid.innerHTML = `<div class="no-alerts"><span class="empty-icon">✅</span><div class="empty-title">No active alerts</div><div>All cameras nominal — no threats detected.</div></div>`;
+                    return;
+                }
+
+                const currentIds = new Set(data.map(a => a.id));
+                const newIds = [...currentIds].filter(id => !knownAlerts.has(id));
+                knownAlerts = currentIds;
+
+                grid.innerHTML = data.map((a, i) => buildCard(a, i, newIds.includes(a.id))).join('');
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // Re-query the archive without the "Searching archive..." flash, and
+        // stay on the page the user is reading. Only redraws if the result
+        // count actually changed.
+        async function refreshArchiveQuietly() {
+            if (currentMode !== 'history') return;
+            const date = document.getElementById('historyDate').value;
+            if (!date) return;
+            const camId = document.getElementById('historyCamId').value.trim();
+            const keyword = document.getElementById('historyKeyword').value.trim();
+            try {
+                const params = new URLSearchParams({ date });
+                if (camId) params.set('camera_id', camId);
+                if (keyword) params.set('keyword', keyword);
+                const r = await fetch(`/api/segments?${params.toString()}`);
+                const data = await r.json();
+                if (!Array.isArray(data)) return;
+                if (data.length === (lastData || []).length) return;
+                lastData = data;
+                renderArchivePage();
+            } catch (e) { /* transient; the next tick retries */ }
+        }
+
+        // ─── ARCHIVE PAGING ───────────────────────────────────────────────────
+        // The archive can return hundreds of segments for a single day; rendering
+        // them all at once means hundreds of image requests before first paint.
+        const ARCHIVE_PAGE_SIZE = 16;
+        let archivePage = 1;
+
+        function renderArchivePage() {
+            const grid = document.getElementById('alertGrid');
+            const data = lastData || [];
+            const pages = Math.max(1, Math.ceil(data.length / ARCHIVE_PAGE_SIZE));
+            archivePage = Math.min(pages, Math.max(1, archivePage));
+
+            const from = (archivePage - 1) * ARCHIVE_PAGE_SIZE;
+            const slice = data.slice(from, from + ARCHIVE_PAGE_SIZE);
+
+            // index must address lastData, so the modal opens the right item
+            grid.innerHTML = slice.map((s, i) => buildCard(s, from + i, false)).join('');
+            renderArchiveControls(pages, data.length, from, slice.length);
+        }
+
+        function renderArchiveControls(pages, total, from, shown) {
+            let bar = document.getElementById('archivePager');
+            if (!bar) {
+                bar = document.createElement('div');
+                bar.id = 'archivePager';
+                bar.className = 'archive-pager';
+                const grid = document.getElementById('alertGrid');
+                grid.parentNode.insertBefore(bar, grid.nextSibling);
+            }
+            if (pages <= 1) { bar.innerHTML = ''; return; }
+            bar.innerHTML = `
+                <button ${archivePage === 1 ? 'disabled' : ''} onclick="changeArchivePage(-1)">Previous</button>
+                <span>${from + 1}-${from + shown} of ${total} &middot; page ${archivePage} of ${pages}</span>
+                <button ${archivePage === pages ? 'disabled' : ''} onclick="changeArchivePage(1)">Next</button>`;
+        }
+
+        function changeArchivePage(delta) {
+            archivePage += delta;
+            renderArchivePage();
+            document.getElementById('alertGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // ─── BUILD CARD ───────────────────────────────────────────────────────
+        function buildCard(item, index, isNew) {
+            // Every stored frame, not just the first. A segment carries two
+            // evidence thumbnails plus a contact sheet of all 12 sampled frames;
+            // showing only frame_urls[0] hid the sheet the description is
+            // actually written from.
+            const frames = (item.frame_urls && item.frame_urls.length)
+                ? item.frame_urls
+                : (item.frame_url ? [item.frame_url] : ['']);
+            const timestamp = item.timestamp || item.start_time;
+            const prompt = item.matched_prompt || null;
+            const fallbackImg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23e2e8f0' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' fill='%23aaa' text-anchor='middle' dominant-baseline='middle' font-family='DM Sans,sans-serif' font-size='14'%3ENo Image%3C/text%3E%3C/svg%3E`;
+
+            const dismissBtn = item.id ? `<button class="dismiss-btn" onclick="event.stopPropagation(); deleteAlert('${item.id}')" title="Dismiss">✕</button>` : '';
+            const promptTag = prompt ? `<span class="tag tag-prompt">${prompt}</span>` : '';
+            const timeStr = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            return `
+                <div class="alert-card${isNew ? ' new-alert' : ''}" onclick="openModal(${index}, 'all')">
+                    ${dismissBtn}
+                    <div class="alert-card-frames">
+                        ${frames.map((u, fi) => `
+                            <img class="alert-card-img${frames.length > 1 ? ' multi' : ''}"
+                                 src="${u}" alt="frame ${fi + 1}" loading="lazy" decoding="async"
+                                 title="Open this image"
+                                 onclick="event.stopPropagation(); openModal(${index}, ${fi})"
+                                 onerror="this.src='${fallbackImg}'">
+                        `).join('')}
+                    </div>
+                    <div class="alert-card-body">
+                        <div class="alert-tags">
+                            ${promptTag}
+                            <span class="tag tag-cam">${item.camera_id}</span>
+                        </div>
+                        <div class="alert-time">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+                            ${timeStr}
+                        </div>
+                        <div class="alert-desc">${item.description || 'No description available.'}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ─── INITIALIZATION ──────────────────────────────────────────────────
+        async function initFilters() {
+            try {
+                // Fetch Cameras
+                const camResp = await fetch('/api/cameras');
+                const cameras = await camResp.json();
+                const camSelect = document.getElementById('historyCamId');
+                cameras.forEach(cam => {
+                    const opt = document.createElement('option');
+                    opt.value = cam;
+                    opt.textContent = cam;
+                    camSelect.appendChild(opt);
+                });
+
+                // Fetch Dates
+                const dateResp = await fetch('/api/dates');
+                const dates = await dateResp.json();
+                const dateSelect = document.getElementById('historyDate');
+                
+                // Add "All Dates" option
+                const allOpt = document.createElement('option');
+                allOpt.value = "ALL";
+                allOpt.textContent = "All Dates";
+                dateSelect.appendChild(allOpt);
+
+                dates.forEach(date => {
+                    const opt = document.createElement('option');
+                    opt.value = date;
+                    opt.textContent = date;
+                    dateSelect.appendChild(opt);
+                });
+                
+                if (dates.length > 0) {
+                    dateSelect.value = dates[0];
+                } else {
+                    dateSelect.value = "ALL";
+                }
+            } catch (err) {
+                console.error("Failed to initialize filters:", err);
+            }
+        }
+
+        // ─── RULES (DEPRECATED) ────────────────────────────────────────────────────────────
+        async function loadRules() {
+            // Rules section removed from UI, but keeping for compatibility
+            document.getElementById('rulesList').innerHTML = '<div style="padding:10px;font-size:0.8em;color:var(--text-muted)">Active monitoring running in background</div>';
+        }
+
+        async function addRule() {
+            console.log("Rule deployment is currently disabled.");
+        }
+
+        async function deleteRule(id) {
+            console.log("Rule deletion disabled.");
+        }
+
+        async function deleteAlert(id) {
+            try {
+                await fetch(`/api/alerts/${id}`, { method: 'DELETE' });
+                pollAlerts();
+            } catch (e) { console.error(e); }
+        }
+
+        async function clearAllAlerts() {
+            if (!confirm('Dismiss all current alerts?')) return;
+            const grid = document.getElementById('alertGrid');
+            const cards = grid.querySelectorAll('.alert-card');
+            // Try to dismiss each one that has a dismiss button
+            const ids = [...cards].map(c => {
+                const btn = c.querySelector('.dismiss-btn');
+                if (!btn) return null;
+                const match = btn.getAttribute('onclick').match(/'([^']+)'\)/);
+                return match ? match[1] : null;
+            }).filter(Boolean);
+
+            await Promise.all(ids.map(id => fetch(`/api/alerts/${id}`, { method: 'DELETE' }).catch(() => { })));
+            pollAlerts();
+        }
+
+        // ─── LISTENERS ────────────────────────────────────────────────────────
+        document.getElementById('historyDate').addEventListener('change', () => {
+            if (currentMode === 'history') fetchHistory();
+        });
+
+        document.getElementById('historyCamId').addEventListener('change', () => {
+            if (currentMode === 'history') fetchHistory();
+        });
+
+        // ─── INIT ─────────────────────────────────────────────────────────────
+        initFilters();
+        loadRules();
+        toggleMode('live');
+    </script>
+</body>
+
+</html>

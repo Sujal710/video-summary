@@ -1,0 +1,977 @@
+nohup: ignoring input
+2026-09-01 12:46:02,824 - MainProcess - INFO - ==============================================================================
+2026-09-01 12:46:02,824 - MainProcess - INFO - 🎥 POLICE CCTV PROSE TIER — one VLM description per 60s segment
+2026-09-01 12:46:02,824 - MainProcess - INFO - ==============================================================================
+2026-09-01 12:46:02,825 - MainProcess - INFO - ✅ Ollama reachable, VLM 'qwen2.5vl:7b' available
+2026-09-01 12:46:02,826 - MainProcess - WARNING - Skipping cam01_01_Chiman_bhai_Bridge.mp4: file not found at videos-hackathon/cam01_01_Chiman_bhai_Bridge.mp4
+2026-09-01 12:46:02,826 - MainProcess - WARNING - Skipping cam02_02_Janpath.mp4: file not found at videos-hackathon/cam02_02_Janpath.mp4
+2026-09-01 12:46:02,826 - MainProcess - WARNING - Skipping cam03_03_O.N.G.C._Office.mp4: file not found at videos-hackathon/cam03_03_O.N.G.C._Office.mp4
+2026-09-01 12:46:02,826 - MainProcess - WARNING - Skipping cam25_33_dehgam.mp4: file not found at videos-hackathon/cam25_33_dehgam.mp4
+2026-09-01 12:46:02,826 - MainProcess - WARNING - Skipping cam27_35_TANKAL.mp4: file not found at videos-hackathon/cam27_35_TANKAL.mp4
+2026-09-01 12:46:02,827 - MainProcess - WARNING - No metadata row for cam10.mp4; adding it as location 'cam10'
+2026-09-01 12:46:02,827 - MainProcess - WARNING - No metadata row for cam28_stream-28.mp4; adding it as location 'cam28 stream 28'
+2026-09-01 12:46:02,827 - MainProcess - WARNING - No metadata row for cam30_stream-30.mp4; adding it as location 'cam30 stream 30'
+2026-09-01 12:46:02,827 - MainProcess - INFO - Restricted to 1 video(s): cam14_stream-14
+2026-09-01 12:46:02,827 - MainProcess - INFO - 📌 Anchors: 9/12 videos have a known start time (video_anchors.json)
+2026-09-01 12:46:02,827 - MainProcess - INFO - 🔧 UniversalModelManager initialized
+2026-09-01 12:46:02,827 - MainProcess - INFO - 🔥 Loading SentenceTransformer ONCE...
+2026-09-01 12:46:02,849 - MainProcess - INFO - No device provided, using cuda:0
+2026-09-01 12:46:03,010 - MainProcess - INFO - Loading SentenceTransformer model from nomic-ai/nomic-embed-text-v1.5.
+2026-09-01 12:46:04,212 - MainProcess - WARNING - <All keys matched successfully>
+2026-09-01 12:46:05,063 - MainProcess - INFO - ✅ SentenceTransformer loaded (SHARED across all cameras)
+2026-09-01 12:46:07,478 - MainProcess - INFO - ✓ MongoDB connection successful
+2026-09-01 12:46:07,480 - MainProcess - INFO - Processing 1 video(s), up to 1 concurrently
+2026-09-01 12:46:07,480 - MainProcess - INFO - [cam14_stream-14] Starting seek-based pass (location: Unknown Location (cam14))
+2026-09-01 12:46:07,480 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-01 12:46:07,480 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-01 12:46:07,732 - MainProcess - INFO - [cam14_stream-14] Resuming - 2 segment(s) already stored, will be skipped
+2026-09-01 12:46:07,732 - MainProcess - INFO - [cam14_stream-14] 1920x1080 @ 12.50fps | 12.00h | 720 segments | anchor 2026-06-13T20:59:20.800000 (ocr_verified)
+2026-09-01 12:46:07,732 - MainProcess - INFO - [cam14_stream-14] 718 segment(s) to process
+2026-09-01 12:46:08,099 - MainProcess - INFO - 🖥️  GPU decode (NVDEC) unavailable in this container - using CPU decode. Seeking keeps this cheap; no action needed.
+2026-09-01 12:46:25,231 - MainProcess - INFO - [VLM] Response received. Content len: 848, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #2 - 2026-06-13 21:01:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:01:20 to 21:01:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white car enters from the left and exits right around 30s. - Two motorcycles enter from the left, one stops near the center of the intersection at about 45s, then moves slightly to the right before exiting towards the bottom-right corner. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be well-lit and has multiple lanes for traffic flow. There are zebra crossings visible on both sides of the intersection, and various vehicles can be seen moving through it in different directions. 4. VEHICLES - A white car enters from the left at around 30s. - Two motorcycles enter from the left: one stops near the center of the intersection (around 45s) before exiting to the right, and another continues straight ahead
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s][transformers] Detected the usage of `get_extended_attention_mask`: This function is deprecated and will be removed in v5.12.0. Please use the new API in `transformers.masking_utils`
+Batches: 100%|██████████| 1/1 [00:00<00:00,  5.52it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.52it/s]
+2026-09-01 12:46:26,133 - MainProcess - INFO - ✅ Segment #2 stored in MongoDB
+✅ Segment #2 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:46:26,133 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #2 complete
+2026-09-01 12:46:26,135 - MainProcess - INFO - [cam14_stream-14] #2    1/718 (  0.1%) | seg  18.40s = seek  1.38 (12f, 0.11s/frame) + vlm  14.56 + azure  1.99 + embed  0.40 | avg  18.40s | elapsed 0:00:18 | ETA 3:39:54
+2026-09-01 12:46:42,461 - MainProcess - INFO - [VLM] Response received. Content len: 844, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #3 - 2026-06-13 21:02:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:02:20 to 21:02:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A green auto-rickshaw enters from the right at approximately 45s, moves across to the center of the intersection by about 60s before exiting towards the bottom-right corner. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The weather appears clear and dry based on visibility conditions. The area is characterized as an active traffic junction with multiple lanes, pedestrian crossings, and surrounding commercial establishments visible in the background. 4. VEHICLES - Red bus: Present throughout; stationary at the bottom center of most frames. - White hatchback: Enters from left around 30s, exits right by about 60s. - Green auto-rickshaw: Ent
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 99.64it/s]
+2026-09-01 12:46:43,187 - MainProcess - INFO - ✅ Segment #3 stored in MongoDB
+✅ Segment #3 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:46:43,187 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #3 complete
+2026-09-01 12:46:43,190 - MainProcess - INFO - [cam14_stream-14] #3    2/718 (  0.3%) | seg  17.05s = seek  1.01 (12f, 0.08s/frame) + vlm  14.52 + azure  1.22 + embed  0.23 | avg  17.73s | elapsed 0:00:35 | ETA 3:31:33
+2026-09-01 12:46:43,210 - MainProcess - INFO - [Memory] RAM: 21.7% | Process: 1.46GB | GPU: 9198/16311MB (56.4%)
+2026-09-01 12:46:59,639 - MainProcess - INFO - [VLM] Response received. Content len: 868, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #4 - 2026-06-13 21:03:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:03:20 to 21:03:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles enter from the left at approximately 45 seconds, one stops near a pedestrian crossing while the other continues straight through. - A yellow auto-rickshaw enters from the left in front of the bus around 60 seconds. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears to be an urban intersection with multiple lanes, traffic lights, and pedestrian crossings visible. There are buildings on both sides of the road, some illuminated by neon signs indicating commercial establishments like a "West Bank" sign in the background. 4. VEHICLES - Red bus: Appears to have a destination display showing "TAM1". It is stationary at an intersection. - **White hatchback (30
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 91.23it/s]
+2026-09-01 12:47:00,365 - MainProcess - INFO - ✅ Segment #4 stored in MongoDB
+✅ Segment #4 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:47:00,365 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #4 complete
+2026-09-01 12:47:00,368 - MainProcess - INFO - [cam14_stream-14] #4    3/718 (  0.4%) | seg  17.18s = seek  1.05 (12f, 0.09s/frame) + vlm  14.55 + azure  1.26 + embed  0.23 | avg  17.55s | elapsed 0:00:52 | ETA 3:29:04
+2026-09-01 12:47:16,942 - MainProcess - INFO - [VLM] Response received. Content len: 818, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #5 - 2026-06-13 21:04:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:04:20 to 21:04:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A black sedan enters from the left, turns right at about 45s, then drives away to the right side of the frame by 60s. - A yellow auto-rickshaw moves across the intersection in front of a white car. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry. It is an urban road intersection, likely near commercial or residential areas given the visible signage for "West Bank" and other establishments on the right side. 4. VEHICLES - White hatchback: model unidentified; color white; size small to medium car class; condition good; number plate partially legible. - Black sedan: model unidentified; color black; size mid-sized car
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.29it/s]
+2026-09-01 12:47:17,664 - MainProcess - INFO - ✅ Segment #5 stored in MongoDB
+✅ Segment #5 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:47:17,664 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #5 complete
+2026-09-01 12:47:17,667 - MainProcess - INFO - [cam14_stream-14] #5    4/718 (  0.6%) | seg  17.30s = seek  1.01 (12f, 0.08s/frame) + vlm  14.59 + azure  1.41 + embed  0.22 | avg  17.48s | elapsed 0:01:09 | ETA 3:28:03
+2026-09-01 12:47:17,686 - MainProcess - INFO - [Memory] RAM: 22.3% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:47:34,111 - MainProcess - INFO - [VLM] Response received. Content len: 816, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #6 - 2026-06-13 21:05:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:05:20 to 21:05:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the right and exits to the left around 30s. - A black car enters from the left, turns right at about 45s, then drives away towards the top of the frame by 60s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy intersection in an urban area. The weather appears clear and dry based on visibility conditions. 4. VEHICLES - White auto-rickshaw: model unidentified; partially legible number plate. - Black car: model unidentified, possibly SUV or sedan due to size class; fully visible with headlights on; no distinct features noted other than the body shape suggesting a larger vehicle type like an SUV. 5. PEOPLE Several individuals are present: - A person in white clothing is seen
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 99.10it/s]
+2026-09-01 12:47:34,841 - MainProcess - INFO - ✅ Segment #6 stored in MongoDB
+✅ Segment #6 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:47:34,841 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #6 complete
+2026-09-01 12:47:34,843 - MainProcess - INFO - [cam14_stream-14] #6    5/718 (  0.7%) | seg  17.18s = seek  0.99 (12f, 0.08s/frame) + vlm  14.60 + azure  1.26 + embed  0.23 | avg  17.42s | elapsed 0:01:27 | ETA 3:27:02
+2026-09-01 12:47:51,431 - MainProcess - INFO - [VLM] Response received. Content len: 837, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #7 - 2026-06-13 21:06:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:06:20 to 21:06:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and exits right around 30s. - A black car moves across the intersection at approximately 45s, heading towards the bottom of the frame before turning to its right. - A silver van appears in front of a motorcycle group near the center-left area by about 28 seconds. 3. SCENE Nighttime scene with artificial lighting illuminating the road and surrounding buildings. The weather seems clear as there are no visible signs of rain or fog. It is an urban intersection, likely at a busy junction given the traffic flow and density of vehicles present throughout most frames. 4. VEHICLES - White auto-rickshaw: Appears in frame around 30s; exits right. - Black car: Enters from left to bottom-right trajectory by approximately
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 59.44it/s]
+2026-09-01 12:47:52,169 - MainProcess - INFO - ✅ Segment #7 stored in MongoDB
+✅ Segment #7 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:47:52,169 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #7 complete
+2026-09-01 12:47:52,172 - MainProcess - INFO - [cam14_stream-14] #7    6/718 (  0.8%) | seg  17.33s = seek  1.01 (12f, 0.08s/frame) + vlm  14.60 + azure  1.40 + embed  0.24 | avg  17.41s | elapsed 0:01:44 | ETA 3:26:33
+2026-09-01 12:47:52,192 - MainProcess - INFO - [Memory] RAM: 25.0% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:48:08,763 - MainProcess - INFO - [VLM] Response received. Content len: 861, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #8 - 2026-06-13 21:07:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:07:20 to 21:07:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and exits right around 30s. - Two pedestrians cross in front of the camera at approximately 45s, moving towards the right side of the frame. - A black car drives into view on the far left near a pedestrian crossing at about 60s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears to be an urban intersection with multiple lanes and crosswalks, featuring traffic lights and signage for businesses in the background. Weather conditions are clear as there is no visible precipitation or fog affecting visibility. 4. VEHICLES - Auto-rickshaw: Yellow; model unidentified. - Car (black): Model unidentified due to lighting and distance but appears compact-sized, possibly a sedan or hatchback based on
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.82it/s]
+2026-09-01 12:48:09,486 - MainProcess - INFO - ✅ Segment #8 stored in MongoDB
+✅ Segment #8 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:48:09,486 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #8 complete
+2026-09-01 12:48:09,488 - MainProcess - INFO - [cam14_stream-14] #8    7/718 (  1.0%) | seg  17.32s = seek  1.02 (12f, 0.09s/frame) + vlm  14.61 + azure  1.37 + embed  0.22 | avg  17.39s | elapsed 0:02:01 | ETA 3:26:06
+2026-09-01 12:48:26,026 - MainProcess - INFO - [VLM] Response received. Content len: 932, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #9 - 2026-06-13 21:08:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:08:20 to 21:08:50 at Unknown Location (cam14), camera cam14_stream-14. No alerts detected in these frames. The scene appears to be an urban intersection at night, with moderate traffic and streetlights illuminating the area. The weather seems clear based on visibility of vehicles and surroundings. 4. VEHICLES - A white hatchback enters from the left around 15s into the clip. - Two auto-rickshaws are seen moving across the intersection at various points in time, with one entering from the right near 20s and another appearing further back on the same side by about 30s. - A white sedan is visible driving through the intersection around 45s into the clip. - Other vehicles such as cars and motorcycles are present but not distinctly identifiable or tracked in detail. 5. PEOPLE No distinct people of note can be identified from these frames due to low resolution and lighting conditions. 6. PERSON-OBJECT No significant person-object interactions observed within this sequence.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.54it/s]
+2026-09-01 12:48:26,750 - MainProcess - INFO - ✅ Segment #9 stored in MongoDB
+✅ Segment #9 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:48:26,750 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #9 complete
+2026-09-01 12:48:26,753 - MainProcess - INFO - [cam14_stream-14] #9    8/718 (  1.1%) | seg  17.26s = seek  1.00 (12f, 0.08s/frame) + vlm  14.55 + azure  1.42 + embed  0.22 | avg  17.38s | elapsed 0:02:19 | ETA 3:25:38
+2026-09-01 12:48:26,773 - MainProcess - INFO - [Memory] RAM: 28.2% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:48:43,286 - MainProcess - INFO - [VLM] Response received. Content len: 850, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #10 - 2026-06-13 21:09:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:09:20 to 21:09:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A black sedan enters from the left at approximately 45s, turns slightly to its right, then continues straight through about 60 seconds into the clip. - A motorcycle with a rider in dark clothing appears on the far left side of the frame near 28s and moves towards the center-right around 37s. The rider seems to be wearing a helmet. 3. SCENE Nighttime, lighting is artificial (streetlights), weather conditions appear clear or slightly misty due to reflections visible in vehicles' lights, urban area with crosswalk markings on roads, commercial buildings and signage are visible in the background indicating it's likely an intersection near a business district. 4. VEHICLES - White hatchback: model unidentified
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.97it/s]
+2026-09-01 12:48:44,014 - MainProcess - INFO - ✅ Segment #10 stored in MongoDB
+✅ Segment #10 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:48:44,014 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #10 complete
+2026-09-01 12:48:44,017 - MainProcess - INFO - [cam14_stream-14] #10   9/718 (  1.3%) | seg  17.26s = seek  1.04 (12f, 0.09s/frame) + vlm  14.62 + azure  1.29 + embed  0.23 | avg  17.36s | elapsed 0:02:36 | ETA 3:25:11
+2026-09-01 12:49:00,677 - MainProcess - INFO - [VLM] Response received. Content len: 897, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #11 - 2026-06-13 21:10:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:10:20 to 21:10:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles enter from the left at approximately 45s, one stops near a pedestrian crossing while the other continues straight through. - A yellow auto-rickshaw enters from the left in front of two motorcycles that were previously seen entering. It moves to the right side of the frame and exits out of view. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear, and it is an urban intersection with visible road markings for pedestrian crossings and traffic signals. There are buildings in the background indicating a commercial or mixed-use area. 4. VEHICLES - White hatchback: model unidentified; color white; size small to medium car class; condition good; number plate partially legible. - Two motorcycles
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 88.87it/s]
+2026-09-01 12:49:01,410 - MainProcess - INFO - ✅ Segment #11 stored in MongoDB
+✅ Segment #11 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:49:01,410 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #11 complete
+2026-09-01 12:49:01,413 - MainProcess - INFO - [cam14_stream-14] #11   10/718 (  1.4%) | seg  17.40s = seek  1.02 (12f, 0.08s/frame) + vlm  14.67 + azure  1.40 + embed  0.23 | avg  17.37s | elapsed 0:02:53 | ETA 3:24:56
+2026-09-01 12:49:01,432 - MainProcess - INFO - [Memory] RAM: 29.8% | Process: 1.48GB | GPU: 9905/16311MB (60.7%)
+2026-09-01 12:49:18,229 - MainProcess - INFO - [VLM] Response received. Content len: 908, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #12 - 2026-06-13 21:11:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:11:20 to 21:11:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds later. - Several auto-rickshaws enter from various directions, some moving forward while others are stationary or reversing. - Motorcycles move in different directions throughout the sequence; one motorcycle is seen entering from the bottom-left corner. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry. It seems to be an urban intersection with multiple lanes, crosswalks, and traffic signals visible on both sides of the road. 4. VEHICLES - White hatchback: Model unidentified; color white. - Auto-rickshaws: Multiple entries from different directions; model unidentified due to night-time conditions but appear as typical auto-rickshaw designs with open cabins, some carrying goods or passengers on
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.17it/s]
+2026-09-01 12:49:18,958 - MainProcess - INFO - ✅ Segment #12 stored in MongoDB
+✅ Segment #12 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:49:18,958 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #12 complete
+2026-09-01 12:49:18,961 - MainProcess - INFO - [cam14_stream-14] #12   11/718 (  1.5%) | seg  17.55s = seek  1.02 (12f, 0.08s/frame) + vlm  14.65 + azure  1.56 + embed  0.23 | avg  17.38s | elapsed 0:03:11 | ETA 3:24:50
+2026-09-01 12:49:35,618 - MainProcess - INFO - [VLM] Response received. Content len: 848, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #13 - 2026-06-13 21:12:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:12:20 to 21:12:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s after frame 5. - Two motorcycles enter from the bottom of the frame, one on each side, around 40s into the clip; they move across to the center-right area. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban intersection. The weather appears clear and dry based on visibility conditions. The area is characterized by multiple lanes of traffic, pedestrian crossings marked with white stripes, and surrounding buildings lit up in neon lights indicating commercial establishments nearby. 4. VEHICLES - White hatchback: Enters from the left at around 30s into frame 5; exits to the right. - Motorcycles (two): Enter on either side of the bottom edge, move across towards center-right
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.78it/s]
+2026-09-01 12:49:36,340 - MainProcess - INFO - ✅ Segment #13 stored in MongoDB
+✅ Segment #13 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:49:36,340 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #13 complete
+2026-09-01 12:49:36,343 - MainProcess - INFO - [cam14_stream-14] #13   12/718 (  1.7%) | seg  17.38s = seek  1.22 (12f, 0.10s/frame) + vlm  14.64 + azure  1.22 + embed  0.22 | avg  17.38s | elapsed 0:03:28 | ETA 3:24:33
+2026-09-01 12:49:36,362 - MainProcess - INFO - [Memory] RAM: 27.5% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:49:52,869 - MainProcess - INFO - [VLM] Response received. Content len: 840, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #14 - 2026-06-13 21:13:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:13:20 to 21:13:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s after frame 5. - A black auto-rickshaw moves across the intersection, entering from the bottom of the frame around 48s into the clip. - Two individuals walk across the crosswalk in front of a parked vehicle on the right side at approximately 27s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry, as there are no visible signs of rain or wet surfaces. The location is an urban intersection with multiple lanes for vehicles and pedestrian crossings marked by white stripes on the road surface. There are traffic lights at various points in the frame. 4. VEHICLES - Yellow auto-rickshaw: Present throughout, parked near a group of motorcyclists.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.06it/s]
+2026-09-01 12:49:53,590 - MainProcess - INFO - ✅ Segment #14 stored in MongoDB
+✅ Segment #14 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:49:53,591 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #14 complete
+2026-09-01 12:49:53,593 - MainProcess - INFO - [cam14_stream-14] #14   13/718 (  1.8%) | seg  17.25s = seek  1.04 (12f, 0.09s/frame) + vlm  14.71 + azure  1.19 + embed  0.22 | avg  17.37s | elapsed 0:03:45 | ETA 3:24:08
+2026-09-01 12:50:10,178 - MainProcess - INFO - [VLM] Response received. Content len: 831, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #15 - 2026-06-13 21:14:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:14:20 to 21:14:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - A red auto-rickshaw moves across the intersection, entering from the bottom of frame at around 45s into the clip and exiting to the top-right by approximately 60 seconds. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears wet due to recent or ongoing rain. There are multiple lanes, pedestrian crossings, traffic lights, and commercial signage visible in the background indicating it is likely an urban setting. 4. VEHICLES - Yellow auto-rickshaw: Present throughout; stationary initially. - White hatchback: Enters from left at around 30s into the clip and exits right by approximately 60 seconds. - **Red auto-rick
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.40it/s]
+2026-09-01 12:50:10,900 - MainProcess - INFO - ✅ Segment #15 stored in MongoDB
+✅ Segment #15 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:50:10,900 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #15 complete
+2026-09-01 12:50:10,904 - MainProcess - INFO - [cam14_stream-14] #15   14/718 (  1.9%) | seg  17.31s = seek  1.01 (12f, 0.08s/frame) + vlm  14.65 + azure  1.36 + embed  0.22 | avg  17.37s | elapsed 0:04:03 | ETA 3:23:48
+2026-09-01 12:50:10,923 - MainProcess - INFO - [Memory] RAM: 27.8% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:50:27,644 - MainProcess - INFO - [VLM] Response received. Content len: 814, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #16 - 2026-06-13 21:15:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:15:20 to 21:15:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A black sedan enters from the left at approximately 45s, turns right, and exits out of frame by 60s. - An auto-rickshaw enters from the left near 70s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy intersection in an urban area. The weather appears clear as there are no visible signs of rain or fog affecting visibility. The layout includes multiple lanes, pedestrian crossings, and traffic signals controlling vehicle movement. 4. VEHICLES - White hatchback: Color white; size small to medium car class; condition good; model unidentified. - Black sedan: Color black; size mid-sized car class; condition good; model unidentified. - **Auto-rick
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.43it/s]
+2026-09-01 12:50:28,375 - MainProcess - INFO - ✅ Segment #16 stored in MongoDB
+✅ Segment #16 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:50:28,375 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #16 complete
+2026-09-01 12:50:28,378 - MainProcess - INFO - [cam14_stream-14] #16   15/718 (  2.1%) | seg  17.47s = seek  1.01 (12f, 0.08s/frame) + vlm  14.62 + azure  1.52 + embed  0.23 | avg  17.38s | elapsed 0:04:20 | ETA 3:23:35
+2026-09-01 12:50:44,863 - MainProcess - INFO - [VLM] Response received. Content len: 853, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #17 - 2026-06-13 21:16:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:16:20 to 21:16:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles with riders enter from the left at approximately 45s, then exit to the right shortly after. - A black car drives through a crosswalk on the far side of the intersection near 60s. 3. SCENE The scene is nighttime in an urban area with artificial lighting illuminating the road and surrounding buildings. The weather appears clear as there are no visible signs of rain or fog, and traffic lights indicate controlled intersections. There's a crosswalk on one side where pedestrians can be seen crossing at certain points. 4. VEHICLES - White hatchback: Appears to have standard features; color white. - Motorcycles with riders: - One rider is wearing dark clothing, and the other appears
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.59it/s]
+2026-09-01 12:50:45,585 - MainProcess - INFO - ✅ Segment #17 stored in MongoDB
+✅ Segment #17 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:50:45,585 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #17 complete
+2026-09-01 12:50:45,588 - MainProcess - INFO - [cam14_stream-14] #17   16/718 (  2.2%) | seg  17.21s = seek  1.01 (12f, 0.08s/frame) + vlm  14.71 + azure  1.20 + embed  0.22 | avg  17.37s | elapsed 0:04:37 | ETA 3:23:10
+2026-09-01 12:50:45,607 - MainProcess - INFO - [Memory] RAM: 28.0% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:51:02,051 - MainProcess - INFO - [VLM] Response received. Content len: 867, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #18 - 2026-06-13 21:17:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:17:20 to 21:17:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white car enters from the left and exits right around 30s. - Two motorcycles enter from the left, one stops near the center of the intersection at about 45s before exiting to the left shortly after. - Another motorcycle enters from the left and exits right by 60s. 3. SCENE Nighttime with artificial lighting illuminating the scene. The area appears to be an urban road intersection, likely in a city center given the presence of traffic lights, billboards, and commercial establishments visible on the right side. 4. VEHICLES - White car: Model unidentified; color white; size mid-sized sedan; condition good. - Motorcycles (two): Model unidentified; color not clearly identifiable due to lighting conditions but appear dark in color; size small; condition appears normal for motorcycles
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.40it/s]
+2026-09-01 12:51:02,779 - MainProcess - INFO - ✅ Segment #18 stored in MongoDB
+✅ Segment #18 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:51:02,779 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #18 complete
+2026-09-01 12:51:02,783 - MainProcess - INFO - [cam14_stream-14] #18   17/718 (  2.4%) | seg  17.19s = seek  1.03 (12f, 0.09s/frame) + vlm  14.65 + azure  1.19 + embed  0.23 | avg  17.36s | elapsed 0:04:55 | ETA 3:22:46
+2026-09-01 12:51:19,234 - MainProcess - INFO - [VLM] Response received. Content len: 844, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #19 - 2026-06-13 21:18:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:18:20 to 21:18:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and moves towards the center of the intersection. - Two motorcycles with riders enter from the right side, moving across the intersection. - Several vehicles (cars and auto-rickshaws) are seen entering or exiting the frame in various directions. 3. SCENE The scene is at night under artificial lighting. The area appears to be an urban road intersection with multiple lanes of traffic. There are zebra crossings, streetlights, and some buildings visible on both sides of the road. 4. VEHICLES - White auto-rickshaw: Enters from left; model unidentified. - Motorcycles (two): Enter from right side; model unidentified. - Cars: - A white car enters from the top-left corner and moves across the intersection. -
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 70.22it/s]
+2026-09-01 12:51:19,966 - MainProcess - INFO - ✅ Segment #19 stored in MongoDB
+✅ Segment #19 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:51:19,966 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #19 complete
+2026-09-01 12:51:19,969 - MainProcess - INFO - [cam14_stream-14] #19   18/718 (  2.5%) | seg  17.19s = seek  0.99 (12f, 0.08s/frame) + vlm  14.64 + azure  1.25 + embed  0.23 | avg  17.35s | elapsed 0:05:12 | ETA 3:22:22
+2026-09-01 12:51:19,989 - MainProcess - INFO - [Memory] RAM: 27.5% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:51:36,538 - MainProcess - INFO - [VLM] Response received. Content len: 864, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #20 - 2026-06-13 21:19:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:19:20 to 21:19:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP A white auto-rickshaw enters from the left and exits right around 30s, followed by another one at approximately 45s moving in similar fashion. A red car moves across the intersection near 60s. The traffic light changes to green for vehicles on the main road. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The location appears to be an urban street intersection, likely a busy one given the volume of traffic and pedestrians present. There are zebra crossings visible in both directions across the intersection. The weather seems clear as there is no indication of rain or fog. 4. VEHICLES - Yellow auto-rickshaw: Appears to have a standard design; partially legible number plate. - Red car: Likely mid-sized sedan, model unidentified due to lighting and distance
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.98it/s]
+2026-09-01 12:51:37,263 - MainProcess - INFO - ✅ Segment #20 stored in MongoDB
+✅ Segment #20 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:51:37,263 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #20 complete
+2026-09-01 12:51:37,368 - MainProcess - INFO - [cam14_stream-14] #20   19/718 (  2.6%) | seg  17.40s = seek  1.02 (12f, 0.08s/frame) + vlm  14.72 + azure  1.24 + embed  0.22 | avg  17.35s | elapsed 0:05:29 | ETA 3:22:07
+2026-09-01 12:51:54,289 - MainProcess - INFO - [VLM] Response received. Content len: 918, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #21 - 2026-06-13 21:20:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:20:20 to 21:20:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - A blue auto-rickshaw with passengers enters from the bottom-left corner, moves across to the center of the intersection, then continues straight ahead towards the top-right. 3. SCENE Nighttime scene; lighting is artificial streetlights illuminating a busy urban road intersection with multiple lanes and pedestrian crossings visible in the foreground. The area appears wet or reflective due to recent rain, as evidenced by the sheen on the pavement. Buildings are lit up in the background suggesting commercial establishments. 4. VEHICLES - White hatchback: Model unidentified; color white; size small car; condition good; number plate partially legible (partially obscured); no distinctive features noted. - Blue auto-rickshaw with passengers: Model unidentified due
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.90it/s]
+2026-09-01 12:51:55,027 - MainProcess - INFO - ✅ Segment #21 stored in MongoDB
+✅ Segment #21 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:51:55,027 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #21 complete
+2026-09-01 12:51:55,030 - MainProcess - INFO - [cam14_stream-14] #21   20/718 (  2.8%) | seg  17.66s = seek  0.99 (12f, 0.08s/frame) + vlm  14.67 + azure  1.68 + embed  0.24 | avg  17.36s | elapsed 0:05:47 | ETA 3:22:00
+2026-09-01 12:51:55,047 - MainProcess - INFO - [Memory] RAM: 28.7% | Process: 1.47GB | GPU: 9905/16311MB (60.7%)
+2026-09-01 12:52:11,477 - MainProcess - INFO - [VLM] Response received. Content len: 1037, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #22 - 2026-06-13 21:21:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:21:20 to 21:21:50 at Unknown Location (cam14), camera cam14_stream-14. No alerts detected in these frames. The scene appears to be an urban intersection at night, with moderate traffic flow and some vehicles waiting for the light to change from red to green. The lighting is artificial streetlights illuminating the area. There are no significant changes between early and late frames; most vehicles continue their journey or wait as expected under normal traffic conditions. 5. PEOPLE - Person on a motorbike in the foreground, wearing white shirt and dark pants. - Person standing near the blue truck with goods loaded into it (left side), wearing dark clothing. - Several individuals are seen riding motorcycles across different frames; their appearances vary but details like age or sex cannot be determined. 6. PERSON-OBJECT No significant interactions between people and objects detected in these frames, except for vehicles moving on the road as expected under normal traffic conditions. 7. PERSON-PERSON - The individuals riding motorcycles are spaced out across different lanes. - No
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.72it/s]
+2026-09-01 12:52:12,209 - MainProcess - INFO - ✅ Segment #22 stored in MongoDB
+✅ Segment #22 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:52:12,209 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #22 complete
+2026-09-01 12:52:12,212 - MainProcess - INFO - [cam14_stream-14] #22   21/718 (  2.9%) | seg  17.18s = seek  1.01 (12f, 0.08s/frame) + vlm  14.65 + azure  1.19 + embed  0.23 | avg  17.36s | elapsed 0:06:04 | ETA 3:21:37
+2026-09-01 12:52:28,728 - MainProcess - INFO - [VLM] Response received. Content len: 898, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #23 - 2026-06-13 21:22:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:22:20 to 21:22:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A red bus moves across the intersection at approximately 45s, heading towards the top of the frame before exiting to the right side by about 60s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears wet from recent rain or ongoing drizzle, reflecting light and creating glare on vehicles' lights. There are multiple lanes for traffic movement, pedestrian crossings marked in white lines, and various commercial establishments visible along the right side of the frame. 4. VEHICLES - White hatchback: Model unidentified; color white; size small to medium car class; condition appears standard with no noticeable dents or modifications. - Red bus: Model unidentified due to distance but likely
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.97it/s]
+2026-09-01 12:52:29,453 - MainProcess - INFO - ✅ Segment #23 stored in MongoDB
+✅ Segment #23 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:52:29,453 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #23 complete
+2026-09-01 12:52:29,456 - MainProcess - INFO - [cam14_stream-14] #23   22/718 (  3.1%) | seg  17.24s = seek  1.00 (12f, 0.08s/frame) + vlm  14.70 + azure  1.25 + embed  0.22 | avg  17.35s | elapsed 0:06:21 | ETA 3:21:16
+2026-09-01 12:52:29,476 - MainProcess - INFO - [Memory] RAM: 28.9% | Process: 1.47GB | GPU: 9905/16311MB (60.7%)
+2026-09-01 12:52:46,066 - MainProcess - INFO - [VLM] Response received. Content len: 798, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #24 - 2026-06-13 21:23:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:23:20 to 21:23:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - Two auto-rickshaws enter from the left, move across to the center of the intersection, then exit towards the bottom-left corner around 45s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be well-lit and has multiple lanes for traffic flow. There are zebra crossings visible in the foreground, and various commercial establishments can be seen on the right side of the frame. 4. VEHICLES - White hatchback: Color white; size small car; condition good; number plate partially legible as "123456"; model unidentified. - Auto-rickshaws (two): Color yellow-green; size compact vehicle
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.05it/s]
+2026-09-01 12:52:46,788 - MainProcess - INFO - ✅ Segment #24 stored in MongoDB
+✅ Segment #24 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:52:46,788 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #24 complete
+2026-09-01 12:52:46,791 - MainProcess - INFO - [cam14_stream-14] #24   23/718 (  3.2%) | seg  17.33s = seek  0.99 (12f, 0.08s/frame) + vlm  14.65 + azure  1.37 + embed  0.22 | avg  17.35s | elapsed 0:06:39 | ETA 3:20:58
+2026-09-01 12:53:03,296 - MainProcess - INFO - [VLM] Response received. Content len: 899, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #25 - 2026-06-13 21:24:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:24:20 to 21:24:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Several auto-rickshaws move across the intersection, some entering from different directions throughout the clip. - Motorcycles and scooters are seen moving in various directions as traffic flows through the intersection. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The location appears to be an urban road intersection with multiple lanes of traffic and pedestrian crossings visible on both sides. There is a green light for vehicles, indicating that they can proceed when it's their turn at this junction. 4. VEHICLES - White hatchback: Model unidentified; color white. - Auto-rickshaws: Multiple auto-rickshaws are present in various colors (yellow and other shades). They move across the intersection, some entering from
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 82.55it/s]
+2026-09-01 12:53:04,025 - MainProcess - INFO - ✅ Segment #25 stored in MongoDB
+✅ Segment #25 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:53:04,025 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #25 complete
+2026-09-01 12:53:04,028 - MainProcess - INFO - [cam14_stream-14] #25   24/718 (  3.3%) | seg  17.24s = seek  1.02 (12f, 0.08s/frame) + vlm  14.73 + azure  1.18 + embed  0.23 | avg  17.35s | elapsed 0:06:56 | ETA 3:20:37
+2026-09-01 12:53:04,048 - MainProcess - INFO - [Memory] RAM: 27.8% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:53:20,679 - MainProcess - INFO - [VLM] Response received. Content len: 837, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #26 - 2026-06-13 21:25:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:25:20 to 21:25:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white car enters from the left and exits right around 30s. - Two motorcycles enter from the left, one stops near the center of the intersection at about 45s, then moves slightly to the right by 60s. - Another motorcycle enters from the left shortly after. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears well-lit and has multiple lanes for traffic flow in both directions. There are zebra crossings visible, as well as various vehicles moving through the intersection under green traffic lights. 4. VEHICLES - White car: Model unidentified; color white; size mid-sized sedan; condition good. - Red SUV: Model unidentified; color red; size mid-sized SUV; condition good. - **Yellow auto-rickshaw
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.62it/s]
+2026-09-01 12:53:21,404 - MainProcess - INFO - ✅ Segment #26 stored in MongoDB
+✅ Segment #26 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:53:21,404 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #26 complete
+2026-09-01 12:53:21,408 - MainProcess - INFO - [cam14_stream-14] #26   25/718 (  3.5%) | seg  17.38s = seek  1.03 (12f, 0.09s/frame) + vlm  14.71 + azure  1.32 + embed  0.22 | avg  17.35s | elapsed 0:07:13 | ETA 3:20:21
+2026-09-01 12:53:37,857 - MainProcess - INFO - [VLM] Response received. Content len: 846, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #27 - 2026-06-13 21:26:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:26:20 to 21:26:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A green auto-rickshaw moves across the intersection at approximately 45s, heading towards the bottom of the frame before turning to exit on the right side by about 60s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be well-lit and has multiple lanes for vehicles. There are zebra crossings visible, as well as traffic lights in operation at various points around the frame. The environment suggests an active city center or commercial district. 4. VEHICLES - Yellow auto-rickshaw: Present throughout; stationary initially but starts moving by approximately 30s. - White hatchback (model unidentified): Enters from left, exits right
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.32it/s]
+2026-09-01 12:53:38,581 - MainProcess - INFO - ✅ Segment #27 stored in MongoDB
+✅ Segment #27 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:53:38,581 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #27 complete
+2026-09-01 12:53:38,584 - MainProcess - INFO - [cam14_stream-14] #27   26/718 (  3.6%) | seg  17.18s = seek  1.00 (12f, 0.08s/frame) + vlm  14.67 + azure  1.21 + embed  0.22 | avg  17.34s | elapsed 0:07:30 | ETA 3:19:59
+2026-09-01 12:53:38,604 - MainProcess - INFO - [Memory] RAM: 28.0% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:53:55,187 - MainProcess - INFO - [VLM] Response received. Content len: 844, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #28 - 2026-06-13 21:27:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:27:20 to 21:27:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - Two auto-rickshaws enter from the left, one stops briefly in front of a pedestrian crossing before moving forward to join traffic on the main road at around 45s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears urban and busy, featuring multiple lanes of traffic, zebra crossings, and commercial signage visible across the street in the background. 4. VEHICLES - Yellow auto-rickshaw: Present throughout; stationary or moving slowly. - White hatchback (model unidentified): Enters from left at around 30s into the clip and exits right shortly after. - Blue bus model unidentified: Moves across the frame in front of other vehicles, partially
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 99.65it/s]
+2026-09-01 12:53:55,911 - MainProcess - INFO - ✅ Segment #28 stored in MongoDB
+✅ Segment #28 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:53:55,911 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #28 complete
+2026-09-01 12:53:55,914 - MainProcess - INFO - [cam14_stream-14] #28   27/718 (  3.8%) | seg  17.33s = seek  1.01 (12f, 0.08s/frame) + vlm  14.69 + azure  1.32 + embed  0.22 | avg  17.34s | elapsed 0:07:48 | ETA 3:19:41
+2026-09-01 12:54:12,546 - MainProcess - INFO - [VLM] Response received. Content len: 903, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #29 - 2026-06-13 21:28:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:28:20 to 21:28:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds later. - Two motorcycles enter from the right, one stops near the center of the intersection while the other continues straight through to the far side. - Several vehicles (cars and auto-rickshaws) move in and out of frame throughout. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears wet, possibly from recent rain. There are multiple lanes for traffic flow, pedestrian crossings marked on the ground, and various commercial establishments visible in the background. 4. VEHICLES - White hatchback: Model unidentified; color white; size small to medium car class. - Motorcycles (two): Model unidentified; color not clearly identifiable due to lighting conditions but appear dark-colored. - **
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.51it/s]
+2026-09-01 12:54:13,280 - MainProcess - INFO - ✅ Segment #29 stored in MongoDB
+✅ Segment #29 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:54:13,280 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #29 complete
+2026-09-01 12:54:13,283 - MainProcess - INFO - [cam14_stream-14] #29   28/718 (  3.9%) | seg  17.37s = seek  0.99 (12f, 0.08s/frame) + vlm  14.68 + azure  1.39 + embed  0.23 | avg  17.34s | elapsed 0:08:05 | ETA 3:19:25
+2026-09-01 12:54:13,303 - MainProcess - INFO - [Memory] RAM: 28.0% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:54:15,029 - MainProcess - WARNING - [cam14_stream-14] Segment #30: overlay clock reads 2026-06-13T21:20:00 but anchor derives 2026-06-13T21:29:20.800000 (drift -561s). Anchor kept; check video_anchors.json for cam14_stream-14.mp4.
+2026-09-01 12:54:30,656 - MainProcess - INFO - [VLM] Response received. Content len: 872, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #30 - 2026-06-13 21:29:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:29:20 to 21:29:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white sedan enters from the left and moves towards the right. - Two auto-rickshaws move across the intersection, one entering from the bottom of the frame and another moving away to the right side. - Several motorcycles are seen in various positions throughout the frames. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear or slightly misty due to reflections on wet surfaces. It is an urban intersection with multiple lanes, crosswalks, and traffic signals visible. 4. VEHICLES - White sedan: Model unidentified; color white; size medium car; condition good. - Auto-rickshaws (two): Color yellow-green; model unidentified; size small auto-rickshaw; condition good. - Motorcycles: Multiple motorcycles are present, but their specific models
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.95it/s]
+2026-09-01 12:54:31,376 - MainProcess - INFO - ✅ Segment #30 stored in MongoDB
+✅ Segment #30 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:54:31,376 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #30 complete
+2026-09-01 12:54:31,379 - MainProcess - INFO - [cam14_stream-14] #30   29/718 (  4.0%) | seg  18.10s = seek  1.00 (12f, 0.08s/frame) + vlm  14.68 + azure  1.38 + embed  0.22 | avg  17.37s | elapsed 0:08:23 | ETA 3:19:25
+2026-09-01 12:54:48,026 - MainProcess - INFO - [VLM] Response received. Content len: 914, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #31 - 2026-06-13 21:30:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:30:20 to 21:30:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles move across the intersection, one turning into traffic at approximately 45s while another continues straight through the intersection shortly after. - A red car drives past on the far side of the road. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban street intersection. The area appears to be well-lit and has multiple lanes, pedestrian crossings, traffic lights, and surrounding buildings indicating an active commercial or residential zone. 4. VEHICLES - White hatchback: Model unidentified; color white; size small car class; condition standard; number plate partially legible. - Red car: Model unidentified; color red; size mid-sized sedan; condition good; no visible cargo, modifications, or distinctive features noted
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.63it/s]
+2026-09-01 12:54:48,748 - MainProcess - INFO - ✅ Segment #31 stored in MongoDB
+✅ Segment #31 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:54:48,748 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #31 complete
+2026-09-01 12:54:48,751 - MainProcess - INFO - [cam14_stream-14] #31   30/718 (  4.2%) | seg  17.37s = seek  1.02 (12f, 0.08s/frame) + vlm  14.67 + azure  1.39 + embed  0.22 | avg  17.37s | elapsed 0:08:41 | ETA 3:19:08
+2026-09-01 12:54:48,770 - MainProcess - INFO - [Memory] RAM: 28.2% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:55:05,209 - MainProcess - INFO - [VLM] Response received. Content len: 906, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #32 - 2026-06-13 21:31:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:31:20 to 21:31:50 at Unknown Location (cam14), camera cam14_stream-14. No alerts detected in this sequence. The scene appears to be an urban intersection at night, with moderate traffic and some pedestrian activity. The lighting is artificial streetlights, creating reflections on wet pavement due to recent rain. Vehicles are moving through the intersection under red lights while pedestrians cross the zebra crossing or wait for their turn. 4. VEHICLES - Red sedan: Moving from left foreground towards right background. - Yellow auto-rickshaw (tuk-tuk): Stopped in front of a red car, facing forward with its rear light on and indicator flashing. - White hatchback: Enters the frame from far left at 21s, moves across to center-right by 30s then exits right. - Blue bus: Moves into view from top-left around 45s, crosses the intersection in a diagonal path towards bottom-right. It has visible branding on its side and rear lights are illuminated.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.13it/s]
+2026-09-01 12:55:05,934 - MainProcess - INFO - ✅ Segment #32 stored in MongoDB
+✅ Segment #32 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:55:05,934 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #32 complete
+2026-09-01 12:55:05,938 - MainProcess - INFO - [cam14_stream-14] #32   31/718 (  4.3%) | seg  17.19s = seek  1.00 (12f, 0.08s/frame) + vlm  14.67 + azure  1.20 + embed  0.22 | avg  17.36s | elapsed 0:08:58 | ETA 3:18:47
+2026-09-01 12:55:22,504 - MainProcess - INFO - [VLM] Response received. Content len: 806, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #33 - 2026-06-13 21:32:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:32:20 to 21:32:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - Two auto-rickshaws move across the intersection, one entering from the bottom of the frame and exiting to the top-right around 15s into the clip. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be in an urban setting with multiple lanes for traffic flow, pedestrian crossings visible on both sides, and commercial buildings lit up in the background. 4. VEHICLES - Yellow auto-rickshaw: Present throughout; stationary or moving slowly. - Red car: Enters from left around 15s into the clip and exits right at about 20s later. - White hatchback: Enters from left, moves across to exit
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.57it/s]
+2026-09-01 12:55:23,231 - MainProcess - INFO - ✅ Segment #33 stored in MongoDB
+✅ Segment #33 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:55:23,232 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #33 complete
+2026-09-01 12:55:23,234 - MainProcess - INFO - [cam14_stream-14] #33   32/718 (  4.5%) | seg  17.30s = seek  1.01 (12f, 0.08s/frame) + vlm  14.66 + azure  1.32 + embed  0.23 | avg  17.36s | elapsed 0:09:15 | ETA 3:18:28
+2026-09-01 12:55:23,254 - MainProcess - INFO - [Memory] RAM: 28.1% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:55:39,783 - MainProcess - INFO - [VLM] Response received. Content len: 903, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #34 - 2026-06-13 21:33:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:33:20 to 21:33:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and moves towards the center of the intersection. - Two motorcycles, one with two riders, enter from the right side near a zebra crossing and move across to the left side. - Several vehicles, including cars and buses, are seen moving through different parts of the intersection. 3. SCENE The scene is at night under artificial lighting. The area appears to be an urban road with multiple lanes and traffic lights controlling vehicle movement. There's a zebra crossing visible in the foreground on both sides of the intersection. Buildings and illuminated signs are seen in the background, suggesting it might be near commercial or business areas. 4. VEHICLES - White auto-rickshaw: Appears to have a standard design with a yellow roof; partially legible number plate. - **Motorcycles
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.56it/s]
+2026-09-01 12:55:40,506 - MainProcess - INFO - ✅ Segment #34 stored in MongoDB
+✅ Segment #34 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:55:40,506 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #34 complete
+2026-09-01 12:55:40,509 - MainProcess - INFO - [cam14_stream-14] #34   33/718 (  4.6%) | seg  17.27s = seek  1.00 (12f, 0.08s/frame) + vlm  14.67 + azure  1.29 + embed  0.22 | avg  17.36s | elapsed 0:09:32 | ETA 3:18:09
+2026-09-01 12:55:57,054 - MainProcess - INFO - [VLM] Response received. Content len: 807, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #35 - 2026-06-13 21:34:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:34:20 to 21:34:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A silver sedan enters from the left at approximately 45s, turns slightly to its right, then continues straight through the intersection by about 60s. - A green auto-rickshaw moves across the center of the frame between 20s and 70s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be well-lit, likely in an urban or suburban setting given the presence of multiple vehicles and commercial signage visible on buildings in the background. 4. VEHICLES - White hatchback: Model unidentified; color white; size small car; condition good; number plate partially legible as "123456"; no distinctive features
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 65.38it/s]
+2026-09-01 12:55:57,781 - MainProcess - INFO - ✅ Segment #35 stored in MongoDB
+✅ Segment #35 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:55:57,781 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #35 complete
+2026-09-01 12:55:57,785 - MainProcess - INFO - [cam14_stream-14] #35   34/718 (  4.7%) | seg  17.28s = seek  0.99 (12f, 0.08s/frame) + vlm  14.69 + azure  1.29 + embed  0.23 | avg  17.35s | elapsed 0:09:50 | ETA 3:17:50
+2026-09-01 12:55:57,804 - MainProcess - INFO - [Memory] RAM: 28.3% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:56:14,362 - MainProcess - INFO - [VLM] Response received. Content len: 819, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #36 - 2026-06-13 21:35:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:35:20 to 21:35:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles enter from the bottom of the frame, one on each side, at approximately 45s. - The motorcycle rider in the foreground stops near a pedestrian crossing. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry. It is an urban intersection with multiple lanes for traffic flow and crosswalks visible on both sides of the road. 4. VEHICLES - White hatchback: Model unidentified; color white; size small car; condition good. - Blue bus (top right): Model identified as "GSRTC"; color blue; size large vehicle; condition good, no visible cargo or modifications noted in this frame. - Yellow auto-rickshaw (
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.06it/s]
+2026-09-01 12:56:15,088 - MainProcess - INFO - ✅ Segment #36 stored in MongoDB
+✅ Segment #36 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:56:15,088 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #36 complete
+2026-09-01 12:56:15,091 - MainProcess - INFO - [cam14_stream-14] #36   35/718 (  4.9%) | seg  17.31s = seek  0.99 (12f, 0.08s/frame) + vlm  14.68 + azure  1.31 + embed  0.23 | avg  17.35s | elapsed 0:10:07 | ETA 3:17:32
+2026-09-01 12:56:31,786 - MainProcess - INFO - [VLM] Response received. Content len: 847, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #37 - 2026-06-13 21:36:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:36:20 to 21:36:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A black sedan enters from the left at approximately 45s, turns slightly to its right, then continues straight through the intersection by about 60s. - A yellow auto-rickshaw appears in the foreground on the right side of the frame between 20 and 30 seconds. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area is well-lit, featuring streetlights, traffic signals, and illuminated signage from nearby buildings. There are pedestrian crossings visible in the foreground on both sides of the intersection. 4. VEHICLES - White hatchback: Color white; size small to medium car class; condition appears standard with no noticeable dents or modifications. - **
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.39it/s]
+2026-09-01 12:56:32,510 - MainProcess - INFO - ✅ Segment #37 stored in MongoDB
+✅ Segment #37 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:56:32,510 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #37 complete
+2026-09-01 12:56:32,514 - MainProcess - INFO - [cam14_stream-14] #37   36/718 (  5.0%) | seg  17.42s = seek  0.98 (12f, 0.08s/frame) + vlm  14.63 + azure  1.51 + embed  0.22 | avg  17.36s | elapsed 0:10:24 | ETA 3:17:16
+2026-09-01 12:56:32,533 - MainProcess - INFO - [Memory] RAM: 28.2% | Process: 1.47GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:56:49,057 - MainProcess - INFO - [VLM] Response received. Content len: 863, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #38 - 2026-06-13 21:37:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:37:20 to 21:37:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - A black sedan drives through the intersection at approximately 45s into the clip, moving towards the camera's position on the right side of the frame. - A red bus appears in the foreground around 28s after the sedan passes by. It moves from left to right across the screen and exits out of view. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban intersection. The weather is clear, and there are multiple vehicles moving through the area. The location appears to be an urban setting given the presence of traffic lights, road markings, and surrounding buildings. 4. VEHICLES - White hatchback: Model unidentified; light-colored body with dark windows. - Black sedan: Model unidentified;
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 85.84it/s]
+2026-09-01 12:56:49,780 - MainProcess - INFO - ✅ Segment #38 stored in MongoDB
+✅ Segment #38 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:56:49,780 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #38 complete
+2026-09-01 12:56:49,783 - MainProcess - INFO - [cam14_stream-14] #38   37/718 (  5.2%) | seg  17.27s = seek  1.01 (12f, 0.08s/frame) + vlm  14.66 + azure  1.27 + embed  0.22 | avg  17.35s | elapsed 0:10:42 | ETA 3:16:57
+2026-09-01 12:57:06,272 - MainProcess - INFO - [VLM] Response received. Content len: 886, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #39 - 2026-06-13 21:38:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:38:20 to 21:38:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A red auto-rickshaw moves across the intersection at approximately 45s, heading towards the bottom of the frame before turning to exit on a different road. - Several motorcycles are seen moving through various parts of the scene throughout. 3. SCENE Nighttime with artificial lighting illuminating the area. The location appears to be an urban intersection with multiple lanes and crosswalks visible in the foreground, featuring commercial buildings and signage in the background. 4. VEHICLES - White hatchback: Model unidentified; light-colored body; moving from left to right. - Red auto-rickshaw: Model unidentified; red color; moving across intersection at approximately 45s before turning off road. - Motorcycles: Various models
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.21it/s]
+2026-09-01 12:57:06,998 - MainProcess - INFO - ✅ Segment #39 stored in MongoDB
+✅ Segment #39 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:57:06,998 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #39 complete
+2026-09-01 12:57:07,001 - MainProcess - INFO - [cam14_stream-14] #39   38/718 (  5.3%) | seg  17.22s = seek  1.01 (12f, 0.08s/frame) + vlm  14.67 + azure  1.24 + embed  0.22 | avg  17.35s | elapsed 0:10:59 | ETA 3:16:37
+2026-09-01 12:57:07,020 - MainProcess - INFO - [Memory] RAM: 28.4% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:57:23,589 - MainProcess - INFO - [VLM] Response received. Content len: 806, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #40 - 2026-06-13 21:39:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:39:20 to 21:39:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and exits right around 30s. - Two motorbikes enter from the left at approximately 45s, one exits to the right while another continues straight through by 60s. - A yellow auto-rickshaw enters from the left and exits right about 70s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy intersection in an urban area. The weather appears clear as there are no visible signs of rain or fog, and the road surface is dry. There are multiple lanes for traffic movement, pedestrian crossings marked on the road, and various commercial establishments lit up along the sides. 4. VEHICLES - White auto-rickshaw: Model unidentified; light-colored body with a dark roof. - **Motorbikes
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.77it/s]
+2026-09-01 12:57:24,310 - MainProcess - INFO - ✅ Segment #40 stored in MongoDB
+✅ Segment #40 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:57:24,310 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #40 complete
+2026-09-01 12:57:24,422 - MainProcess - INFO - [cam14_stream-14] #40   39/718 (  5.4%) | seg  17.42s = seek  1.00 (12f, 0.08s/frame) + vlm  14.72 + azure  1.27 + embed  0.22 | avg  17.35s | elapsed 0:11:16 | ETA 3:16:21
+2026-09-01 12:57:41,306 - MainProcess - INFO - [VLM] Response received. Content len: 872, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #41 - 2026-06-13 21:40:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:40:20 to 21:40:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds later. - Two auto-rickshaws move across the intersection, one entering from the bottom of the frame and exiting to the top-right corner around 15s into the clip; another enters from the same direction but further back in the scene. 3. SCENE Nighttime with artificial lighting illuminating a busy urban road intersection featuring multiple lanes for vehicles and pedestrians crossing at designated crosswalks. The area appears well-lit by streetlights, with some commercial signage visible on buildings in the background indicating businesses like "West Bank." 4. VEHICLES - White hatchback: Color white; size small to medium car class; condition good; number plate partially legible as '123456'; no distinctive features noted.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.19it/s]
+2026-09-01 12:57:42,027 - MainProcess - INFO - ✅ Segment #41 stored in MongoDB
+✅ Segment #41 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:57:42,028 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #41 complete
+2026-09-01 12:57:42,030 - MainProcess - INFO - [cam14_stream-14] #41   40/718 (  5.6%) | seg  17.61s = seek  0.98 (12f, 0.08s/frame) + vlm  14.67 + azure  1.65 + embed  0.22 | avg  17.36s | elapsed 0:11:34 | ETA 3:16:08
+2026-09-01 12:57:42,050 - MainProcess - INFO - [Memory] RAM: 28.6% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:57:58,465 - MainProcess - INFO - [VLM] Response received. Content len: 839, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #42 - 2026-06-13 21:41:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:41:20 to 21:41:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and exits right around 30s. - A black car drives through the intersection at approximately 45s, moving towards the camera's position on the right side of the frame. - A person wearing a dark jacket is seen crossing the road in front of the red van near the end. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry. It seems to be an urban intersection, likely at a busy junction given the traffic flow and pedestrian activity. 4. VEHICLES - White auto-rickshaw: Model unidentified; light-colored body. - Black car: Model unidentified; dark color. - Red van: Model unidentified; parked on the right side of the frame with its rear lights illuminated, indicating
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.42it/s]
+2026-09-01 12:57:59,188 - MainProcess - INFO - ✅ Segment #42 stored in MongoDB
+✅ Segment #42 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:57:59,188 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #42 complete
+2026-09-01 12:57:59,190 - MainProcess - INFO - [cam14_stream-14] #42   41/718 (  5.7%) | seg  17.16s = seek  0.98 (12f, 0.08s/frame) + vlm  14.64 + azure  1.22 + embed  0.22 | avg  17.35s | elapsed 0:11:51 | ETA 3:15:47
+2026-09-01 12:58:15,847 - MainProcess - INFO - [VLM] Response received. Content len: 809, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #43 - 2026-06-13 21:42:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:42:20 to 21:42:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - Two auto-rickshaws enter from the right, one stops near center of intersection for a few seconds before exiting to the right around 45s into the clip. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears urban and busy, likely an intersection or roundabout given the traffic lights and road markings visible in the frames. 4. VEHICLES - White hatchback: Model unidentified; color white; size small to medium car class; condition good; number plate partially legible as "W12345"; no distinctive features noted. - Auto-rickshaws (two): Model unidentified due to lighting and distance, but they are auto-rickshaw type
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.84it/s]
+2026-09-01 12:58:16,573 - MainProcess - INFO - ✅ Segment #43 stored in MongoDB
+✅ Segment #43 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:58:16,573 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #43 complete
+2026-09-01 12:58:16,575 - MainProcess - INFO - [cam14_stream-14] #43   42/718 (  5.8%) | seg  17.38s = seek  0.98 (12f, 0.08s/frame) + vlm  14.66 + azure  1.44 + embed  0.23 | avg  17.35s | elapsed 0:12:08 | ETA 3:15:30
+2026-09-01 12:58:16,593 - MainProcess - INFO - [Memory] RAM: 28.4% | Process: 1.51GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:58:33,041 - MainProcess - INFO - [VLM] Response received. Content len: 889, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #44 - 2026-06-13 21:43:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:43:20 to 21:43:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A yellow auto-rickshaw enters from the left and moves towards the right. - Two motorcycles with riders enter from the bottom-left corner, moving diagonally across to the center-right of the frame. - The motorcycle on the far left stops near a pedestrian crossing in the foreground. 3. SCENE Nighttime scene; lighting is artificial streetlights illuminating the road and surrounding area. Weather appears clear. Type of area: urban intersection with multiple lanes, crosswalks, and traffic signals. Layout includes roads converging at an intersection with visible signage for "WESTBANK" on a building in the background. 4. VEHICLES - Yellow auto-rickshaw: Model unidentified; color yellow; size small to medium; condition appears standard. - Motorcycle (left): Model unidentified, possibly a scooter or motorcycle
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.98it/s]
+2026-09-01 12:58:33,764 - MainProcess - INFO - ✅ Segment #44 stored in MongoDB
+✅ Segment #44 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:58:33,764 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #44 complete
+2026-09-01 12:58:33,767 - MainProcess - INFO - [cam14_stream-14] #44   43/718 (  6.0%) | seg  17.19s = seek  0.99 (12f, 0.08s/frame) + vlm  14.67 + azure  1.22 + embed  0.22 | avg  17.35s | elapsed 0:12:26 | ETA 3:15:11
+2026-09-01 12:58:50,379 - MainProcess - INFO - [VLM] Response received. Content len: 830, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #45 - 2026-06-13 21:44:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:44:20 to 21:44:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds after frame 5. - Two auto-rickshaws enter from the bottom of the frame, one on each side, and move across to exit off-screen at around 40s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy intersection in an urban area. The weather appears clear as there are no visible signs of rain or fog affecting visibility. The layout includes multiple lanes for vehicles and pedestrian crossings, indicating it is likely a major road junction. 4. VEHICLES - Auto-rickshaw (left side): Yellow body with green accents; model unidentified. - Auto-rickshaw (right side): Green body with yellow accents; model unidentified. - White hatchback: Model unidentified, possibly
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.17it/s]
+2026-09-01 12:58:51,118 - MainProcess - INFO - ✅ Segment #45 stored in MongoDB
+✅ Segment #45 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:58:51,118 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #45 complete
+2026-09-01 12:58:51,121 - MainProcess - INFO - [cam14_stream-14] #45   44/718 (  6.1%) | seg  17.35s = seek  0.98 (12f, 0.08s/frame) + vlm  14.68 + azure  1.38 + embed  0.24 | avg  17.35s | elapsed 0:12:43 | ETA 3:14:53
+2026-09-01 12:58:51,141 - MainProcess - INFO - [Memory] RAM: 28.4% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:59:07,516 - MainProcess - INFO - [VLM] Response received. Content len: 822, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #46 - 2026-06-13 21:45:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:45:20 to 21:45:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s after frame 5. - A black sedan enters from the left, turns right at around 48s into this clip. - A green auto-rickshaw moves across the intersection in front of a white van. 3. SCENE Nighttime with artificial lighting illuminating the scene. The area appears to be an urban road junction with multiple lanes and pedestrian crossings visible. There are buildings, streetlights, and signage indicating it is likely a commercial or mixed-use zone. 4. VEHICLES - White hatchback: Model unidentified; light-colored body. - Black sedan: Model unidentified; dark color. - Green auto-rickshaw: Model unidentified; green body with yellow roof. - White van: Model identified as "Ban
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.00it/s]
+2026-09-01 12:59:08,647 - MainProcess - INFO - ✅ Segment #46 stored in MongoDB
+✅ Segment #46 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:59:08,647 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #46 complete
+2026-09-01 12:59:08,650 - MainProcess - INFO - [cam14_stream-14] #46   45/718 (  6.3%) | seg  17.53s = seek  0.97 (12f, 0.08s/frame) + vlm  14.63 + azure  1.20 + embed  0.63 | avg  17.35s | elapsed 0:13:00 | ETA 3:14:39
+2026-09-01 12:59:25,106 - MainProcess - INFO - [VLM] Response received. Content len: 824, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #47 - 2026-06-13 21:46:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:46:20 to 21:46:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two auto-rickshaws enter from the left at approximately 45s, one stops briefly in front of a pedestrian crossing before moving forward. - A red car drives into view on the far right side near 28s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears to be an urban intersection with multiple lanes and crosswalks, featuring various vehicles including cars, auto-rickshaws, motorcycles, and buses. There are traffic lights visible in the background indicating a controlled road system. 4. VEHICLES - White hatchback: Color white; size small car class; condition appears standard. - Auto-rickshaw (2): Color yellow with green accents on
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.54it/s]
+2026-09-01 12:59:25,851 - MainProcess - INFO - ✅ Segment #47 stored in MongoDB
+✅ Segment #47 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:59:25,851 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #47 complete
+2026-09-01 12:59:25,854 - MainProcess - INFO - [cam14_stream-14] #47   46/718 (  6.4%) | seg  17.20s = seek  0.98 (12f, 0.08s/frame) + vlm  14.65 + azure  1.25 + embed  0.24 | avg  17.35s | elapsed 0:13:18 | ETA 3:14:19
+2026-09-01 12:59:25,871 - MainProcess - INFO - [Memory] RAM: 28.1% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 12:59:42,394 - MainProcess - INFO - [VLM] Response received. Content len: 821, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #48 - 2026-06-13 21:47:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:47:20 to 21:47:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 40s. - A red bus enters from the left at approximately 53 seconds, moving towards the center of the intersection before turning to its right (towards the background). 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. 4. VEHICLES Vehicles entering and exiting: - White hatchback: Enters from left at approximately 20s, exits towards the right around 40 seconds. Vehicles moving through or stopped in view: - Yellow auto-rickshaw (Tuk-Tuk): Moves across the intersection near center-left of frame throughout most frames. - White sedan: Stopped briefly on left side at approximately 25s, then moves forward slightly before
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 63.46it/s]
+2026-09-01 12:59:43,122 - MainProcess - INFO - ✅ Segment #48 stored in MongoDB
+✅ Segment #48 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 12:59:43,122 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #48 complete
+2026-09-01 12:59:43,126 - MainProcess - INFO - [cam14_stream-14] #48   47/718 (  6.5%) | seg  17.27s = seek  1.05 (12f, 0.09s/frame) + vlm  14.69 + azure  1.20 + embed  0.23 | avg  17.35s | elapsed 0:13:35 | ETA 3:14:01
+2026-09-01 12:59:59,572 - MainProcess - INFO - [VLM] Response received. Content len: 903, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #49 - 2026-06-13 21:48:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:48:20 to 21:48:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A red bus moves across the intersection at approximately 45s, heading towards the bottom of the frame before exiting to the right. - Two motorcycles are seen moving in opposite directions on a side road near the center-left area throughout. 3. SCENE Nighttime scene with artificial lighting illuminating the traffic and surrounding buildings. The weather appears clear. It is an urban intersection with multiple lanes, crosswalks, and visible signage indicating traffic signals and directions. 4. VEHICLES - White hatchback: Model unidentified; color white; size small to medium car class; condition good; number plate partially legible. - Red bus: Model unidentified (likely a large passenger vehicle); color red; size large; condition appears standard for
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 99.42it/s]
+2026-09-01 13:00:00,295 - MainProcess - INFO - ✅ Segment #49 stored in MongoDB
+✅ Segment #49 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:00:00,295 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #49 complete
+2026-09-01 13:00:00,298 - MainProcess - INFO - [cam14_stream-14] #49   48/718 (  6.7%) | seg  17.17s = seek  0.99 (12f, 0.08s/frame) + vlm  14.68 + azure  1.21 + embed  0.22 | avg  17.35s | elapsed 0:13:52 | ETA 3:13:41
+2026-09-01 13:00:00,317 - MainProcess - INFO - [Memory] RAM: 28.5% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:00:17,395 - MainProcess - INFO - [VLM] Response received. Content len: 926, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #50 - 2026-06-13 21:49:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:49:20 to 21:49:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and moves towards the center of the intersection. - Two motorcycles with riders enter from the right side, moving across the intersection in a diagonal path. - Several vehicles (cars) move through the intersection on both sides. 3. SCENE Nighttime scene; lighting is artificial streetlights illuminating the area; wet road surface suggests recent rain or ongoing light precipitation; urban setting with visible crosswalks and traffic signals, indicating an organized city environment. 4. VEHICLES - Auto-rickshaw: Yellow top, green body; model unidentified. - Motorcycles (2): Both appear to be standard motorcycles without distinct markings that can identify the make or model clearly. - Cars: Multiple cars are present but their models and colors cannot be determined due to lighting conditions.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 77.17it/s]
+2026-09-01 13:00:18,125 - MainProcess - INFO - ✅ Segment #50 stored in MongoDB
+✅ Segment #50 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:00:18,125 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #50 complete
+2026-09-01 13:00:18,129 - MainProcess - INFO - [cam14_stream-14] #50   49/718 (  6.8%) | seg  17.83s = seek  0.98 (12f, 0.08s/frame) + vlm  14.68 + azure  1.85 + embed  0.23 | avg  17.36s | elapsed 0:14:10 | ETA 3:13:30
+2026-09-01 13:00:34,758 - MainProcess - INFO - [VLM] Response received. Content len: 803, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #51 - 2026-06-13 21:50:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:50:20 to 21:50:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 40s. - Two auto-rickshaws move across the intersection, one entering from the bottom of the frame around 35s and exiting to the right at approximately 45s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears wet or reflective due to recent rain. Buildings are visible in the background, suggesting an urban setting. 4. VEHICLES - White hatchback: Color white; size small car; condition good; number plate partially legible as "79"; model unidentified. - Auto-rickshaw (yellow and green): Color yellow/green; size compact vehicle; condition good; model unidentified, likely a three-wheeled auto-rickshaw.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 83.06it/s]
+2026-09-01 13:00:35,481 - MainProcess - INFO - ✅ Segment #51 stored in MongoDB
+✅ Segment #51 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:00:35,482 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #51 complete
+2026-09-01 13:00:35,485 - MainProcess - INFO - [cam14_stream-14] #51   50/718 (  7.0%) | seg  17.36s = seek  0.98 (12f, 0.08s/frame) + vlm  14.66 + azure  1.41 + embed  0.22 | avg  17.36s | elapsed 0:14:27 | ETA 3:13:13
+2026-09-01 13:00:35,504 - MainProcess - INFO - [Memory] RAM: 29.0% | Process: 1.48GB | GPU: 9905/16311MB (60.7%)
+2026-09-01 13:00:51,984 - MainProcess - INFO - [VLM] Response received. Content len: 833, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #52 - 2026-06-13 21:51:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:51:20 to 21:51:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white auto-rickshaw enters from the left and exits right around 30s. - Two motorcycles enter from the left, one stops near the center of the intersection at about 45s, then moves slightly forward before stopping again closer to the camera. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears well-lit by streetlights and building lights in the background. There are pedestrian crossings visible on both sides of the road. 4. VEHICLES - A white auto-rickshaw enters from the left at around 30s, moves across to the right side of the frame. - Two motorcycles enter from the left between frames 25 and 45 seconds; one stops near center intersection for a brief moment before moving slightly forward.
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 99.10it/s]
+2026-09-01 13:00:52,708 - MainProcess - INFO - ✅ Segment #52 stored in MongoDB
+✅ Segment #52 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:00:52,708 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #52 complete
+2026-09-01 13:00:52,711 - MainProcess - INFO - [cam14_stream-14] #52   51/718 (  7.1%) | seg  17.23s = seek  0.97 (12f, 0.08s/frame) + vlm  14.70 + azure  1.24 + embed  0.22 | avg  17.35s | elapsed 0:14:44 | ETA 3:12:54
+2026-09-01 13:01:09,313 - MainProcess - INFO - [VLM] Response received. Content len: 920, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #53 - 2026-06-13 21:52:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:52:20 to 21:52:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Several auto-rickshaws enter from various directions, primarily on the left side of the intersection, moving towards different roads throughout the sequence. - Motorcycles are seen entering and exiting at varying intervals across multiple frames. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be well-lit by streetlights and building lights in the background. The weather seems clear, as there is no visible precipitation or fog affecting visibility. 4. VEHICLES - White hatchback: Model unidentified; color white. - Auto-rickshaws: Multiple entries from left side of intersection moving rightward throughout frames. - Motorcycles: Several motorcycles are seen entering and exiting the frame, with
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.72it/s]
+2026-09-01 13:01:10,037 - MainProcess - INFO - ✅ Segment #53 stored in MongoDB
+✅ Segment #53 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:01:10,038 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #53 complete
+2026-09-01 13:01:10,041 - MainProcess - INFO - [cam14_stream-14] #53   52/718 (  7.2%) | seg  17.33s = seek  0.98 (12f, 0.08s/frame) + vlm  14.66 + azure  1.40 + embed  0.22 | avg  17.35s | elapsed 0:15:02 | ETA 3:12:36
+2026-09-01 13:01:10,061 - MainProcess - INFO - [Memory] RAM: 29.0% | Process: 1.48GB | GPU: 9905/16311MB (60.7%)
+2026-09-01 13:01:26,557 - MainProcess - INFO - [VLM] Response received. Content len: 890, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #54 - 2026-06-13 21:53:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:53:20 to 21:53:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white car enters from the left and exits right around 30s. - A blue bus enters from the left at approximately 45s, moves forward slightly before exiting to the right by about 60s. - Several motorcycles are seen moving across various parts of the intersection throughout. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears urban and busy, featuring a multi-lane road intersecting at an angle. There is visible traffic light infrastructure in place for vehicle control. Weather conditions seem clear as there are no signs of rain or fog affecting visibility. 4. VEHICLES - White car: Model unidentified; color white; size medium to large sedan; condition appears standard. - Blue bus: Model unidentified, possibly a public transport bus due to its design and markings
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.37it/s]
+2026-09-01 13:01:27,293 - MainProcess - INFO - ✅ Segment #54 stored in MongoDB
+✅ Segment #54 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:01:27,293 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #54 complete
+2026-09-01 13:01:27,297 - MainProcess - INFO - [cam14_stream-14] #54   53/718 (  7.4%) | seg  17.26s = seek  1.03 (12f, 0.09s/frame) + vlm  14.66 + azure  1.24 + embed  0.24 | avg  17.35s | elapsed 0:15:19 | ETA 3:12:17
+2026-09-01 13:01:43,759 - MainProcess - INFO - [VLM] Response received. Content len: 818, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #55 - 2026-06-13 21:54:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:54:20 to 21:54:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - An orange sedan enters from the left, turns slightly to its right at about 45s, then continues straight ahead by 60s. - A black SUV enters from the left, turns sharply towards the center of the intersection near 28s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears to be well-lit and has multiple lanes for traffic flow. There are zebra crossings visible in the foreground, and buildings can be seen on both sides of the street. The weather seems clear as there is no indication of rain or fog. 4. VEHICLES - White hatchback: Model unidentified; color white; size small to medium car class; condition appears
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.97it/s]
+2026-09-01 13:01:44,500 - MainProcess - INFO - ✅ Segment #55 stored in MongoDB
+✅ Segment #55 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:01:44,500 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #55 complete
+2026-09-01 13:01:44,503 - MainProcess - INFO - [cam14_stream-14] #55   54/718 (  7.5%) | seg  17.21s = seek  1.03 (12f, 0.09s/frame) + vlm  14.65 + azure  1.21 + embed  0.24 | avg  17.35s | elapsed 0:15:36 | ETA 3:11:58
+2026-09-01 13:01:44,523 - MainProcess - INFO - [Memory] RAM: 29.2% | Process: 1.48GB | GPU: 9905/16311MB (60.7%)
+2026-09-01 13:02:01,097 - MainProcess - INFO - [VLM] Response received. Content len: 887, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #56 - 2026-06-13 21:55:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:55:20 to 21:55:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A red bus enters from the left, crosses to the right side of the intersection at approximately 45s. - Several motorcycles are seen moving across the intersection throughout. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The location appears to be an urban road intersection with multiple lanes and pedestrian crossings visible in the foreground. There is a crosswalk on both sides of the intersection, and various commercial establishments can be seen along the right side of the frame. 4. VEHICLES - White hatchback: Model unidentified; color white; size small to medium car class. - Condition: Appears clean with no visible damage or modifications noted in this clip. - Number plate: Partially legible, but not
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.32it/s]
+2026-09-01 13:02:01,819 - MainProcess - INFO - ✅ Segment #56 stored in MongoDB
+✅ Segment #56 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:02:01,819 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #56 complete
+2026-09-01 13:02:01,822 - MainProcess - INFO - [cam14_stream-14] #56   55/718 (  7.7%) | seg  17.32s = seek  1.03 (12f, 0.09s/frame) + vlm  14.75 + azure  1.23 + embed  0.22 | avg  17.35s | elapsed 0:15:54 | ETA 3:11:41
+2026-09-01 13:02:18,329 - MainProcess - INFO - [VLM] Response received. Content len: 868, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #57 - 2026-06-13 21:56:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:56:20 to 21:56:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 40s. - Two motorcycles enter from the bottom of frame, one on each side; both move across to the right around 35s. - The motorcycle rider in the foreground stops near a zebra crossing at approximately 28s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears urban and busy, featuring multiple lanes of traffic, pedestrian crossings, and commercial signage visible on buildings to the right side of frame. Weather conditions are clear as there is no indication of rain or fog affecting visibility. 4. VEHICLES - White hatchback: Model unidentified; color white; size small car; condition appears standard with no noticeable dents or modifications. - Motorcycles (two): Type: motorcycles
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.90it/s]
+2026-09-01 13:02:19,058 - MainProcess - INFO - ✅ Segment #57 stored in MongoDB
+✅ Segment #57 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:02:19,058 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #57 complete
+2026-09-01 13:02:19,061 - MainProcess - INFO - [cam14_stream-14] #57   56/718 (  7.8%) | seg  17.24s = seek  1.02 (12f, 0.08s/frame) + vlm  14.66 + azure  1.25 + embed  0.23 | avg  17.35s | elapsed 0:16:11 | ETA 3:11:22
+2026-09-01 13:02:19,080 - MainProcess - INFO - [Memory] RAM: 28.2% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:02:35,731 - MainProcess - INFO - [VLM] Response received. Content len: 837, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #58 - 2026-06-13 21:57:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:57:20 to 21:57:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white car enters from the left and exits right around 30s. - Two motorcycles enter from the left, one stops near the center of the intersection at about 45s, then moves slightly forward before exiting to the left by 60s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears wet or reflective due to recent rain. There are multiple vehicles and pedestrians visible in the background, indicating moderate traffic flow but no significant congestion at this moment. 4. VEHICLES - Yellow auto-rickshaw: Appears stationary near the center of the intersection for most of the clip. - Red bus: Enters from the left around 25s and moves across to exit right by about 30s, partially obstructing a white car
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.46it/s]
+2026-09-01 13:02:36,455 - MainProcess - INFO - ✅ Segment #58 stored in MongoDB
+✅ Segment #58 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:02:36,455 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #58 complete
+2026-09-01 13:02:36,459 - MainProcess - INFO - [cam14_stream-14] #58   57/718 (  7.9%) | seg  17.40s = seek  1.00 (12f, 0.08s/frame) + vlm  14.65 + azure  1.43 + embed  0.22 | avg  17.35s | elapsed 0:16:28 | ETA 3:11:05
+2026-09-01 13:02:53,029 - MainProcess - INFO - [VLM] Response received. Content len: 847, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #59 - 2026-06-13 21:58:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:58:20 to 21:58:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30s later. - Two motorcycles enter from the left, one stops near center of intersection for a few seconds before moving on to exit right around 45s into the clip. - Several vehicles, including cars and auto-rickshaws, move through various intersections in both directions throughout. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear. It is an urban intersection with multiple lanes of traffic, crosswalks, and surrounding buildings visible on either side. 4. VEHICLES - A large orange bus enters from left to right at around 10 seconds. - Several cars (white hatchback, black sedan) enter the scene in various directions throughout the clip. - Auto-rickshaws are seen
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.56it/s]
+2026-09-01 13:02:53,774 - MainProcess - INFO - ✅ Segment #59 stored in MongoDB
+✅ Segment #59 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:02:53,774 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #59 complete
+2026-09-01 13:02:53,778 - MainProcess - INFO - [cam14_stream-14] #59   58/718 (  8.1%) | seg  17.32s = seek  1.03 (12f, 0.09s/frame) + vlm  14.73 + azure  1.24 + embed  0.24 | avg  17.35s | elapsed 0:16:46 | ETA 3:10:48
+2026-09-01 13:02:53,797 - MainProcess - INFO - [Memory] RAM: 28.0% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:03:10,962 - MainProcess - INFO - [VLM] Response received. Content len: 1022, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #60 - 2026-06-13 21:59:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 21:59:20 to 21:59:50 at Unknown Location (cam14), camera cam14_stream-14. No alerts detected in these frames. The scene appears to be an urban intersection at night, with moderate traffic and some pedestrian activity. The lighting is artificial streetlights, creating a typical nighttime city atmosphere. Vehicles are moving through the intersection under green lights while pedestrians cross on designated crossings. 5. PEOPLE - Person A: Walking from left foreground towards center of frame; wearing dark clothing. - Person B: Standing near white vehicle in mid-frame; wearing light-colored shirt and darker pants, facing forward with hands at sides. - Person C: Moving across the intersection in front of a white car on right side; wearing dark top and lighter bottoms. 6. PERSON-OBJECT No significant person-object interactions observed within these frames. 7. PERSON-PERSON Person A is walking towards center, while Person B stands still near their vehicle. Person C moves across the intersection in front of a white car on right side; there's no clear interaction between
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.04it/s]
+2026-09-01 13:03:11,685 - MainProcess - INFO - ✅ Segment #60 stored in MongoDB
+✅ Segment #60 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:03:11,685 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #60 complete
+2026-09-01 13:03:11,801 - MainProcess - INFO - [cam14_stream-14] #60   59/718 (  8.2%) | seg  18.02s = seek  1.01 (12f, 0.08s/frame) + vlm  14.66 + azure  1.72 + embed  0.22 | avg  17.36s | elapsed 0:17:04 | ETA 3:10:38
+2026-09-01 13:03:28,318 - MainProcess - INFO - [VLM] Response received. Content len: 801, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #61 - 2026-06-13 22:00:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:00:20 to 22:00:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 40s. - Two motorcycles enter from the left, one stops near the center of the intersection at around 35s, then both move forward slightly before exiting to the right by 40s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry. It is an urban setting with a multi-lane road intersecting in front of a commercial building on the right side, featuring illuminated signage for "West Bank." 4. VEHICLES - Van (white): Appears to be a small van; model unidentified. - Lane position: Center-left intersection. - Movement state: Moving forward from left to center-right by around 35s. - Motorcycle: Green and
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 85.39it/s]
+2026-09-01 13:03:29,043 - MainProcess - INFO - ✅ Segment #61 stored in MongoDB
+✅ Segment #61 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:03:29,043 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #61 complete
+2026-09-01 13:03:29,046 - MainProcess - INFO - [cam14_stream-14] #61   60/718 (  8.4%) | seg  17.25s = seek  0.99 (12f, 0.08s/frame) + vlm  14.66 + azure  1.29 + embed  0.22 | avg  17.36s | elapsed 0:17:21 | ETA 3:10:19
+2026-09-01 13:03:29,066 - MainProcess - INFO - [Memory] RAM: 28.0% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:03:45,583 - MainProcess - INFO - [VLM] Response received. Content len: 889, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #62 - 2026-06-13 22:01:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:01:20 to 22:01:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds later. - Several vehicles, including cars and auto-rickshaws, move through the intersection in various directions throughout the clip. - Pedestrians are seen crossing at a crosswalk on the left side of the frame. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The environment appears to be an urban road intersection with multiple lanes and traffic signals visible. There is no significant weather impact, such as rain or fog, affecting visibility in these frames. 4. VEHICLES - A white hatchback enters from the left at around 20 seconds into the clip. - Several cars are seen moving through the intersection; their models cannot be identified due to lighting and distance constraints. - Auto-rickshaws and other vehicles
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.86it/s]
+2026-09-01 13:03:46,311 - MainProcess - INFO - ✅ Segment #62 stored in MongoDB
+✅ Segment #62 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:03:46,311 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #62 complete
+2026-09-01 13:03:46,313 - MainProcess - INFO - [cam14_stream-14] #62   61/718 (  8.5%) | seg  17.27s = seek  1.01 (12f, 0.08s/frame) + vlm  14.66 + azure  1.27 + embed  0.23 | avg  17.35s | elapsed 0:17:38 | ETA 3:10:01
+2026-09-01 13:04:03,061 - MainProcess - INFO - [VLM] Response received. Content len: 811, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #63 - 2026-06-13 22:02:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:02:20 to 22:02:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles with riders enter from the left at approximately 45s, moving towards the center of the intersection before turning to their respective directions on the other side. - A red car drives into view from the top-left corner between 28s - 36s and exits right around 39s. 3. SCENE The scene is a nighttime urban traffic intersection with visible streetlights, illuminated signs (e.g., "WESTBANK"), and crosswalk markings on the road surface. The area appears to be well-lit by artificial lighting from surrounding buildings and street lamps. Weather conditions are not discernible. 4. VEHICLES - Yellow auto-rickshaw: Appears in frame at approximately 15s,
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.62it/s]
+2026-09-01 13:04:03,783 - MainProcess - INFO - ✅ Segment #63 stored in MongoDB
+✅ Segment #63 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:04:03,783 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #63 complete
+2026-09-01 13:04:03,786 - MainProcess - INFO - [cam14_stream-14] #63   62/718 (  8.6%) | seg  17.47s = seek  1.03 (12f, 0.09s/frame) + vlm  14.68 + azure  1.47 + embed  0.22 | avg  17.36s | elapsed 0:17:56 | ETA 3:09:45
+2026-09-01 13:04:03,805 - MainProcess - INFO - [Memory] RAM: 28.1% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:04:20,366 - MainProcess - INFO - [VLM] Response received. Content len: 814, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #64 - 2026-06-13 22:03:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:03:20 to 22:03:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcyclists move across the intersection, one on each side of a red motorcycle at approximately 45s to 60s. - A green auto-rickshaw moves into view near the bottom-right corner between 20s and 30s. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear, and it is an urban intersection with multiple lanes of traffic and pedestrian crossings visible in the background. 4. VEHICLES - White hatchback: Model unidentified; color white; size small car; condition good. - Red motorcycle: Model unidentified; color red; size medium-sized motorbike; condition appears standard, no visible modifications or dents. - **Green
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.51it/s]
+2026-09-01 13:04:21,096 - MainProcess - INFO - ✅ Segment #64 stored in MongoDB
+✅ Segment #64 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:04:21,096 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #64 complete
+2026-09-01 13:04:21,098 - MainProcess - INFO - [cam14_stream-14] #64   63/718 (  8.8%) | seg  17.31s = seek  1.05 (12f, 0.09s/frame) + vlm  14.68 + azure  1.26 + embed  0.23 | avg  17.36s | elapsed 0:18:13 | ETA 3:09:27
+2026-09-01 13:04:37,677 - MainProcess - INFO - [VLM] Response received. Content len: 835, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #65 - 2026-06-13 22:04:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:04:20 to 22:04:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds later. - Two motorcycles with riders enter from the bottom of the frame, move across to the center-right, then exit off-screen towards the top-left around 45 seconds into the clip. 3. SCENE Nighttime scene; lighting is artificial streetlights; weather appears clear and dry; urban area with crosswalks visible in the foreground and a roundabout further back; buildings are lit up indicating commercial or residential use. 4. VEHICLES - A red bus enters from the right, moves across to center-right then exits off-screen towards top-left around 20 seconds into the clip. - Two auto-rickshaws enter from bottom left and move diagonally upwards before exiting at the top of the frame between 15s -
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 75.67it/s]
+2026-09-01 13:04:38,402 - MainProcess - INFO - ✅ Segment #65 stored in MongoDB
+✅ Segment #65 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:04:38,402 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #65 complete
+2026-09-01 13:04:38,404 - MainProcess - INFO - [cam14_stream-14] #65   64/718 (  8.9%) | seg  17.31s = seek  1.01 (12f, 0.08s/frame) + vlm  14.70 + azure  1.30 + embed  0.22 | avg  17.35s | elapsed 0:18:30 | ETA 3:09:09
+2026-09-01 13:04:38,427 - MainProcess - INFO - [Memory] RAM: 27.9% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:04:55,044 - MainProcess - INFO - [VLM] Response received. Content len: 812, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #66 - 2026-06-13 22:05:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:05:20 to 22:05:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white car enters from the left and exits right around 30s. - Two auto-rickshaws enter from the left, one stops near a pedestrian crossing at about 45s, then moves slightly forward before exiting to the left by 60s. The other auto-rickshaw continues straight through. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The location appears to be an urban intersection with multiple lanes and crosswalks visible in the foreground. There are buildings, billboards, and streetlights in the background indicating a commercial or mixed-use zone. 4. VEHICLES - White car: Model unidentified; color white; size mid-sized sedan; condition good; number plate partially legible as "123456"; no distinctive features noted. - **
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.28it/s]
+2026-09-01 13:04:55,767 - MainProcess - INFO - ✅ Segment #66 stored in MongoDB
+✅ Segment #66 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:04:55,767 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #66 complete
+2026-09-01 13:04:55,768 - MainProcess - INFO - [cam14_stream-14] #66   65/718 (  9.1%) | seg  17.36s = seek  1.04 (12f, 0.09s/frame) + vlm  14.71 + azure  1.30 + embed  0.22 | avg  17.35s | elapsed 0:18:48 | ETA 3:08:52
+2026-09-01 13:05:13,364 - MainProcess - INFO - [VLM] Response received. Content len: 864, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #67 - 2026-06-13 22:06:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:06:20 to 22:06:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - Two motorcycles move across the intersection, one entering from the bottom of frame at approximately 45s and exiting to the right. - A blue bus moves into view on the far side of the road near 28s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban intersection. The area appears wet or reflective, suggesting recent rain. There are multiple lanes for traffic, pedestrian crossings marked by white stripes, and various commercial signs in the background indicating shops and businesses nearby. 4. VEHICLES - White hatchback: Model unidentified; light-colored body with dark windows. - Motorcycles: Two motorcycles enter from left to right around 28s - one is red, the other appears darker (
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.29it/s]
+2026-09-01 13:05:14,086 - MainProcess - INFO - ✅ Segment #67 stored in MongoDB
+✅ Segment #67 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:05:14,086 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #67 complete
+2026-09-01 13:05:14,088 - MainProcess - INFO - [cam14_stream-14] #67   66/718 (  9.2%) | seg  18.32s = seek  1.02 (12f, 0.09s/frame) + vlm  14.72 + azure  2.27 + embed  0.22 | avg  17.37s | elapsed 0:19:06 | ETA 3:08:44
+2026-09-01 13:05:14,108 - MainProcess - INFO - [Memory] RAM: 28.2% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:05:31,143 - MainProcess - INFO - [VLM] Response received. Content len: 819, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #68 - 2026-06-13 22:07:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:07:20 to 22:07:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 40s. - Two motorcycles enter from the left, one stops near the center of the intersection at around 35s, then moves slightly forward by 40s before exiting to the left. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears well-lit and is likely in an urban setting given the presence of traffic lights, signage, and multiple vehicles on the roads. Weather conditions are not discernible from these frames as they appear clear enough for visibility. 4. VEHICLES - Yellow auto-rickshaw: Appears to be moving forward through the intersection at around 20s. - White hatchback: Enters from left and exits right by 40s, partially
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.80it/s]
+2026-09-01 13:05:31,865 - MainProcess - INFO - ✅ Segment #68 stored in MongoDB
+✅ Segment #68 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:05:31,865 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #68 complete
+2026-09-01 13:05:31,867 - MainProcess - INFO - [cam14_stream-14] #68   67/718 (  9.3%) | seg  17.78s = seek  1.01 (12f, 0.08s/frame) + vlm  14.68 + azure  1.78 + embed  0.22 | avg  17.38s | elapsed 0:19:24 | ETA 3:08:31
+2026-09-01 13:05:48,432 - MainProcess - INFO - [VLM] Response received. Content len: 889, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #69 - 2026-06-13 22:08:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:08:20 to 22:08:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right about 30 seconds later. - Several auto-rickshaws enter from the left, move across to the center of the intersection, then exit towards the bottom-right corner in a group around 45 seconds into the clip. 3. SCENE Nighttime scene with artificial lighting illuminating the area. The weather appears clear and dry. It is an urban road intersection with multiple lanes for vehicles and pedestrian crossings visible on both sides of the frame. 4. VEHICLES - A white hatchback: model unidentified; color white; size small to medium car class. - Several auto-rickshaws: model unidentified, likely older models given their appearance; colors vary (yellow, green); condition appears standard for this type and age vehicle with no visible distinctive features or modifications
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 59.42it/s]
+2026-09-01 13:05:49,166 - MainProcess - INFO - ✅ Segment #69 stored in MongoDB
+✅ Segment #69 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:05:49,166 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #69 complete
+2026-09-01 13:05:49,167 - MainProcess - INFO - [cam14_stream-14] #69   68/718 (  9.5%) | seg  17.30s = seek  1.01 (12f, 0.08s/frame) + vlm  14.71 + azure  1.28 + embed  0.23 | avg  17.37s | elapsed 0:19:41 | ETA 3:08:13
+2026-09-01 13:05:49,187 - MainProcess - INFO - [Memory] RAM: 27.7% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)
+2026-09-01 13:06:05,703 - MainProcess - INFO - [VLM] Response received. Content len: 842, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #70 - 2026-06-13 22:09:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:09:20 to 22:09:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 30s. - A red bus enters from the left at approximately 45s, turns slightly to its right before exiting towards the top of the frame by about 60s. 3. SCENE Nighttime scene with artificial lighting illuminating a busy intersection in an urban area. The weather appears clear and dry based on the road surface reflections under streetlights. There are multiple lanes for traffic, pedestrian crossings visible at various points across the roads, and commercial establishments lit up along one side of the frame. 4. VEHICLES - Yellow auto-rickshaw: Present in the bottom left corner throughout. - White hatchback (model unidentified): Enters from the left around 30s and exits to the right by approximately 6
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 100.04it/s]
+2026-09-01 13:06:06,427 - MainProcess - INFO - ✅ Segment #70 stored in MongoDB
+✅ Segment #70 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:06:06,427 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #70 complete
+2026-09-01 13:06:06,429 - MainProcess - INFO - [cam14_stream-14] #70   69/718 (  9.6%) | seg  17.26s = seek  1.00 (12f, 0.08s/frame) + vlm  14.73 + azure  1.22 + embed  0.22 | avg  17.37s | elapsed 0:19:58 | ETA 3:07:54
+2026-09-01 13:06:23,635 - MainProcess - INFO - [VLM] Response received. Content len: 861, Thinking len: 0
+
+================================================================================
+🤖 [cam14_stream-14] SEGMENT VLM - #71 - 2026-06-13 22:10:20
+================================================================================
+Recorded 13-06-2026 (Saturday) 22:10:20 to 22:10:50 at Unknown Location (cam14), camera cam14_stream-14. 1. ALERTS No alerts. 2. CHANGES ACROSS THE CLIP - A white hatchback enters from the left and exits right around 40s. - A black sedan enters from the left at approximately 53 seconds, then moves to the center of the intersection before exiting towards the right side by about 61 seconds. 3. SCENE Nighttime scene with artificial lighting illuminating a busy urban road intersection. The area appears well-lit and is likely in an urban or suburban setting given the presence of traffic lights, signage, and commercial buildings visible on the horizon. Weather conditions are clear as there's no indication of rain or fog. 4. VEHICLES - White hatchback: Appears to be a compact car model; color white; condition appears standard for its age. - Black sedan: Likely mid-size sedan based on body shape and size, color black; condition seems
+================================================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 96.80it/s]
+2026-09-01 13:06:24,372 - MainProcess - INFO - ✅ Segment #71 stored in MongoDB
+✅ Segment #71 from Camera cam14_stream-14 stored in MongoDB
+2026-09-01 13:06:24,372 - MainProcess - INFO - [cam14_stream-14] ✅ Segment #71 complete
+2026-09-01 13:06:24,373 - MainProcess - INFO - [cam14_stream-14] #71   70/718 (  9.7%) | seg  17.94s = seek  1.00 (12f, 0.08s/frame) + vlm  14.67 + azure  1.96 + embed  0.23 | avg  17.38s | elapsed 0:20:16 | ETA 3:07:42
+2026-09-01 13:06:24,393 - MainProcess - INFO - [Memory] RAM: 27.8% | Process: 1.48GB | GPU: 9200/16311MB (56.4%)

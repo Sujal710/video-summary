@@ -1,0 +1,134 @@
+2026-09-02 06:00:38,625 - MainProcess - INFO - ==============================================================================
+2026-09-02 06:00:38,625 - MainProcess - INFO - 🎥 POLICE CCTV PROSE TIER — one VLM description per 60s segment
+2026-09-02 06:00:38,625 - MainProcess - INFO - ==============================================================================
+2026-09-02 06:00:38,790 - MainProcess - INFO - ✅ OpenRouter reachable, 'z-ai/glm-5.3-flash' accepts ['text', 'image', 'video']
+2026-09-02 06:00:38,790 - MainProcess - WARNING - VLM_BACKEND=openrouter - FRAMES are uploaded to a third party, not just the prose about them.
+2026-09-02 06:00:38,793 - MainProcess - WARNING - Skipping cam01_01_Chiman_bhai_Bridge.mp4: file not found at videos-hackathon/cam01_01_Chiman_bhai_Bridge.mp4
+2026-09-02 06:00:38,793 - MainProcess - WARNING - Skipping cam02_02_Janpath.mp4: file not found at videos-hackathon/cam02_02_Janpath.mp4
+2026-09-02 06:00:38,793 - MainProcess - WARNING - Skipping cam03_03_O.N.G.C._Office.mp4: file not found at videos-hackathon/cam03_03_O.N.G.C._Office.mp4
+2026-09-02 06:00:38,793 - MainProcess - WARNING - Skipping cam25_33_dehgam.mp4: file not found at videos-hackathon/cam25_33_dehgam.mp4
+2026-09-02 06:00:38,793 - MainProcess - WARNING - Skipping cam27_35_TANKAL.mp4: file not found at videos-hackathon/cam27_35_TANKAL.mp4
+2026-09-02 06:00:38,794 - MainProcess - WARNING - No metadata row for cam10.mp4; adding it as location 'cam10'
+2026-09-02 06:00:38,794 - MainProcess - WARNING - No metadata row for cam28_stream-28.mp4; adding it as location 'cam28 stream 28'
+2026-09-02 06:00:38,794 - MainProcess - WARNING - No metadata row for cam30_stream-30.mp4; adding it as location 'cam30 stream 30'
+2026-09-02 06:00:38,794 - MainProcess - INFO - Restricted to 1 video(s): cam14_stream-14
+2026-09-02 06:00:38,794 - MainProcess - INFO - Capping at 20 segment(s) per video
+2026-09-02 06:00:38,794 - MainProcess - INFO - 📌 Anchors: 9/12 videos have a known start time (video_anchors.json)
+2026-09-02 06:00:38,794 - MainProcess - INFO - 🔧 UniversalModelManager initialized
+2026-09-02 06:00:38,794 - MainProcess - INFO - 🔥 Loading SentenceTransformer ONCE...
+2026-09-02 06:00:38,930 - MainProcess - INFO - No device provided, using cuda:0
+2026-09-02 06:00:39,420 - MainProcess - INFO - Loading SentenceTransformer model from nomic-ai/nomic-embed-text-v1.5.
+2026-09-02 06:00:42,876 - MainProcess - WARNING - <All keys matched successfully>
+2026-09-02 06:00:46,229 - MainProcess - INFO - ✅ SentenceTransformer loaded (SHARED across all cameras)
+2026-09-02 06:00:48,372 - MainProcess - INFO - ✓ MongoDB connection successful
+2026-09-02 06:00:48,375 - MainProcess - INFO - Processing 1 video(s), up to 1 concurrently
+2026-09-02 06:00:48,375 - MainProcess - INFO - [cam14_stream-14] Starting seek-based pass (location: Unknown Location (cam14))
+2026-09-02 06:00:48,376 - MainProcess - INFO - ♻️ Reusing shared SentenceTransformer model
+2026-09-02 06:00:48,376 - MainProcess - INFO - 🗄️ MongoVideoDatabase initialized
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] Resuming - 171 segment(s) already stored, will be skipped
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] 1920x1080 @ 12.50fps | 12.00h | 20 segments | anchor 2026-06-13T20:59:20.800000 (ocr_verified)
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] 0 segment(s) to process
+2026-09-02 06:00:48,812 - MainProcess - INFO - ==============================================================================
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] FINISHED  0 saved, 0 failed, 171 skipped
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] total wall time      0:00:00  (0.0s)
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] per segment (mean)     0.00s
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14]   frame seek x0.0      0.00s  ( 0.0%)  -> 0.00s per frame (0 frames, 1 per 5s of footage)
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14]   VLM description      0.00s  ( 0.0%)
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14]   azure upload x2      0.00s  ( 0.0%)
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14]   embed + store        0.00s  ( 0.0%)
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] footage:compute      1 min of video per 0.0s of compute
+2026-09-02 06:00:48,812 - MainProcess - INFO - ==============================================================================
+2026-09-02 06:00:48,812 - MainProcess - INFO - [cam14_stream-14] generating video-level summary...
+2026-09-02 06:00:49,723 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 0-24 (1/7)
+2026-09-02 06:00:49,723 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24500 chars)
+2026-09-02 06:01:06,576 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 16.9s | prompt_tok=5806 completion_tok=310 cost=$0.00051295 | 1239 chars returned
+2026-09-02 06:01:06,576 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 25-49 (2/7)
+2026-09-02 06:01:06,576 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24183 chars)
+2026-09-02 06:01:13,267 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 6.7s | prompt_tok=5785 completion_tok=341 cost=$0.000519125 | 1286 chars returned
+2026-09-02 06:01:13,267 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 50-74 (3/7)
+2026-09-02 06:01:13,267 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24385 chars)
+2026-09-02 06:01:27,642 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 14.4s | prompt_tok=5797 completion_tok=428 cost=$0.000541775 | 1580 chars returned
+2026-09-02 06:01:27,642 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 75-99 (4/7)
+2026-09-02 06:01:27,642 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24452 chars)
+2026-09-02 06:01:39,648 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 12.0s | prompt_tok=5789 completion_tok=401 cost=$0.00106885 | 1516 chars returned
+2026-09-02 06:01:39,648 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 100-124 (5/7)
+2026-09-02 06:01:39,648 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=24153 chars)
+2026-09-02 06:01:59,249 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 19.6s | prompt_tok=5791 completion_tok=506 cost=$0.000560825 | 1603 chars returned
+2026-09-02 06:01:59,249 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 125-149 (6/7)
+2026-09-02 06:01:59,249 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=25002 chars)
+2026-09-02 06:02:30,288 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 31.0s | prompt_tok=5835 completion_tok=500 cost=$0.00112525 | 1791 chars returned
+2026-09-02 06:02:30,288 - MainProcess - INFO - [cam14_stream-14] summary: condensing minutes 150-170 (7/7)
+2026-09-02 06:02:30,288 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=700, prompt=20707 chars)
+2026-09-02 06:02:37,594 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 7.3s | prompt_tok=4889 completion_tok=538 cost=$0.00072587 | 1818 chars returned
+2026-09-02 06:02:37,594 - MainProcess - INFO - [AI->] https://openrouter.ai/api/v1/chat/completions z-ai/glm-5.3-flash (max_tokens=6000, prompt=12904 chars)
+2026-09-02 06:04:04,006 - MainProcess - INFO - [AI<-] z-ai/glm-5.3-flash ok in 86.4s | prompt_tok=3402 completion_tok=1723 cost=$0.0013718 | 6092 chars returned
+2026-09-02 06:04:04,006 - MainProcess - INFO - [cam14_stream-14] summary alert pass skipped - ALERT_MODE=realtime, alerts were raised per segment
+Batches:   0%|          | 0/1 [00:00<?, ?it/s][transformers] Detected the usage of `get_extended_attention_mask`: This function is deprecated and will be removed in v5.12.0. Please use the new API in `transformers.masking_utils`
+Batches: 100%|██████████| 1/1 [00:00<00:00,  4.85it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.85it/s]
+2026-09-02 06:04:04,582 - MainProcess - INFO - [cam14_stream-14] ✅ video summary stored (6092 chars over 171 minutes)
+2026-09-02 06:04:04,583 - MainProcess - INFO - [cam14_stream-14] summary took 195.8s
+
+==============================================================================
+VIDEO SUMMARY — cam14_stream-14 (Unknown Location (cam14))
+==============================================================================
+# POLICE-STYLE SUMMARY — CCTV cam14_stream-14 (Unknown Location, cam14)
+**Footage reviewed:** 171 minutes (minutes 0–170), nighttime, timestamped in part 4 as 22:14–22:38, Saturday 13-06-2026.
+
+## 1. SCENE
+The camera overlooks a busy, well-lit urban intersection at night, with zebra/pedestrian crossings, traffic lights (cycling normally, green at minutes 0 and 20), and a side street visible (used at minute 138). Road surface was repeatedly wet/reflective, indicating recent or ongoing rain/drizzle throughout much of the footage. A "WestBank" sign was visible at minutes 160 and 165.
+
+## 2. TRAFFIC AND PEOPLE
+Traffic flowed continuously and steadily across the whole period. Observed vehicle types and colours:
+- **White cars/hatchbacks** — the dominant recurring vehicle, entering from the left and exiting right roughly every minute throughout (e.g. minutes 24, 35, 43, 51–62, 64–71, 100–124, 125–148, 150–170).
+- **Black sedans/SUVs/cars** — frequent (minutes 14, 37, 38, 46, 55, 71, 75, 78, 93, 95, 96–97, 105–123, 128–148, 153–163).
+- **Red cars/sedans/SUVs** (minutes 20, 26, 31–32, 63, 99, 103–121, 130–145, 154, 158–164), **silver cars/sedans/hatchbacks** (minutes 7, 35, 72, 93, 129, 169), a **blue car** (minute 147), an **orange sedan** (minute 55), a **white SUV** (minute 90).
+- **Auto-rickshaws** — constant throughout: yellow (most common), white, green, yellow-green, red, blue, and black, carrying passengers at times.
+- **Motorcycles/scooters** — frequent in nearly every stretch, various colours (white, red, green, yellow, dark), some stopping near pedestrian crossings.
+- **Buses** — red (minutes 3–4, 23, 38, 48–49, 56, 58, 65, 70, 76–77, 91, 105, 107, 152, 161), blue (minutes 28, 32, 36, 54, 67, 111, 128, 167), a large orange bus (minute 59), and a white bus (minute 111).
+- **Vans/trucks** — silver van (minutes 7, 157), blue truck with goods and a person standing beside it (minute 22), red van parked right (minute 42), white van (minutes 46, 61, 104, 126, 140, 159, 168), blue pickup truck (minute 110), red pickup truck (minute 160), blue municipal garbage truck (minute 125), large blue bus/van (minute 124).
+- **Pedestrians** — sparse and occasional: crosswalk users (minutes 1, 8, 14, 60, 62, 87, 94, 98, 100, 122, 144, 149), two people exiting an auto-rickshaw (minute 119), a person standing by a yellow auto-rickshaw (minute 149), a rider in a white shirt (minutes 22, 101), a man in a white shirt with rolled sleeves, black pants and helmet (minute 144). No suspicious person-object or person-person interactions observed.
+
+## 3. VEHICLES IDENTIFIED
+None identified. (The only branding noted was "GSRTC" on a blue bus at minute 36 and "Patel" on a red bus at minute 161; no vehicle make or model — e.g. Toyota, Tata — was identified anywhere; all were "model unidentified.")
+
+## 4. REGISTRATIONS READ
+All of the following are single automatic reads, not verified against any registry:
+- "123456" — white hatchback, minute 24 (also read at minutes 35, 66, 104, 117, 120, 130; likely the same recurring/partially misread plate).
+- "W12345" — white hatchback, minute 43.
+- "79" — white hatchback, minute 51.
+- "MH02CJ1537" — red car, minute 106 (fully legible).
+- "DELIGHT P1 RLVD" — large blue vehicle (possibly bus/van), minute 124 (partially legible).
+- "1234" — white car/hatchback, minutes 155 and 162.
+
+## 5. NOTABLE EVENTS
+- Minute 22 — blue truck with goods and a person standing beside it.
+- Minute 52 — one motorcycle stopped twice near the intersection centre.
+- Minute 85 — stationary white van marked "FS COURIERS & CARGO SERVICE" near centre-right.
+- Minute 104 — red car reversed back into its lane.
+- Minutes 108, 112 — black sedan reversed slightly before exiting.
+- Minute 119 — two people exited an auto-rickshaw on the right and walked to the crossing.
+- Minute 136 — black sedan stopped near a pedestrian crossing then reversed direction.
+- Minute 138 — black car with blue lights turned into a side street.
+- Minute 154 — red car reversed slightly then moved forward.
+
+## 6. CROWD AND CONGESTION
+None observed. Traffic flowed continuously with no build-ups, queues or jams; vehicles at most paused briefly at crossings or stopped at lights (e.g. red bus stationary at bottom of frame, minutes 3–4; blue bus stationary bottom-left, minute 128).
+
+## 7. TRAFFIC VIOLATIONS
+None observed. No wrong-way driving, helmetless riders, red-light jumping or illegal parking was reported. (Reversing manoeuvres at minutes 104, 108, 112, 136 and 154 were noted but not flagged as violations; the black car with blue lights at minute 138 was not identified as an emergency vehicle.)
+
+## 8. PATTERN OF ACTIVITY
+The scene was remarkably uniform across all 171 minutes: a busy nighttime intersection with continuous, free-flowing traffic and no alerts. The dominant pattern was a white hatchback/car entering from the left and exiting right roughly every minute — this recurred in every part of the footage and is likely the same or a similar vehicle repeatedly captured (its plate was repeatedly auto-read as variants of "123456"/"1234"). Yellow auto-rickshaws (with green, white, red, blue and black variants) and motorcycles of assorted colours formed the constant background traffic, with black sedans/SUVs, red cars, red and blue buses, and occasional vans and trucks interspersed. Wet/reflective road conditions recurred throughout (minutes 15, 21, 23, 29–32, 50–51, 58, 67, 77, 81, 84, 92, 96, 106, 109, 112, 118, 120, 155–157, 162, 164–166, 169), suggesting intermittent rain across the period. Pedestrian activity was consistently light. The only mild deviations from routine were the reversing vehicles (minutes 104, 108, 112, 136, 154), the black car with blue lights turning into a side street (minute 138), and the parked courier van (minute 85). No period was notably busier or quieter than another; volume was steady from start to finish.
+
+## 9. QUIET PERIODS
+None observed. There were no stretches of inactivity; traffic and occasional pedestrians were present in every minute of the footage, and no alerts were raised at any point.
+==============================================================================
+
+2026-09-02 06:04:04,583 - MainProcess - INFO - [cam14_stream-14] Done: {'camera_id': 'cam14_stream-14', 'segments': 0, 'failed': 0, 'skipped': 171, 'wall_seconds': 0.0, 'mean_segment_seconds': 0.0, 'mean_seek_seconds': 0.0, 'mean_vlm_seconds': 0.0, 'mean_azure_seconds': 0.0, 'mean_embed_seconds': 0.0, 'frames_sampled': 0, 'summary_seconds': 195.8, 'anchor': '2026-06-13T20:59:20.800000', 'anchor_confidence': 'ocr_verified'}
+2026-09-02 06:04:04,584 - MainProcess - INFO - ==============================================================================
+2026-09-02 06:04:04,584 - MainProcess - INFO - RUN SUMMARY
+2026-09-02 06:04:04,584 - MainProcess - INFO -   videos            1
+2026-09-02 06:04:04,584 - MainProcess - INFO -   segments stored   0
+2026-09-02 06:04:04,584 - MainProcess - INFO -   wall time         0:03:16
+2026-09-02 06:04:04,584 - MainProcess - INFO -   cam14_stream-14                   0 seg  0:00:00  mean  0.00s (vlm 0.00 seek 0.00 azure 0.00)
+2026-09-02 06:04:04,584 - MainProcess - INFO - ==============================================================================

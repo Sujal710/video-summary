@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Archive</title>
+    <style>
+        /* Self-contained on purpose: no CDN, no build step. Open it from the
+           server or straight off disk and it works. */
+        :root {
+            --bg: #f0f2f5;
+            --panel: #ffffff;
+            --card: #ffffff;
+            --text: #1a1d23;
+            --muted: #6b7280;
+            --faint: #9aa3af;
+            --border: #e2e8f0;
+            --accent: #3b5bdb;
+            --accent-soft: #e8ecfd;
+            --shadow: 0 1px 3px rgba(0, 0, 0, .07), 0 1px 2px rgba(0, 0, 0, .04);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, .12);
+            --radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0d1117;
+            --panel: #161b22;
+            --card: #1c2128;
+            --text: #e6edf3;
+            --muted: #8b949e;
+            --faint: #545d68;
+            --border: #30363d;
+            --accent: #748ffc;
+            --accent-soft: rgba(116, 143, 252, .15);
+            --shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, .5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ── header ─────────────────────────────────────────────────────── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: var(--panel);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        h1 { font-size: 1.05rem; font-weight: 700; margin-right: auto; }
+        h1 span { color: var(--muted); font-weight: 400; font-size: .82rem; margin-left: 8px; }
+
+        .field { display: flex; flex-direction: column; gap: 3px; }
+        .field label {
+            font-size: .64rem; text-transform: uppercase; letter-spacing: .06em;
+            color: var(--faint); font-weight: 600;
+        }
+
+        select, input[type="text"], input[type="number"] {
+            padding: 7px 10px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--text);
+            font: inherit;
+            font-size: .85rem;
+            min-width: 140px;
+        }
+
+        select:focus, input:focus { outline: none; border-color: var(--accent); }
+
+        button {
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--text);
+            font: inherit;
+            font-size: .85rem;
+            cursor: pointer;
+        }
+
+        button:hover:not([disabled]) { border-color: var(--accent); color: var(--accent); }
+        button[disabled] { opacity: .4; cursor: default; }
+        button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+        button.primary:hover { opacity: .9; color: #fff; }
+
+        /* ── layout ─────────────────────────────────────────────────────── */
+        main { padding: 18px 20px 40px; max-width: 1800px; margin: 0 auto; }
+
+        .status {
+            font-size: .82rem;
+            color: var(--muted);
+            padding: 4px 2px 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform .15s, box-shadow .15s;
+        }
+
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+        .thumbs { display: flex; gap: 2px; background: var(--border); }
+        .thumbs img {
+            flex: 1 1 0;
+            min-width: 0;
+            height: 108px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg);
+            cursor: zoom-in;
+        }
+        .thumbs img:hover { filter: brightness(1.08); }
+
+        .body { padding: 12px 14px 14px; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+        .tag {
+            font-size: .66rem; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+            background: var(--accent-soft); color: var(--accent);
+            font-family: ui-monospace, Menlo, monospace;
+        }
+        .when { font-size: .72rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
+
+        .desc {
+            font-size: .8rem;
+            line-height: 1.5;
+            color: var(--muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        mark { background: #ffe066; color: #1a1d23; padding: 0 2px; border-radius: 2px; }
+        [data-theme="dark"] mark { background: #7a5c00; color: #ffe9a3; }
+
+        .empty, .error {
+            padding: 50px 20px; text-align: center; color: var(--muted);
+            font-size: .9rem; line-height: 1.6;
+        }
+        .error { color: #e03131; }
+
+        .pager {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 26px 0 8px; flex-wrap: wrap; font-size: .85rem;
+        }
+        .pager .jump { display: inline-flex; align-items: center; gap: 6px; padding-left: 12px; border-left: 1px solid var(--border); }
+        .pager input { width: 4.5rem; text-align: center; min-width: 0; }
+
+        /* ── lightbox ───────────────────────────────────────────────────── */
+        .overlay {
+            display: none;
+            position: fixed; inset: 0; z-index: 50;
+            background: rgba(0, 0, 0, .82);
+            align-items: center; justify-content: center;
+            padding: 24px;
+        }
+        .overlay.open { display: flex; }
+
+        .modal {
+            background: var(--card);
+            border-radius: var(--radius);
+            max-width: 1100px; width: 100%;
+            max-height: 92vh; overflow-y: auto;
+            position: relative;
+        }
+
+        .stage { position: relative; background: #000; }
+        .stage img { width: 100%; max-height: 62vh; object-fit: contain; display: block; }
+
+        .nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(0, 0, 0, .55); color: #fff; border: none;
+            font-size: 22px; line-height: 1; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .nav:hover { background: rgba(0, 0, 0, .8); color: #fff; }
+        .nav[disabled] { opacity: .25; }
+        .nav.prev { left: 12px; } .nav.next { right: 12px; }
+
+        .counter {
+            position: absolute; right: 12px; bottom: 12px;
+            background: rgba(0, 0, 0, .62); color: #fff;
+            padding: 3px 10px; border-radius: 999px; font-size: .74rem;
+        }
+
+        .strip { display: flex; gap: 8px; padding: 10px 12px; overflow-x: auto; background: var(--bg); }
+        .strip img {
+            width: 92px; height: 58px; object-fit: cover; border-radius: 6px;
+            cursor: pointer; opacity: .5; border: 2px solid transparent; flex: 0 0 auto;
+        }
+        .strip img:hover { opacity: .85; }
+        .strip img.active { opacity: 1; border-color: var(--accent); }
+
+        .modal .body { padding: 18px 22px 24px; }
+        .modal .desc { -webkit-line-clamp: unset; font-size: .88rem; color: var(--text); }
+
+        .close {
+            position: absolute; top: 10px; right: 12px; z-index: 2;
+            width: 34px; height: 34px; border-radius: 50%;
+            background: rgba(0, 0, 0, .55); color: #fff; border: none;
+            font-size: 20px; cursor: pointer;
+        }
+
+        /* live indicator */
+        .live {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: .72rem; color: var(--muted); white-space: nowrap;
+        }
+        .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--faint); flex: 0 0 auto;
+        }
+        .dot.on { background: #12b886; animation: pulse 2s ease-in-out infinite; }
+        .dot.busy { background: #f59f00; }
+        .dot.err { background: #e03131; animation: none; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(18, 184, 134, .5); }
+            50% { opacity: .75; box-shadow: 0 0 0 5px rgba(18, 184, 134, 0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) { .dot.on { animation: none; } }
+
+        /* A record that arrived since the previous poll. The badge is what makes
+           polling useful - without it a silent re-render just looks like nothing
+           happened, and new footage scrolls past unnoticed. */
+        .card.fresh { border-color: #12b886; box-shadow: 0 0 0 2px rgba(18, 184, 134, .18); }
+        .badge-new {
+            font-size: .6rem; font-weight: 700; letter-spacing: .04em;
+            padding: 2px 7px; border-radius: 999px;
+            background: #12b886; color: #fff; text-transform: uppercase;
+        }
+
+        @media (max-width: 640px) {
+            header { padding: 10px 12px; }
+            main { padding: 14px 12px 30px; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🛡️ Alert Archive <span id="subtitle">loading…</span></h1>
+
+        <div class="field">
+            <label for="fDate">Date</label>
+            <select id="fDate"><option value="ALL">All dates</option></select>
+        </div>
+
+        <div class="field">
+            <label for="fCam">Camera</label>
+            <select id="fCam"><option value="ALL">All cameras</option></select>
+        </div>
+
+        <div class="field">
+            <label for="fKey">Keyword</label>
+            <input type="text" id="fKey" placeholder="bus, GSRTC, plate…">
+        </div>
+
+        <div class="field">
+            <label for="fSize">Per page</label>
+            <select id="fSize">
+                <option>12</option><option selected>24</option><option>48</option><option>96</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="fLive">Auto-refresh</label>
+            <select id="fLive">
+                <option value="0">Off</option>
+                <option value="10">Every 10s</option>
+                <option value="30" selected>Every 30s</option>
+                <option value="60">Every 60s</option>
+                <option value="300">Every 5 min</option>
+            </select>
+        </div>
+
+        <button class="primary" id="btnSearch">Search</button>
+        <button id="btnReset">Reset</button>
+        <button id="btnTheme" title="Toggle theme">🌙</button>
+        <span class="live"><span class="dot" id="dot"></span><span id="liveText">idle</span></span>
+    </header>
+
+    <main>
+        <div class="status" id="status">Loading…</div>
+        <div class="grid" id="grid"></div>
+        <div class="pager" id="pager"></div>
+    </main>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <button class="close" id="btnClose">&times;</button>
+            <div id="gallery"></div>
+            <div class="body">
+                <div class="tags" id="mTags"></div>
+                <div class="desc" id="mDesc"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ── config ───────────────────────────────────────────────────────
+        // Same-origin when served by mcp-main.py. Opening this file straight off
+        // disk needs an absolute base, so allow ?api=http://host:port to set it
+        // and remember the choice.
+        const API = new URLSearchParams(location.search).get('api')
+            || localStorage.getItem('alertApiBase')
+            || '';
+        if (new URLSearchParams(location.search).get('api')) {
+            try { localStorage.setItem('alertApiBase', API); } catch (e) { }
+        }
+        const url = path => (API ? API.replace(/\/$/, '') : '') + path;
+
+        let rows = [];        // everything the last search returned
+        let page = 1;
+        let pageSize = 24;
+        let frames = [], pos = 0;   // lightbox state
+
+        // Live polling. The pipelines write to MongoDB continuously, so the page
+        // re-queries on a timer and marks whatever is new since the previous
+        // pass. Identity is (camera, segment, start_time) rather than array
+        // position, because a new record shifts every index below it.
+        let timer = null;
+        let seen = new Set();       // keys observed on the previous poll
+        let freshKeys = new Set();  // keys that arrived on this one
+        let firstLoad = true;
+        const rowKey = r => `${r.camera_id}|${r.segment_id}|${r.start_time}`;
+
+        const $ = id => document.getElementById(id);
+        const esc = s => String(s ?? '').replace(/[&<>"']/g,
+            c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+        // ── theme ────────────────────────────────────────────────────────
+        (function initTheme() {
+            let t = null;
+            try { t = localStorage.getItem('alertTheme'); } catch (e) { }
+            if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            $('btnTheme').textContent = t === 'dark' ? '☀️' : '🌙';
+        })();
+
+        $('btnTheme').onclick = () => {
+            const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.dataset.theme = t;
+            $('btnTheme').textContent = t === 'dark' ? '☀️' : '🌙';
+            try { localStorage.setItem('alertTheme', t); } catch (e) { }
+        };
+
+        // ── filters ──────────────────────────────────────────────────────
+        async function loadFilters() {
+            const fill = (sel, values, allLabel) => {
+                sel.innerHTML = `<option value="ALL">${allLabel}</option>` +
+                    values.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join('');
+            };
+            try {
+                const [cams, dates] = await Promise.all([
+                    fetch(url('/api/cameras')).then(r => r.json()).catch(() => []),
+                    fetch(url('/api/dates')).then(r => r.json()).catch(() => []),
+                ]);
+                if (Array.isArray(dates) && dates.length) fill($('fDate'), dates, 'All dates');
+                if (Array.isArray(cams) && cams.length) fill($('fCam'), cams, 'All cameras');
+            } catch (e) {
+                // Filters are a convenience; a failure here must not stop the search.
+                console.warn('filter load failed', e);
+            }
+        }
+
+        // ── search ───────────────────────────────────────────────────────
+        function setLive(state, text) {
+            $('dot').className = 'dot' + (state ? ' ' + state : '');
+            if (text !== undefined) $('liveText').textContent = text;
+        }
+
+        /**
+         * @param silent true for a background poll: keep the current page and
+         *               scroll position, and never blank the grid. A poll that
+         *               cleared the view every 30s would be unusable.
+         */
+        async function search(silent = false) {
+            const params = new URLSearchParams({
+                date: $('fDate').value || 'ALL',
+                camera_id: $('fCam').value || 'ALL',
+            });
+            const kw = $('fKey').value.trim();
+            if (kw) params.set('keyword', kw);
+
+            pageSize = Number($('fSize').value) || 24;
+            if (!silent) {
+                page = 1;
+                $('status').textContent = 'Searching…';
+                $('grid').innerHTML = '';
+                $('pager').innerHTML = '';
+            }
+            setLive('busy', silent ? 'refreshing…' : 'loading…');
+
+            let data;
+            try {
+                const res = await fetch(url('/api/alert_segments?' + params), { cache: 'no-store' });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                data = await res.json();
+            } catch (e) {
+                setLive('err', 'connection failed');
+                if (silent) return;          // a failed poll must not wipe good data
+                rows = [];
+                $('status').innerHTML = '';
+                $('grid').innerHTML = `<div class="error">Could not reach the API.<br>${esc(e.message)}` +
+                    `<br><br>If this page is open from disk, add <code>?api=http://HOST:PORT</code> to the URL.</div>`;
+                return;
+            }
+
+            const next = Array.isArray(data) ? data : (data.segments || data.alerts || []);
+
+            // What is new since the previous pass?
+            freshKeys = new Set();
+            if (!firstLoad) {
+                for (const r of next) {
+                    const k = rowKey(r);
+                    if (!seen.has(k)) freshKeys.add(k);
+                }
+            }
+            seen = new Set(next.map(rowKey));
+            firstLoad = false;
+
+            const grew = next.length - rows.length;
+            rows = next;
+
+            // Re-rendering under an open lightbox would yank the images out from
+            // under the reader, so defer until it is closed.
+            if ($('overlay').classList.contains('open')) {
+                setLive(pollSeconds() ? 'on' : '', `${freshKeys.size} new — paused while open`);
+                return;
+            }
+            render();
+
+            const stamp = new Date().toLocaleTimeString();
+            const note = freshKeys.size
+                ? `${freshKeys.size} new at ${stamp}`
+                : (grew < 0 ? `updated ${stamp}` : `no change · ${stamp}`);
+            setLive(pollSeconds() ? 'on' : '', note);
+        }
+
+        // ── render ───────────────────────────────────────────────────────
+        function highlight(text, kw) {
+            const safe = esc(text);
+            if (!kw) return safe;
+            try {
+                return safe.replace(new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'),
+                    '<mark>$1</mark>');
+            } catch (e) { return safe; }
+        }
+
+        function frameName(u, i) {
+            const n = String(u || '').split('/').pop().split('?')[0].toLowerCase();
+            if (n.includes('sheet')) return 'Contact sheet';
+            const m = n.match(/frame(\d+)/);
+            return m ? `Frame ${m[1]}` : `Image ${i + 1}`;
+        }
+
+        function render() {
+            const keepScroll = scrollY;
+            const total = rows.length;
+            const pages = Math.max(1, Math.ceil(total / pageSize));
+            page = Math.min(page, pages);
+            const slice = rows.slice((page - 1) * pageSize, page * pageSize);
+            const kw = $('fKey').value.trim();
+
+            $('subtitle').textContent = `${total.toLocaleString()} record(s)`;
+            $('status').textContent = total
+                ? `Showing ${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, total)} of ${total.toLocaleString()}`
+                : '';
+
+            if (!total) {
+                $('grid').innerHTML = `<div class="empty">Nothing matched those filters.<br>
+                    Try widening the date or clearing the keyword.</div>`;
+                $('pager').innerHTML = '';
+                return;
+            }
+
+            $('grid').innerHTML = slice.map((r, i) => {
+                const idx = (page - 1) * pageSize + i;
+                const urls = (r.frame_urls || []).filter(u => u && u !== 'N/A');
+                const when = String(r.start_time || '').replace('T', ' ').slice(0, 19);
+                const isNew = freshKeys.has(rowKey(r));
+                return `
+                <div class="card${isNew ? ' fresh' : ''}" onclick="openAt(${idx}, 'all')">
+                    ${urls.length ? `<div class="thumbs">${urls.map((u, j) => `
+                        <img src="${esc(u)}" loading="lazy" alt="${esc(frameName(u, j))}"
+                             title="${esc(frameName(u, j))}"
+                             onclick="event.stopPropagation(); openAt(${idx}, ${j})"
+                             onerror="this.style.visibility='hidden'">`).join('')}</div>` : ''}
+                    <div class="body">
+                        <div class="tags">
+                            <span class="tag">${esc(r.camera_id || '—')}</span>
+                            ${isNew ? '<span class="badge-new">new</span>' : ''}
+                            <span class="when">${esc(when)}</span>
+                        </div>
+                        <div class="desc">${highlight(r.description || 'No description.', kw)}</div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            $('pager').innerHTML = pages > 1 ? `
+                <button ${page === 1 ? 'disabled' : ''} onclick="go(1)">&laquo; First</button>
+                <button ${page === 1 ? 'disabled' : ''} onclick="go(${page - 1})">Previous</button>
+                <span>Page ${page} of ${pages}</span>
+                <button ${page === pages ? 'disabled' : ''} onclick="go(${page + 1})">Next</button>
+                <button ${page === pages ? 'disabled' : ''} onclick="go(${pages})">Last &raquo;</button>
+                <span class="jump">Go to
+                    <input type="number" id="jump" min="1" max="${pages}" value="${page}"
+                           onkeydown="if(event.key==='Enter'){event.preventDefault();jump();}">
+                    / ${pages}
+                    <button onclick="jump()">Go</button>
+                </span>` : '';
+
+            // A background refresh must not scroll the reader back to the top.
+            if (keepScroll) scrollTo(0, keepScroll);
+        }
+
+        function go(n) {
+            const pages = Math.max(1, Math.ceil(rows.length / pageSize));
+            page = Math.min(pages, Math.max(1, n));
+            render();
+            scrollTo(0, 0);
+        }
+
+        function jump() {
+            const box = $('jump');
+            if (!box) return;
+            const n = Number(box.value);
+            if (!Number.isFinite(n) || n < 1) { box.value = page; return; }
+            go(Math.floor(n));
+        }
+
+        // ── lightbox ─────────────────────────────────────────────────────
+        // Clicking one thumbnail opens that image; clicking the card shows every
+        // frame stacked. A segment stores two evidence frames plus a contact
+        // sheet, and only ever showing the first made the other two unreachable.
+        function openAt(index, which) {
+            const r = rows[index];
+            if (!r) return;
+            frames = (r.frame_urls || []).filter(u => u && u !== 'N/A');
+            const when = String(r.start_time || '').replace('T', ' ').slice(0, 19);
+
+            $('mTags').innerHTML =
+                `<span class="tag">${esc(r.camera_id || '—')}</span>` +
+                `<span class="when">${esc(when)}</span>`;
+            $('mDesc').textContent = r.description || 'No description.';
+
+            if (which === 'all') { renderAll(); }
+            else { pos = Math.min(Math.max(0, Number(which) || 0), Math.max(0, frames.length - 1)); renderOne(); }
+
+            $('overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderAll() {
+            $('gallery').innerHTML = frames.length
+                ? frames.map((u, i) => `
+                    <div style="padding:8px 12px 0;font-size:.72rem;color:var(--faint)">
+                        ${esc(frameName(u, i))} — ${i + 1} of ${frames.length}</div>
+                    <img src="${esc(u)}" style="width:100%;max-height:56vh;object-fit:contain;background:#000;display:block">`).join('')
+                : '<div class="empty">No images stored for this record.</div>';
+        }
+
+        function renderOne() {
+            if (!frames.length) { renderAll(); return; }
+            const many = frames.length > 1;
+            $('gallery').innerHTML = `
+                <div class="stage">
+                    <img src="${esc(frames[pos])}" alt="${esc(frameName(frames[pos], pos))}">
+                    ${many ? `
+                        <button class="nav prev" ${pos === 0 ? 'disabled' : ''} onclick="step(-1)">&#8249;</button>
+                        <button class="nav next" ${pos === frames.length - 1 ? 'disabled' : ''} onclick="step(1)">&#8250;</button>
+                        <span class="counter">${esc(frameName(frames[pos], pos))} · ${pos + 1}/${frames.length}</span>` : ''}
+                </div>
+                ${many ? `<div class="strip">${frames.map((u, i) => `
+                    <img src="${esc(u)}" class="${i === pos ? 'active' : ''}" loading="lazy"
+                         title="${esc(frameName(u, i))}" onclick="showFrame(${i})">`).join('')}</div>` : ''}`;
+        }
+
+        function showFrame(i) { pos = Math.min(Math.max(0, i), frames.length - 1); renderOne(); }
+        function step(d) { showFrame(pos + d); }
+
+        function closeModal() {
+            $('overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        $('btnClose').onclick = closeModal;
+        $('overlay').onclick = e => { if (e.target === $('overlay')) closeModal(); };
+        addEventListener('keydown', e => {
+            if (!$('overlay').classList.contains('open')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') step(-1);
+            if (e.key === 'ArrowRight') step(1);
+        });
+
+        // ── live polling ─────────────────────────────────────────────────
+        function pollSeconds() { return Number($('fLive').value) || 0; }
+
+        function schedule() {
+            clearInterval(timer);
+            timer = null;
+            const secs = pollSeconds();
+            try { localStorage.setItem('alertPoll', String(secs)); } catch (e) { }
+            if (!secs) { setLive('', 'auto-refresh off'); return; }
+            setLive('on', `every ${secs}s`);
+            timer = setInterval(() => {
+                // Nothing to refresh for a hidden tab; the visibilitychange
+                // handler catches up the moment it is looked at again.
+                if (document.hidden) return;
+                search(true);
+            }, secs * 1000);
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && pollSeconds()) search(true);
+        });
+
+        // ── wiring ───────────────────────────────────────────────────────
+        $('btnSearch').onclick = () => search();
+        $('btnReset').onclick = () => {
+            $('fDate').value = 'ALL'; $('fCam').value = 'ALL'; $('fKey').value = '';
+            search();
+        };
+        $('fKey').addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+        ['fDate', 'fCam', 'fSize'].forEach(id => $(id).addEventListener('change', () => search()));
+        $('fLive').addEventListener('change', schedule);
+
+        (async function start() {
+            let saved = null;
+            try { saved = localStorage.getItem('alertPoll'); } catch (e) { }
+            if (saved !== null) $('fLive').value = saved;
+            await loadFilters();
+            await search();
+            schedule();
+        })();
+    </script>
+</body>
+
+</html>
